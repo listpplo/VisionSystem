@@ -1,0 +1,2861 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVFGSDK_Net</name>
+    </assembly>
+    <members>
+        <member name="T:CaptureCard_Net.CardDev">
+            <summary>
+            卡类
+            </summary>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.#ctor">
+            <summary>
+            采集卡构造函数
+            </summary>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.getHandle">
+            <summary>
+            获取采集卡句柄
+            </summary>
+            <returns>采集卡句柄</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetVersion">
+            <summary>
+            获取版本信息
+            </summary>
+            <returns>成功时返回版本信息，失败时返回NULL</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_EnumInterface(System.UInt32,CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO_LIST@)">
+            <summary>
+            枚举采集卡设备 -->单独采集卡
+            </summary>
+            <param name="interfaceType">[IN] 枚举设备接口类型</param>
+            <param name="pInterfaceList">[OUT] 采集卡设备列表</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_OpenInterface(System.UInt32)">
+            <summary>
+            打开采集卡设备
+            </summary>
+            <param name="nIndex">[IN] 采集卡序号</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_OpenInterfaceEx(CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode,System.Int32,System.String)">
+            <summary>
+            打开采集卡设备
+            </summary>
+            <param name="mode">[IN] 创建设备方式</param>
+            <param name="cameraIndex">[IN] 指定索引</param>
+            <param name="cameraStr">[IN] 设备键、设备自定义名、IP地址</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_IsOpenInterface">
+            <summary>
+            判断采集卡设备是否已打开
+            </summary>
+            <returns>打开状态，返回true；关闭状态或者掉线状态，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_CloseInterface">
+            <summary>
+            关闭采集卡设备
+            </summary>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_StartGrabbing">
+            <summary>
+            开始取流
+            </summary>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_StartGrabbingEx(System.UInt64,CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy)">
+            <summary>
+            开始取流
+            </summary>
+            <param name="maxImagesGrabbed">[IN] 允许最多的取帧数，达到指定取帧数后停止取流，如果为0，表示忽略此参数连续取流(IMV_FG_StartGrabbing默认0)</param>
+            <param name="strategy">[IN] 取流策略,(IMV_FG_StartGrabbing默认使用grabStrartegySequential策略取流)</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_IsGrabbing">
+            <summary>
+            判断设备是否正在取流
+            </summary>
+            <returns>正在取流，返回true；不在取流，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_StopGrabbing">
+            <summary>
+            停止取流
+            </summary>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_AttachGrabbing(CaptureCard_Net.IMVFGDefine.IMV_FG_FrameCallBack,System.IntPtr)">
+            <summary>
+            注册帧数据回调函数(异步获取帧数据机制)
+            </summary>
+            <param name="proc">[IN] 帧数据信息回调函数，建议不要在该函数中处理耗时的操作，否则会阻塞后续帧数据的实时性</param>
+            <param name="pUser">[IN] 用户自定义数据, 可设为NULL</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>该异步获取帧数据机制和同步获取帧数据机制(IMV_FG_GetFrame)互斥，对于同一设备，系统中两者只能选其一.
+            只支持一个回调函数, 且设备关闭后，注册会失效，打开设备后需重新注册</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetFrame(CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@,System.UInt32)">
+            <summary>
+            获取一帧图像(同步获取帧数据机制)
+            </summary>
+            <param name="pFrame">[OUT] 帧数据信息</param>
+            <param name="timeoutMS">[IN] 获取一帧图像的超时时间,INFINITE时表示无限等待,直到收到一帧数据或者停止取流。单位是毫秒</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>该接口不支持多线程调用。
+            该同步获取帧机制和异步获取帧机制(IMV_FG_AttachGrabbing)互斥,对于同一设备，系统中两者只能选其一。
+            使用内部缓存获取图像，需要IMV_FG_ReleaseFrame进行释放图像缓存。</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_ReleaseFrame(CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@)">
+            <summary>
+            释放图像缓存
+            </summary>
+            <param name="Pframe">[IN] 帧数据信息</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_CloneFrame(CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@,CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@)">
+            <summary>
+            帧数据深拷贝克隆
+            </summary>
+            <param name="pFrame">克隆源帧数据信息</param>
+            <param name="pCloneFrame">[OUT] 新的帧数据信息</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>使用IMV_FG_ReleaseFrame进行释放图像缓存。</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetStatisticsInfo(CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo@)">
+            <summary>
+            获取流统计信息(IMV_FG_StartGrabbing / IMV_FG_StartGrabbingEx执行后调用)
+            </summary>
+            <param name="pStreamStatsInfo">[OUT] 流统计信息数据</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_ResetStatisticsInfo">
+            <summary>
+            重置流统计信息(IMV_FG_StartGrabbing / IMV_FG_StartGrabbingEx执行后调用)
+            </summary>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_DownLoadGenICamXML(System.String)">
+            <summary>
+            下载设备描述XML文件，并保存到指定路径，如：D:\\xml.zip
+            </summary>
+            <param name="pFullFileName">[IN] 文件要保存的路径</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SaveDeviceCfg(System.String)">
+            <summary>
+            保存设备配置到指定的位置。同名文件已存在时，覆盖。
+            </summary>
+            <param name="pFullFileName">[IN] 导出的设备配置文件全名(含路径)，如：D:\\config.xml 或 D:\\config.mvcfg</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_LoadDeviceCfg(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_ErrorList@)">
+            <summary>
+            从文件加载设备xml配置
+            </summary>
+            <param name="pFullFileName">[IN] 设备配置(xml)文件全名(含路径)，如：D:\\config.xml 或 D:\\config.mvcfg</param>
+            <param name="pErrorList">[OUT] 加载失败的属性名列表。存放加载失败的属性上限为IMV_MAX_ERROR_LIST_NUM。</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_FeatureIsAvailable(System.String)">
+            <summary>
+            判断属性是否可用
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可用，返回true；不可用，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_FeatureIsReadable(System.String)">
+            <summary>
+            判断属性是否可读
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可读，返回true；不可读，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_FeatureIsWriteable(System.String)">
+            <summary>
+            判断属性是否可写
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可写，返回true；不可写，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_FeatureIsStreamable(System.String)">
+            <summary>
+            判断属性是否可流
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可流，返回true；不可流，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_FeatureIsValid(System.String)">
+            <summary>
+            判断属性是否有效
+            </summary>
+            <param name="pFeatureName">pFeatureName [IN] 属性名</param>
+            <returns>有效，返回true；无效，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetFeatureType(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType@)">
+            <summary>
+            获取属性类型
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pPropertyType">[OUT] 属性类型</param>
+            <returns>获取成功，返回true；获取失败，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetIntFeatureValue(System.String,System.Int64@)">
+            <summary>
+            获取整型属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetIntFeatureMin(System.String,System.Int64@)">
+            <summary>
+            获取整型属性可设的最小值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性可设的最小值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetIntFeatureMax(System.String,System.Int64@)">
+            <summary>
+            获取整型属性可设的最大值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性可设的最大值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetIntFeatureInc(System.String,System.Int64@)">
+            <summary>
+            获取整型属性步长
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性步长</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetIntFeatureValue(System.String,System.Int64)">
+            <summary>
+            设置整型属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[IN] 待设置的整型属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetDoubleFeatureValue(System.String,System.Double@)">
+            <summary>
+            获取浮点属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetDoubleFeatureMin(System.String,System.Double@)">
+            <summary>
+            获取浮点属性可设的最小值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性可设的最小值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetDoubleFeatureMax(System.String,System.Double@)">
+            <summary>
+            获取浮点属性可设的最大值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性可设的最大值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetDoubleFeatureValue(System.String,System.Double)">
+            <summary>
+            设置浮点属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[IN] 待设置的浮点属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetBoolFeatureValue(System.String,System.Boolean@)">
+            <summary>
+            获取布尔属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pBoolValue">[OUT] 布尔属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetBoolFeatureValue(System.String,System.Boolean)">
+            <summary>
+            设置布尔属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pBoolValue">[IN] 待设置的布尔属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetEnumFeatureValue(System.String,System.UInt64@)">
+            <summary>
+            获取枚举属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumValue">[OUT] 枚举属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetEnumFeatureValue(System.String,System.UInt64)">
+            <summary>
+            设置枚举属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumValue">[IN] 待设置的枚举属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetEnumFeatureSymbol(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_String@)">
+            <summary>
+            获取枚举属性symbol值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumSymbol">[OUT] 枚举属性symbol值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetEnumFeatureSymbol(System.String,System.String)">
+            <summary>
+            设置枚举属性symbol值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumSymbol">[IN] 待设置的枚举属性symbol值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetEnumFeatureEntryNum(System.String,System.UInt32@)">
+            <summary>
+            获取枚举属性的可设枚举值的个数
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEntryNum">[OUT] 枚举属性的可设枚举值的个数</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetEnumFeatureEntrys(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryList@)">
+            <summary>
+            获取枚举属性的可设枚举值列表
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumEntryList">[OUT] 枚举属性的可设枚举值列表</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_GetStringFeatureValue(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_String@)">
+            <summary>
+            获取字符串属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pStringValue">[OUT] 字符串属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetStringFeatureValue(System.String,System.String)">
+            <summary>
+            设置字符串属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pStringValue">[IN] 待设置的字符串属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_ExecuteCommandFeature(System.String)">
+            <summary>
+            执行命令属性
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_PixelConvert(CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam@)">
+            <summary>
+            像素格式转换
+            </summary>
+            <param name="pstPixelConvertParam">[IN][OUT] 像素格式转换参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>只支持转化成目标像素格式gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8 / gvspPixelBGRA8。
+            通过该接口将原始图像数据转换成用户所需的像素格式并存放在调用者指定内存中。
+            像素格式为YUV411Packed的时，图像宽须能被4整除。
+            像素格式为YUV422Packed的时，图像宽须能被2整除。
+            像素格式为YUYVPacked的时，图像宽须能被2整除。
+            转换后的图像:数据存储是从最上面第一行开始的，这个是相机数据的默认存储方向</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_FlipImage(CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam@)">
+            <summary>
+            图像翻转
+            </summary>
+            <param name="pstFlipImageParam">[IN][OUT] 图像翻转参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>只支持像素格式gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8的图像的垂直和水平翻转。
+            通过该接口将原始图像数据翻转后并存放在调用者指定内存中。</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_RotateImage(CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam@)">
+            <summary>
+            图像顺时针旋转
+            </summary>
+            <param name="pstRotateImageParam">[IN][OUT] 图像旋转参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>只支持gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8格式数据的90/180/270度顺时针旋转。
+            通过该接口将原始图像数据旋转后并存放在调用者指定内存中。</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SaveImageToFile(CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam@)">
+            <summary>
+            保存图像到文件
+            </summary>
+            <param name="pstSaveImageToFileParam">[IN] 保存图片文件参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>
+            该接口支持保存BMP/JPEG/PNG/TIFF,JPEG格式最大支持宽高为65500
+            </remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SetBufferCount(System.UInt32)">
+            <summary>
+            设置帧数据缓存个数
+            </summary>
+            <param name="nSize">[IN] 缓存数量</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>不能在拉流过程中设置</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CardDev.IMV_FG_SubscribeMsgChannelArg(CaptureCard_Net.IMVFGDefine.IMV_FG_MsgChannelCallBack,System.IntPtr)">
+            <summary>
+            消息通道事件回调函数注册
+            </summary>
+            <param name="proc">[IN] 设备消息通道事件回调函数</param>
+            <param name="pUser">[IN] 用户自定义数据, 可设为NULL</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>只支持一个回调函数,且设备关闭后，注册会失效，打开设备后需重新注册</remarks>
+        </member>
+        <member name="T:CaptureCard_Net.CamDev">
+            <summary>
+            相机类
+            </summary>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.#ctor">
+            <summary>
+            相机构造函数
+            </summary>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.getHandle">
+            <summary>
+            获取相机句柄
+            </summary>
+            <returns>相机句柄</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_EnumDevices(System.UInt32,CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO_LIST@)">
+            <summary>
+            枚举采集卡相机设备
+            </summary>
+            <param name="nInterfaceType">[IN] 枚举设备接口类型</param>
+            <param name="pDeviceList">[OUT] 相机列表</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_OpenDevice(CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode,System.Int32,System.String)">
+            <summary>
+            打开采集卡相机设备
+            </summary>
+            <param name="mode">[IN] 创建句柄模式</param>
+            <param name="cameraIndex">[IN] 打开相机标识</param>
+            <param name="cameraStr">[IN] 打开相机字符串</param>
+            <returns>成功，返回IMV_FG_OK;错误，返回错误码</returns>
+            <remarks>根据创建句柄模式，自动选择其中之一的参数，打开相机</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_OpenDeviceEx(CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode,System.Int32,System.String)">
+            <summary>
+            打开采集卡相机设备(同步采集卡与相机参数)
+            </summary>
+            <param name="mode">[IN] 创建句柄模式</param>
+            <param name="cameraIndex">[IN] 打开相机标识</param>
+            <param name="cameraStr">[IN] 打开相机字符串</param>
+            <returns>成功，返回IMV_FG_OK;错误，返回错误码</returns>
+            <remarks>根据创建句柄模式，自动选择其中之一的参数，打开相机</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_IsDeviceOpen">
+            <summary>
+            判断相机设备是否已打开
+            </summary>
+            <returns>打开状态，返回true；关闭状态或者掉线状态，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_CloseDevice">
+            <summary>
+            关闭采集卡相机设备
+            </summary>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SubscribeConnectArg(CaptureCard_Net.IMVFGDefine.IMV_FG_ConnectCallBack,System.IntPtr)">
+            <summary>
+            设备连接状态事件回调注册
+            </summary>
+            <param name="proc">[IN] 设备连接状态事件回调函数</param>
+            <param name="pUser">[IN] 用户自定义数据, 可设为NULL</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+            <remarks>只支持一个回调函数,且设备关闭后，注册会失效，打开设备后需重新注册</remarks>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_DownLoadGenICamXML(System.String)">
+            <summary>
+            下载设备描述XML文件，并保存到指定路径，如：D:\\xml.zip
+            </summary>
+            <param name="pFullFileName">[IN] 文件要保存的路径</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SaveDeviceCfg(System.String)">
+            <summary>
+            保存设备配置到指定的位置。同名文件已存在时，覆盖。
+            </summary>
+            <param name="pFullFileName">[IN] 导出的设备配置文件全名(含路径)，如：D:\\config.xml 或 D:\\config.mvcfg</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_LoadDeviceCfg(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_ErrorList@)">
+            <summary>
+            从文件加载设备xml配置
+            </summary>
+            <param name="pFullFileName">[IN] 设备配置(xml)文件全名(含路径)，如：D:\\config.xml 或 D:\\config.mvcfg</param>
+            <param name="pErrorList">[OUT] 加载失败的属性名列表。存放加载失败的属性上限为IMV_MAX_ERROR_LIST_NUM。</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_FeatureIsAvailable(System.String)">
+            <summary>
+            判断属性是否可用
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可用，返回true；不可用，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_FeatureIsReadable(System.String)">
+            <summary>
+            判断属性是否可读
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可读，返回true；不可读，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_FeatureIsWriteable(System.String)">
+            <summary>
+            判断属性是否可写
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可写，返回true；不可写，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_FeatureIsStreamable(System.String)">
+            <summary>
+            判断属性是否可流
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可流，返回true；不可流，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_FeatureIsValid(System.String)">
+            <summary>
+            判断属性是否有效
+            </summary>
+            <param name="pFeatureName">pFeatureName [IN] 属性名</param>
+            <returns>有效，返回true；无效，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetFeatureType(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType@)">
+            <summary>
+            获取属性类型
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pPropertyType">[OUT] 属性类型</param>
+            <returns>获取成功，返回true；获取失败，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetIntFeatureValue(System.String,System.Int64@)">
+            <summary>
+            获取整型属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetIntFeatureMin(System.String,System.Int64@)">
+            <summary>
+            获取整型属性可设的最小值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性可设的最小值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetIntFeatureMax(System.String,System.Int64@)">
+            <summary>
+            获取整型属性可设的最大值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性可设的最大值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetIntFeatureInc(System.String,System.Int64@)">
+            <summary>
+            获取整型属性步长
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性步长</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SetIntFeatureValue(System.String,System.Int64)">
+            <summary>
+            设置整型属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[IN] 待设置的整型属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetDoubleFeatureValue(System.String,System.Double@)">
+            <summary>
+            获取浮点属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetDoubleFeatureMin(System.String,System.Double@)">
+            <summary>
+            获取浮点属性可设的最小值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性可设的最小值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetDoubleFeatureMax(System.String,System.Double@)">
+            <summary>
+            获取浮点属性可设的最大值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性可设的最大值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SetDoubleFeatureValue(System.String,System.Double)">
+            <summary>
+            设置浮点属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[IN] 待设置的浮点属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetBoolFeatureValue(System.String,System.Boolean@)">
+            <summary>
+            获取布尔属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pBoolValue">[OUT] 布尔属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SetBoolFeatureValue(System.String,System.Boolean)">
+            <summary>
+            设置布尔属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pBoolValue">[IN] 待设置的布尔属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetEnumFeatureValue(System.String,System.UInt64@)">
+            <summary>
+            获取枚举属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumValue">[OUT] 枚举属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SetEnumFeatureValue(System.String,System.UInt64)">
+            <summary>
+            设置枚举属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumValue">[IN] 待设置的枚举属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetEnumFeatureSymbol(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_String@)">
+            <summary>
+            获取枚举属性symbol值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumSymbol">[OUT] 枚举属性symbol值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SetEnumFeatureSymbol(System.String,System.String)">
+            <summary>
+            设置枚举属性symbol值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumSymbol">[IN] 待设置的枚举属性symbol值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetEnumFeatureEntryNum(System.String,System.UInt32@)">
+            <summary>
+            获取枚举属性的可设枚举值的个数
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEntryNum">[OUT] 枚举属性的可设枚举值的个数</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetEnumFeatureEntrys(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryList@)">
+            <summary>
+            获取枚举属性的可设枚举值列表
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumEntryList">[OUT] 枚举属性的可设枚举值列表</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_GetStringFeatureValue(System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_String@)">
+            <summary>
+            获取字符串属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pStringValue">[OUT] 字符串属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_SetStringFeatureValue(System.String,System.String)">
+            <summary>
+            设置字符串属性值
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pStringValue">[IN] 待设置的字符串属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.CamDev.IMV_FG_ExecuteCommandFeature(System.String)">
+            <summary>
+            执行命令属性
+            </summary>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetVersion">
+            <summary>
+            获取版本信息
+            </summary>
+            <returns>成功时返回版本信息，失败时返回NULL</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_EnumInterface(System.UInt32,CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO_LIST@)">
+            <summary>
+            枚举采集卡设备 -->单独采集卡
+            </summary>
+            <param name="pInterfaceList">[OUT] 采集卡设备列表</param>
+            <param name="interfaceType">[IN] 枚举设备接口类型</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_OpenInterface(System.UInt32,System.IntPtr@)">
+            <summary>
+            打开采集卡设备
+            </summary>
+            <param name="nIndex">[IN] 采集卡序号</param>
+            <param name="handle">[OUT] 采集卡设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_OpenInterfaceEx(CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode,System.IntPtr,System.IntPtr@)">
+            <summary>
+            打开采集卡设备
+            </summary>
+            <param name="mode">创建句柄模式</param>
+            <param name="pIdentifier">打开采集卡设备标识</param>
+            <param name="handle">采集卡设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_IsOpenInterface(System.IntPtr)">
+            <summary>
+            判断采集卡设备是否已打开
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <returns>打开状态，返回true；关闭状态或者掉线状态，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_CloseInterface(System.IntPtr)">
+            <summary>
+            关闭采集卡设备
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_EnumDevices(System.UInt32,CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO_LIST@)">
+            <summary>
+            枚举采集卡相机设备
+            </summary>
+            <param name="nInterfaceType">[IN] 枚举设备接口类型</param>
+            <param name="pDeviceList">[OUT] 相机列表</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_OpenDevice(CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode,System.IntPtr,System.IntPtr@)">
+            <summary>
+            打开采集卡相机设备
+            </summary>
+            <param name="mode">[IN] 创建句柄模式</param>
+            <param name="pIdentifier">[IN] 打开相机标识</param>
+            <param name="handle">[OUT] 相机句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_OpenDeviceEx(CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode,System.IntPtr,System.IntPtr@)">
+            <summary>
+            打开采集卡相机设备(同步相机与采集卡参数)
+            </summary>
+            <param name="mode">[IN] 创建句柄模式</param>
+            <param name="pIdentifier">[IN] 打开相机标识</param>
+            <param name="handle">[OUT] 相机句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_IsDeviceOpen(System.IntPtr)">
+            <summary>
+            判断相机设备是否已打开
+            </summary>
+            <param name="handle">[IN] 相机设备句柄</param>
+            <returns>打开状态，返回true；关闭状态或者掉线状态，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_CloseDevice(System.IntPtr)">
+            <summary>
+            关闭相机设备
+            </summary>
+            <param name="handle">[IN] 相机设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetBufferCount(System.IntPtr,System.UInt32)">
+            <summary>
+            设置帧数据缓存个数,不能在拉流过程中设置
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="nSize">[IN] 缓存数量</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_StartGrabbing(System.IntPtr)">
+            <summary>
+            开始取流
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_StartGrabbingEx(System.IntPtr,System.UInt64,CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy)">
+            <summary>
+            开始取流
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="maxImagesGrabbed">[IN] 允许最多的取帧数，达到指定取帧数后停止取流，如果为0，表示忽略此参数连续取流(IMV_FG_StartGrabbing默认0)</param>
+            <param name="strategy">[IN] 取流策略,(IMV_FG_StartGrabbing默认使用grabStrartegySequential策略取流)</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_IsGrabbing(System.IntPtr)">
+            <summary>
+            判断设备是否正在取流
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <returns>正在取流，返回true；不在取流，返回false</returns>    
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_StopGrabbing(System.IntPtr)">
+            <summary>
+            停止取流
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_AttachGrabbing(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_FrameCallBack,System.IntPtr)">
+            <summary>
+            注册帧数据回调函数(异步获取帧数据机制).只支持一个回调函数, 且设备关闭后，注册会失效，打开设备后需重新注册
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="proc">[IN] 帧数据信息回调函数，建议不要在该函数中处理耗时的操作，否则会阻塞后续帧数据的实时性</param>
+            <param name="pUser">[IN] 用户自定义数据, 可设为NULL</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetFrame(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@,System.UInt32)">
+            <summary>
+            获取一帧图像(同步获取帧数据机制).该接口不支持多线程调用,使用内部缓存获取图像，需要IMV_FG_ReleaseFrame进行释放图像缓存
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pFrame">[OUT] 帧数据信息</param>
+            <param name="timeoutMS">[IN] 获取一帧图像的超时时间,INFINITE时表示无限等待,直到收到一帧数据或者停止取流。单位是毫秒</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_ReleaseFrame(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@)">
+            <summary>
+            释放图像缓存
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pFrame">[IN] 帧数据信息</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_CloneFrame(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@,CaptureCard_Net.IMVFGDefine.IMV_FG_Frame@)">
+            <summary>
+            帧数据深拷贝克隆.使用IMV_FG_ReleaseFrame进行释放图像缓存。
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pFrame">[IN] 克隆源帧数据信息</param>
+            <param name="pCloneFrame">[OUT] 新的帧数据信息</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetStatisticsInfo(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo@)">
+            <summary>
+            获取流统计信息(IMV_StartGrabbing / IMV_StartGrabbing执行后调用)
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pStreamStatsInfo">[OUT] 流统计信息数据</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_ResetStatisticsInfo(System.IntPtr)">
+            <summary>
+            重置流统计信息(IMV_StartGrabbing / IMV_StartGrabbing执行后调用)
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_DownLoadGenICamXML(System.IntPtr,System.String)">
+            <summary>
+            下载设备描述XML文件，并保存到指定路径，如：D:\\xml.zip
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFullFileName">[IN] 文件要保存的路径</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SaveDeviceCfg(System.IntPtr,System.String)">
+            <summary>
+            保存设备配置到指定的位置。同名文件已存在时，覆盖。
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFullFileName">[IN] 导出的设备配置文件全名(含路径)，如：D:\\config.xml 或 D:\\config.mvcfg</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_LoadDeviceCfg(System.IntPtr,System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_ErrorList@)">
+            <summary>
+            从文件加载设备xml配置
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFullFileName">[IN] 设备配置(xml)文件全名(含路径)，如：D:\\config.xml 或 D:\\config.mvcfg</param>
+            <param name="pErrorList">[OUT] 加载失败的属性名列表。存放加载失败的属性上限为IMV_MAX_ERROR_LIST_NUM。</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_FeatureIsAvailable(System.IntPtr,System.String)">
+            <summary>
+            判断属性是否可用(CL专用)
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可用，返回true；不可用，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_FeatureIsReadable(System.IntPtr,System.String)">
+            <summary>
+            判断属性是否可用
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可读，返回true；不可读，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_FeatureIsWriteable(System.IntPtr,System.String)">
+            <summary>
+            判断属性是否可写
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可写，返回true；不可写，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_FeatureIsStreamable(System.IntPtr,System.String)">
+            <summary>
+            判断属性是否可流
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>可流，返回true；不可流，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_FeatureIsValid(System.IntPtr,System.String)">
+            <summary>
+            判断属性是否有效
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>有效，返回true；无效，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetFeatureType(System.IntPtr,System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType@)">
+            <summary>
+            获取属性类型
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pPropertyType">[OUT] 属性类型</param>
+            <returns>获取成功，返回true；获取失败，返回false</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetIntFeatureValue(System.IntPtr,System.String,System.Int64@)">
+            <summary>
+            获取整型属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetIntFeatureMin(System.IntPtr,System.String,System.Int64@)">
+            <summary>
+            获取整型属性可设的最小值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性可设的最小值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetIntFeatureMax(System.IntPtr,System.String,System.Int64@)">
+            <summary>
+            获取整型属性可设的最大值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性可设的最大值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetIntFeatureInc(System.IntPtr,System.String,System.Int64@)">
+            <summary>
+            获取整型属性步长
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[OUT] 整型属性步长</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetIntFeatureValue(System.IntPtr,System.String,System.Int64)">
+            <summary>
+            设置整型属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pIntValue">[IN] 待设置的整型属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetDoubleFeatureValue(System.IntPtr,System.String,System.Double@)">
+            <summary>
+            获取浮点属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetDoubleFeatureMin(System.IntPtr,System.String,System.Double@)">
+            <summary>
+            获取浮点属性可设的最小值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性可设的最小值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetDoubleFeatureMax(System.IntPtr,System.String,System.Double@)">
+            <summary>
+            获取浮点属性可设的最大值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[OUT] 浮点属性可设的最大值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetDoubleFeatureValue(System.IntPtr,System.String,System.Double)">
+            <summary>
+            设置浮点属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pDoubleValue">[IN] 待设置的浮点属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetBoolFeatureValue(System.IntPtr,System.String,System.Boolean@)">
+            <summary>
+            获取布尔属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pBoolValue">[OUT] 布尔属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetBoolFeatureValue(System.IntPtr,System.String,System.Boolean)">
+            <summary>
+            设置布尔属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pBoolValue">[IN] 待设置的布尔属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetEnumFeatureValue(System.IntPtr,System.String,System.UInt64@)">
+            <summary>
+            获取枚举属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumValue">[OUT] 枚举属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetEnumFeatureValue(System.IntPtr,System.String,System.UInt64)">
+            <summary>
+            设置枚举属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="enumValue">[IN] 待设置的枚举属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetEnumFeatureSymbol(System.IntPtr,System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_String@)">
+            <summary>
+            获取枚举属性symbol值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumSymbol">[OUT] 枚举属性symbol值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetEnumFeatureSymbol(System.IntPtr,System.String,System.String)">
+            <summary>
+            设置枚举属性symbol值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumSymbol">[IN] 待设置的枚举属性symbol值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetEnumFeatureEntryNum(System.IntPtr,System.String,System.UInt32@)">
+            <summary>
+            获取枚举属性的可设枚举值的个数
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEntryNum">[OUT] 枚举属性的可设枚举值的个数</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetEnumFeatureEntrys(System.IntPtr,System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryList@)">
+            <summary>
+            获取枚举属性的可设枚举值列表
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pEnumEntryList">[OUT] 枚举属性的可设枚举值列表</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_GetStringFeatureValue(System.IntPtr,System.String,CaptureCard_Net.IMVFGDefine.IMV_FG_String@)">
+            <summary>
+            获取字符串属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pStringValue">[OUT] 字符串属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SetStringFeatureValue(System.IntPtr,System.String,System.String)">
+            <summary>
+            设置字符串属性值
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <param name="pStringValue">[IN] 待设置的字符串属性值</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_ExecuteCommandFeature(System.IntPtr,System.String)">
+            <summary>
+            执行命令属性
+            </summary>
+            <param name="handle">[IN] 采集卡或相机设备句柄</param>
+            <param name="pFeatureName">[IN] 属性名</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_PixelConvert(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam@)">
+            <summary>
+            像素格式转换
+            只支持转化成目标像素格式gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8 / gvspPixelBGRA8
+            通过该接口将原始图像数据转换成用户所需的像素格式并存放在调用者指定内存中。
+            像素格式为YUV411Packed的时，图像宽须能被4整除
+            像素格式为YUV422Packed的时，图像宽须能被2整除
+            像素格式为YUYVPacked的时，图像宽须能被2整除
+            转换后的图像:数据存储是从最上面第一行开始的，这个是相机数据的默认存储方向
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pstPixelConvertParam">[IN][OUT] 像素格式转换参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_FlipImage(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam@)">
+            <summary>
+            图像翻转
+            只支持像素格式gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8的图像的垂直和水平翻转。
+            通过该接口将原始图像数据翻转后并存放在调用者指定内存中。
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pstFlipImageParam">[IN][OUT] 图像翻转参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_RotateImage(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam@)">
+            <summary>
+            图像顺时针旋转
+            只支持像素格式gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8的图像的垂直和水平翻转。
+            通过该接口将原始图像数据翻转后并存放在调用者指定内存中。
+            只支持gvspPixelRGB8 / gvspPixelBGR8 / gvspPixelMono8格式数据的90/180/270度顺时针旋转。
+            通过该接口将原始图像数据旋转后并存放在调用者指定内存中。
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="pstRotateImageParam">[IN][OUT] 图像旋转参数结构体</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SubscribeConnectArg(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_ConnectCallBack,System.IntPtr)">
+            <summary>
+            设备连接状态事件回调注册
+            只支持一个回调函数,且设备关闭后，注册会失效，打开设备后需重新注册
+            </summary>
+            <param name="handle">[IN] 相机设备句柄</param>
+            <param name="proc">[IN] 设备连接状态事件回调函数</param>
+            <param name="pUser">[IN] 用户自定义数据, 可设为NULL</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="M:CaptureCard_Net.IMVFGApi.IMV_FG_SubscribeMsgChannelArg(System.IntPtr,CaptureCard_Net.IMVFGDefine.IMV_FG_MsgChannelCallBack,System.IntPtr)">
+            <summary>
+            消息通道事件回调注册
+            只支持一个回调函数,且设备关闭后，注册会失效，打开设备后需重新注册
+            </summary>
+            <param name="handle">[IN] 采集卡设备句柄</param>
+            <param name="proc">[IN] 消息通道事件回调注册函数(需要及时处理回调函数中的数据,否则数据会失效)</param>
+            <param name="pUser">[IN] 用户自定义数据, 可设为NULL</param>
+            <returns>成功，返回IMV_FG_OK；错误，返回错误码</returns>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine">
+            <summary>
+            数据结构类
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_OK">
+            <summary>
+            成功，无错误	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ERROR">
+            <summary>
+            通用的错误	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_HANDLE">
+            <summary>
+            错误或无效的句柄
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_PARAM">
+            <summary>
+            错误的参数	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_FRAME_HANDLE">
+            <summary>
+            错误或无效的帧句柄	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_FRAME">
+            <summary>
+            无效的帧
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_RESOURCE">
+            <summary>
+            相机/事件/流等资源无效	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_IP">
+            <summary>
+            设备与主机的IP网段不匹配
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_NO_MEMORY">
+            <summary>
+            内存不足
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INSUFFICIENT_MEMORY">
+            <summary>
+            传入的内存空间不足	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ERROR_PROPERTY_TYPE">
+            <summary>
+            属性类型错误
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_ACCESS">
+            <summary>
+            属性不可访问、或不能读/写、或读/写失败
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INVALID_RANGE">
+            <summary>
+            属性值超出范围、或者不是步长整数倍
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_NOT_SUPPORT">
+            <summary>
+            设备不支持的功能
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_NO_DATA">
+            <summary>
+            无数据
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PARAM_OVERFLOW">
+            <summary>
+            参数值越界	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_NOT_AVAILABLE">
+            <summary>
+            连接不可达	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_NOT_GRABBING">
+            <summary>
+            相机已停止取图
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_MAX_STRING_LENTH">
+            <summary>
+            字符串最大长度	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_MAX_ERROR_LIST_NUM">
+            <summary>
+            失败属性列表最大长度
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_String">
+            <summary>
+            字符串信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_String.str">
+            <summary>
+            字符串.长度不超过256 
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType">
+            <summary>
+            枚举：属性类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_INT">
+            <summary>
+            整型数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_FLOAT">
+            <summary>
+            浮点数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_ENUM">
+            <summary>
+            枚举
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_BOOL">
+            <summary>
+            布尔
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_STRING">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_COMMAND">
+            <summary>
+            命令
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_GROUP">
+            <summary>
+            分组节点
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_REG">
+            <summary>
+            寄存器节点
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFeatureType.IMV_FG_FEATURE_UNDEFINED">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EInterfaceType">
+            <summary>
+            枚举：接口类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EInterfaceType.typeGigEInterface">
+            <summary>
+            网口采集卡
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EInterfaceType.typeU3vInterface">
+            <summary>
+            Usb采集
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EInterfaceType.typeCLInterface">
+            <summary>
+            CameraLink采集卡
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EInterfaceType.typeCXPInterface">
+            <summary>
+            CXP采集卡
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EInterfaceType.typeUndefinedInterface">
+            <summary>
+            无效接口类型
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.ECLBoardMode">
+            <summary>
+            CameraLink采集卡模式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.ECLBoardMode.FULL_MODE">
+            <summary>
+            单Full模式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.ECLBoardMode.DUAL_BASE_MODE">
+            <summary>
+            双Base，同时支持2个相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.ECLBoardMode.DUAL_FULL_MODE">
+            <summary>
+            双Full，同时支持2个相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.ECLBoardMode.QUAD_BASE_MODE">
+            <summary>
+            4Base，同时支持4个相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.ECLBoardMode.TYPE_UNDEFINED">
+            <summary>
+            未知类型
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_CL_INTERFACE_INFO">
+            <summary>
+            CameraLink采集卡信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_CL_INTERFACE_INFO.nInterfaceMode">
+            <summary>
+            采集卡模式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_CL_INTERFACE_INFO.nPCIEInfo">
+            <summary>
+            采集卡的PCIE插槽信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_CL_INTERFACE_INFO.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.InterfaceInfo">
+            <summary>
+            采集卡接口信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.InterfaceInfo.CLInterfaceInfo">
+            <summary>
+            CameraLink采集卡信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.InterfaceInfo.nReserved">
+            <summary>
+            限定长度
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO">
+            <summary>
+            采集卡信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.nInterfaceType">
+            <summary>
+            采集卡类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.nInterfaceReserved">
+            <summary>
+            保留字段
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.interfaceKey">
+            <summary>
+            厂商:序列号
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.interfaceName">
+            <summary>
+            用户自定义名
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.serialNumber">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.vendorName">
+            <summary>
+            厂商
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.modelName">
+            <summary>
+            设备型号
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.manufactureInfo">
+            <summary>
+            设备制造信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.deviceVersion">
+            <summary>
+            设备版本
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.interfaceReserved">
+            <summary>
+            保留
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO.InterfaceInfo">
+            <summary>
+            采集卡接口信息
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO_LIST">
+            <summary>
+            采集卡信息结构体
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO_LIST.nInterfaceNum">
+            <summary>
+            采集卡数量
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_INTERFACE_INFO_LIST.pInterfaceInfoList">
+            <summary>
+            采集卡信息
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode">
+            <summary>
+            枚举：创建句柄方式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode.IMV_FG_MODE_BY_INDEX">
+            <summary>
+            通过已枚举设备的索引(从0开始，比如 0, 1, 2...)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode.IMV_FG_MODE_BY_CAMERAKEY">
+            <summary>
+            通过设备键"厂商:序列号"(CL专用)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode.IMV_FG_MODE_BY_DEVICE_USERID">
+            <summary>
+            通过设备自定义名(CL专用)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ECreateHandleMode.IMV_FG_MODE_BY_IPADDRESS">
+            <summary>
+            通过设备IP地址(仅适合GigE相机)
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EDeviceType">
+            <summary>
+            枚举：设备类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EDeviceType.IMV_FG_TYPE_GIGE_DEVICE">
+            <summary>
+            GIGE相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EDeviceType.IMV_FG_TYPE_U3V_DEVICE">
+            <summary>
+            USB3.0相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EDeviceType.IMV_FG_TYPE_CL_DEVICE">
+            <summary>
+            CAMERALINK相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EDeviceType.IMV_FG_TYPE_CXP_DEVICE">
+            <summary>
+            CXP相机
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EDeviceType.IMV_FG_TYPE_UNDEFINED_DEVICE">
+            <summary>
+            未知类型
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_ESaveFileType">
+            <summary>
+            枚举：图像保存格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ESaveFileType.IMV_FG_TYPE_SAVE_BMP">
+            <summary>
+            BMP图像格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ESaveFileType.IMV_FG_TYPE_SAVE_JPEG">
+            <summary>
+            JPEG图像格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ESaveFileType.IMV_FG_TYPE_SAVE_PNG">
+            <summary>
+            PNG图像格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ESaveFileType.IMV_FG_TYPE_SAVE_TIFF">
+            <summary>
+            TIFF图像格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ESaveFileType.IMV_FG_TYPE_UNDEFINED">
+            <summary>
+            未定义的图像格式
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO">
+            <summary>
+            相机信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.nDeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.nReserved">
+            <summary>                                                                      
+            保留字段                                                                       
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.cameraKey">
+            <summary>                                                                      
+            厂商:序列号                                                                    
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.cameraName">
+            <summary>                                                                      
+            用户自定义名                                                                   
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.serialNumber">
+            <summary>                                                                      
+            设备序列号                                                                     
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.vendorName">
+            <summary>                                                                      
+            厂商                                                                           
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.modelName">
+            <summary>                                                                      
+            设备型号                                                                       
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.manufactureInfo">
+            <summary>                                                                      
+            设备制造信息                                                                   
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.deviceVersion">
+            <summary>                                                                      
+            设备版本                                                                       
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.cameraReserved">
+            <summary>                                                                      
+            保留                                                                           
+            </summary>                                                                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO.FGInterfaceInfo">
+            <summary>
+            采集卡信息
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO_LIST">
+            <summary>
+            相机信息结构体
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO_LIST.nDevNum">
+            <summary>
+            相机数量
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_DEVICE_INFO_LIST.pDeviceInfoList">
+            <summary>
+            相机信息
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryInfo">
+            <summary>
+            枚举属性的枚举值信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryInfo.value">
+            <summary>
+            枚举值
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryInfo.name">
+            <summary>
+            symbol名
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryList">
+            <summary>
+            枚举属性的可设枚举值列表信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryList.nEnumEntryBufferSize">
+            <summary>
+            存放枚举值内存大小
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EnumEntryList.pEnumEntryInfo">
+            <summary>
+            存放可设枚举值列表(调用者分配缓存)
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType">
+            <summary>
+            枚举：图像格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono1p">
+            <summary>
+            Mono1p
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono2p">
+            <summary>
+            Mono2p
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono4p">
+            <summary>
+            Mono4p
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono8">
+            <summary>
+            Mono8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono8S">
+            <summary>
+            Mono8S
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono10">
+            <summary>
+            Mono10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono10Packed">
+            <summary>
+            Mono10Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono12">
+            <summary>
+            Mono12 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono12Packed">
+            <summary>
+            Mono12Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono14">
+            <summary>
+            Mono14
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono16">
+            <summary>
+            Mono16 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGR8">
+            <summary>
+            BayGR8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG8">
+            <summary>
+            BayRG8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGB8">
+            <summary>
+            BayGB8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayBG8">
+            <summary>
+            BayBG8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGR10">
+            <summary>
+            BayGR10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG10">
+            <summary>
+            BayRG10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGB10">
+            <summary>
+            BayGB10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayBG10">
+            <summary>
+            BayBG10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGR12">
+            <summary>
+            BayGR12
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG12">
+            <summary>
+            BayRG12
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGB12">
+            <summary>
+            BayGB12
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayBG12">
+            <summary>
+            BayBG12
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGR10Packed">
+            <summary>
+            BayGR10Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG10Packed">
+            <summary>
+            BayRG10Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGB10Packed">
+            <summary>
+            BayGB10Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayBG10Packed">
+            <summary>
+            BayBG10Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGR12Packed">
+            <summary>
+            BayGR12Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG12Packed">
+            <summary>
+            BayRG12Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGB12Packed">
+            <summary>
+            BayGB12Packed 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayBG12Packed">
+            <summary>
+            BayBG12Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGR16">
+            <summary>
+            BayGR16
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG16">
+            <summary>
+            BayRG16
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayGB16">
+            <summary>
+            BayGB16
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayBG16">
+            <summary>
+            BayBG16
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB8">
+            <summary>
+            RGB8 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BGR8">
+            <summary>
+            BGR8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGBA8">
+            <summary>
+            RGBA8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BGRA8">
+            <summary>
+            BGRA8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB10">
+            <summary>
+            RGB10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BGR10">
+            <summary>
+            BGR10
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB12">
+            <summary>
+            RGB12
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BGR12">
+            <summary>
+            BGR12
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB16">
+            <summary>
+            RGB16
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB10V1Packed">
+            <summary>
+            RGB10V1Packed
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB10P32">
+            <summary>
+            RGB10P32
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB12V1Packed">
+            <summary>
+            RGB12V1Packed 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB565P">
+            <summary>
+            RGB565P
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BGR565P">
+            <summary>
+            BGR565P
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YUV411_8_UYYVYY">
+            <summary>
+            YUV411_8_UYYVYY
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YUV422_8_UYVY">
+            <summary>
+            YUV422_8_UYVY
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YUV422_8">
+            <summary>
+            YUV422_8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YUV8_UYV">
+            <summary>
+            YUV8_UYV
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr8CbYCr">
+            <summary>
+            YCbCr8CbYCr
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr422_8">
+            <summary>
+            YCbCr422_8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr422_8_CbYCrY">
+            <summary>
+            YCbCr422_8_CbYCrY
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr411_8_CbYYCrYY">
+            <summary>
+            YCbCr411_8_CbYYCrYY
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr601_8_CbYCr">
+            <summary>
+            YCbCr601_8_CbYCr
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr601_422_8">
+            <summary>
+            YCbCr601_422_8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr601_422_8_CbYCrY">
+            <summary>
+            YCbCr601_422_8_CbYCrY 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr601_411_8_CbYYCrYY">
+            <summary>
+            YCbCr601_411_8_CbYYCrYY
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr709_8_CbYCr">
+            <summary>
+            YCbCr709_8_CbYCr
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr709_422_8">
+            <summary>
+            YCbCr709_422_8
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr709_422_8_CbYCrY">
+            <summary>
+            YCbCr709_422_8_CbYCrY
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_YCbCr709_411_8_CbYYCrYY">
+            <summary>
+            YCbCr709_411_8_CbYYCrYY 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB8Planar">
+            <summary>
+            RGB8Planar
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB10Planar">
+            <summary>
+            RGB10Planar
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB12Planar">
+            <summary>
+            RGB12Planar
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_RGB16Planar">
+            <summary>
+            RGB16Planar
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG10p">
+            <summary>
+            BayRG10p, currently used for specific project, please do not use them
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_BayRG12p">
+            <summary>
+            BayRG12p, currently used for specific project, please do not use them
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono1c">
+            <summary>
+            Mono1c, customized image format, used for binary output
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EPixelType.IMV_FG_PIXEL_TYPE_Mono1e">
+            <summary>
+            Mono1e, customized image format, used for displaying connected domain
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo">
+            <summary>
+            帧图像信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.blockId">
+            <summary>
+            帧Id(仅对GigE/Usb/PCIe相机有效)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.status">
+            <summary>
+            数据帧状态(0是正常状态)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.width">
+            <summary>
+            图像宽度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.height">
+            <summary>
+            图像高度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.size">
+            <summary>
+            图像大小
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.pixelFormat">
+            <summary>
+            图像像素格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.timeStamp">
+            <summary>
+            图像时间戳(仅对GigE/Usb/PCIe相机有效)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.chunkCount">
+            <summary>
+            帧数据中包含的Chunk个数(仅对GigE/Usb相机有效)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.paddingX">
+            <summary>
+            图像paddingX(仅对GigE/Usb/PCIe相机有效)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.paddingY">
+            <summary>
+            图像paddingY(仅对GigE/Usb/PCIe相机有效)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.recvFrameTime">
+            <summary>
+            图像在网络传输所用的时间(单位:微秒,非GigE相机该值为0)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameInfo.nReserved">
+            <summary>
+            预留字段
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_ErrorList">
+            <summary>
+            加载失败的属性信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ErrorList.nParamCnt">
+            <summary>
+            加载失败的属性个数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ErrorList.paramNameList">
+            <summary>
+            加载失败的属性集合，上限128
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_ChunkDataInfo">
+            <summary>
+            Chunk数据信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ChunkDataInfo.chunkID">
+            <summary>
+            ChunkID
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ChunkDataInfo.nParamCnt">
+            <summary>
+            属性名个数	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ChunkDataInfo.pParamNameList">
+            <summary>
+            Chunk数据对应的属性名集合(SDK内部缓存)
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_Frame">
+            <summary>
+            帧图像数据信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_Frame.frameHandle">
+            <summary>
+            帧图像句柄(SDK内部帧管理用)	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_Frame.pData">
+            <summary>                                         
+            帧图像数据的内存首地址	                          
+            </summary>                                        
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_Frame.frameInfo">
+             <summary>                                         
+            帧信息                                             
+             </summary>                                        
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_Frame.nReserved">
+            <summary>                                         
+            预留字段                                          
+            </summary>                                        
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy">
+            <summary>
+            枚举：抓图策略
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy.IMV_FG_GRAB_STRARTEGY_SEQUENTIAL">
+            <summary>
+            按到达顺序处理图片	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy.IMV_FG_GRAB_STRARTEGY_LATEST_IMAGE">
+            <summary>
+            获取最新的图片
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy.IMV_FG_GRAB_STRARTEGY_UPCOMING_IMAGE">
+            <summary>
+            等待获取下一张图片(只针对GigE相机)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EGrabStrategy.IMV_FG_GRAB_STRARTEGY_UNDEFINED">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo">
+            <summary>
+            CameraLink设备统计流信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.imageError">
+            <summary>
+            图像错误的帧数	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.lostPacketBlock">
+            <summary>
+            丢包的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.nReserved0">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.imageReceived">
+            <summary>
+            正常获取的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.fps">
+            <summary>
+            帧率
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.bandwidth">
+            <summary>
+            带宽(Mbps)	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_CLStreamStatsInfo.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo">
+            <summary>
+            U3V设备统计流信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.imageError">
+            <summary>
+            图像错误的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.lostPacketBlock">
+            <summary>
+            丢包的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.nReserved0">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.imageReceived">
+            <summary>
+            正常获取的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.fps">
+            <summary>
+            帧率
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.bandwidth">
+            <summary>
+            带宽(Mbps)	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_U3VStreamStatsInfo.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo">
+            <summary>
+            Gige设备统计流信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.nReserved0">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.imageError">
+            <summary>
+            图像错误的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.lostPacketBlock">
+            <summary>
+            丢包的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.nReserved1">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.nReserved2">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.imageReceived">
+            <summary>
+            正常获取的帧数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.fps">
+            <summary>
+            帧率
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.bandwidth">
+            <summary>
+            带宽(Mbps)
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_GigEStreamStatsInfo.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo">
+            <summary>
+            统计流信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo.nDeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo.clStatisticsInfo">
+            <summary>
+            CameraLink设备统计信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo.u3vStatisticsInfo">
+            <summary>
+            U3V设备统计信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_StreamStatisticsInfo.gigeStatisticsInfo">
+            <summary>
+            Gige设备统计信息
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EBayerDemosaic">
+            <summary>
+            枚举：图像转换Bayer格式所用的算法
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EBayerDemosaic.IMV_FG_DEMOSAIC_NEAREST_NEIGHBOR">
+            <summary>
+            最近邻
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EBayerDemosaic.IMV_FG_DEMOSAIC_BILINEAR">
+            <summary>
+            双线性
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EBayerDemosaic.IMV_FG_DEMOSAIC_EDGE_SENSING">
+            <summary>
+            边缘检测
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EBayerDemosaic.IMV_FG_DEMOSAIC_NOT_SUPPORT">
+            <summary>
+            不支持
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EVideoType">
+            <summary>
+            枚举：视频格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EVideoType.IMV_FG_TYPE_VIDEO_FORMAT_AVI">
+            <summary>
+            AVI格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EVideoType.IMV_FG_TYPE_VIDEO_FORMAT_NOT_SUPPORT">
+            <summary>
+            不支持
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EFlipType">
+            <summary>
+            枚举：图像翻转类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFlipType.IMV_FG_TYPE_FLIP_VERTICAL">
+            <summary>
+            垂直(Y轴)翻转 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EFlipType.IMV_FG_TYPE_FLIP_HORIZONTAL">
+            <summary>
+            水平(X轴)翻转
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_ERotationAngle">
+            <summary>
+            枚举：顺时针旋转角度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ERotationAngle.IMV_FG_ROTATION_ANGLE90">
+            <summary>
+            顺时针旋转90度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ERotationAngle.IMV_FG_ROTATION_ANGLE180">
+            <summary>
+            顺时针旋转180度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_ERotationAngle.IMV_FG_ROTATION_ANGLE270">
+            <summary>
+            顺时针旋转270度
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam">
+            <summary>
+            像素转换结构体
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nWidth">
+            <summary>
+            图像宽
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nHeight">
+            <summary>
+            图像高
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.ePixelFormat">
+            <summary>
+            像素格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.pSrcData">
+            <summary>
+            输入图像数据
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nSrcDataLen">
+            <summary>
+            输入图像长度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nPaddingX">
+            <summary>
+            图像宽填充
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nPaddingY">
+            <summary>
+            图像高填充
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.eBayerDemosaic">
+            <summary>
+            转换Bayer格式算法
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.eDstPixelFormat">
+            <summary>
+            目标像素格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.pDstBuf">
+             <summary>
+            输出数据缓存(调用者分配缓存)
+             </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nDstBufSize">
+            <summary>
+            提供的输出缓冲区大小
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nDstDataLen">
+            <summary>
+            输出数据长度 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_PixelConvertParam.nReserved">
+            <summary>
+            预留 
+            </summary>       		
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam">
+            <summary>
+            图像翻转结构体
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.nWidth">
+            <summary>
+            图像宽	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.nHeight">
+            <summary>
+            图像高
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.ePixelFormat">
+            <summary>
+            像素格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.eFlipType">
+            <summary>
+            翻转类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.pSrcData">
+            <summary>
+            输入图像数据
+            </summary>                             
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.nSrcDataLen">
+            <summary>
+            输入图像长度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.pDstBuf">
+            <summary>
+            输出数据缓存(调用者分配缓存)
+            </summary>                  
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.nDstBufSize">
+            <summary>
+            提供的输出缓冲区大小
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.nDstDataLen">
+            <summary>
+            输出数据长度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_FlipImageParam.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam">
+            <summary>
+            图像旋转结构体
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.nWidth">
+            <summary>
+            图像宽
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.nHeight">
+            <summary>
+            图像高	
+            </summary>                                         
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.ePixelFormat">
+            <summary>
+            像素格式	
+            </summary>                                         
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.eRotationAngle">
+            <summary>
+            旋转角度	
+            </summary>  				
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.pSrcData">
+            <summary>
+            输入图像数据	
+            </summary>                                                            
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.nSrcDataLen">
+            <summary>
+            输入图像长度
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.pDstBuf">
+            <summary>
+            输出数据缓存(调用者分配缓存)
+            </summary>                     
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.nDstBufSize">
+            <summary>
+            提供的输出缓冲区大小
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.nDstDataLen">
+            <summary>
+            输出数据长度
+            </summary>                                         
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_RotateImageParam.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_EVType">
+            <summary>
+            事件枚举
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EVType.IMV_FG_OFFLINE">
+            <summary>
+            设备离线通知
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_EVType.IMV_FG_ONLINE">
+            <summary>
+            设备在线通知
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_SConnectArg">
+            <summary>
+            连接事件信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SConnectArg.eventMsg">
+            <summary>
+            事件类型
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SConnectArg.nReserve">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.MsgChannelEvent">
+            <summary>
+            消息通道事件回调参数
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_EXPOSURE_END">
+            <summary>
+            EXPOSURE_END
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_FRAME_TRIGGER">
+            <summary>
+            FRAME_TRIGGER
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_FRAME_START">
+            <summary>
+            FRAME_START
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_ACQ_START">
+            <summary>
+            ACQ_START
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_ACQ_TRIGGER">
+            <summary>
+            ACQ_TRIGGER
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_DATA_READ_OUT">
+            <summary>
+            DATA_READ_OUT
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_FRAME_END">
+            <summary>
+            FRAME_END
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_FRAMEACTIVE_START">
+            <summary>
+            FRAMEACTIVE_START 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_FRAMEACTIVE_END">
+            <summary>
+            FRAMEACTIVE_END
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_FIRST_LINE">
+            <summary>
+            FIRST_LINE
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.MsgChannelEvent.IMV_FG_MSG_EVENT_ID_LAST_LINE">
+            <summary>
+            LAST_LINE
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg">
+            <summary>
+            消息通道事件信息
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.eventId">
+            <summary>
+            事件ID
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.channelId">
+            <summary>
+            消息通道号
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.blockId">
+            <summary>
+            流数据BlockID	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.timeStamp">
+            <summary>
+            时间戳	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.pEventData">
+            <summary>
+            事件数据，内部缓存，需要及时进行数据处理	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.nEventDataSize">
+            <summary>
+            事件数据长度	
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SMsgEventArg.nReserve">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam">
+            <summary>
+            保存图像结构体
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.nWidth">
+            <summary>
+            图像宽
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.nHeight">
+            <summary>
+            图像高
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.ePixelFormat">
+            <summary>
+            像素格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.pSrcData">
+            <summary>
+            输入图像数据
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.nSrcDataLen">
+            <summary>
+            输入数据大小
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.eImageType">
+            <summary>
+            输入图片格式
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.pImagePath">
+            <summary>
+            输入文件路径
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.nQuality">
+            <summary>
+            JPG编码质量(50-99]，PNG编码质量[0-9]
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.eBayerDemosaic">
+            <summary>
+            转换Bayer格式算法 
+            </summary>
+        </member>
+        <member name="F:CaptureCard_Net.IMVFGDefine.IMV_FG_SaveImageToFileParam.nReserved">
+            <summary>
+            预留
+            </summary>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_ConnectCallBack">
+            <summary>
+            设备连接状态事件回调函数声明
+            </summary>
+            <param name="pConnectArg">[in] 回调时主动推送的设备连接状态事件信息</param>
+            <param name="pUser">[in] 用户自定义数据</param>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_FrameCallBack">
+            <summary>
+            帧数据信息回调函数声明
+            </summary>
+            <param name="pFrame">[in]回调时主动推送的帧信息</param>
+            <param name="pUser">[in] 用户自定义数据</param>
+        </member>
+        <member name="T:CaptureCard_Net.IMVFGDefine.IMV_FG_MsgChannelCallBack">
+            <summary>
+            消息通道事件回调函数声明
+            </summary>
+            <param name="pMsgEventArg">[in]回调时主动推送的消息通道事件信息</param>
+            <param name="pUser">[in] 用户自定义数据</param>
+        </member>
+    </members>
+</doc>

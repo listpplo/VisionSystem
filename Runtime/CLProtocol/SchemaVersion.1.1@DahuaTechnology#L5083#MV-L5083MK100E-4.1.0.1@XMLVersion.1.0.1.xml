@@ -1,0 +1,4350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ***************************************** -->
+
+<RegisterDescription VendorName="DahuaTechnology" ModelName="L5083MK100_4" StandardNameSpace="CL" ToolTip="L5083MK100-4 camera description" SchemaMajorVersion="1" SchemaMinorVersion="1" SchemaSubMinorVersion="0" MajorVersion="1" MinorVersion="0" SubMinorVersion="1" ProductGuid="BED84A11-E790-4A22-9080-F50D852BEAF8" VersionGuid="4A5FE808-B112-4181-A6E0-EAA0F3F97DCC" xmlns="http://www.genicam.org/GenApi/Version_1_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_1
+../../GenApi/GenApiSchema_Version_1_1.xsd">
+    <!-- ***************************************** -->
+    <!-- RootCategory -->
+    <!-- ***************************************** -->
+    <Group Comment="RootCategory">
+        <Category Name="Root" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pFeature>DeviceControl</pFeature>
+            <pFeature>ImageFormatControl</pFeature>
+            <pFeature>AcquisitionControl</pFeature>
+            <pFeature>GainOffset</pFeature>
+            <pFeature>LUTControl</pFeature>
+            <pFeature>TransportLayerControl</pFeature>
+            <pFeature>UserSetControl</pFeature>
+            <pFeature>FlatFieldCorrection</pFeature>
+            <pFeature>LineProfilAverage</pFeature>
+			<pFeature>ImageControl</pFeature>                                                
+            <pFeature>Factory</pFeature>
+            <pFeature>GraphicControl</pFeature>
+        </Category>
+    </Group>
+    <!-- ***************************************** -->
+    <!-- SubCategories -->
+    <!-- ***************************************** -->
+    <Group Comment="SubCategories">
+        <Category Name="DeviceControl" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Category for Device information and control.</ToolTip>
+            <Description>Category for Device information and control.</Description>
+            <DisplayName>Device Control</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pFeature>DeviceVendorName</pFeature>
+            <pFeature>DeviceVendorName1</pFeature>
+            <pFeature>DeviceModelName</pFeature>
+            <pFeature>DeviceModelName1</pFeature>
+            <pFeature>DeviceManufacturerInfo</pFeature>
+            <pFeature>DeviceManufacturerInfo1</pFeature>
+            <pFeature>DeviceVersion</pFeature>
+            <pFeature>DeviceVersion1</pFeature>
+            <pFeature>DeviceFirmwareVersion</pFeature>
+            <pFeature>DeviceSFNCVersionMajor</pFeature>
+            <pFeature>DeviceSFNCVersionMinor</pFeature>
+            <pFeature>DeviceSFNCVersionSubMinor</pFeature>
+            <pFeature>DeviceSerialNumber</pFeature>
+            <pFeature>DeviceSerialNumber1</pFeature>
+            <pFeature>DeviceUserID</pFeature>
+            <pFeature>ElectronicBoardID</pFeature>
+            <pFeature>ElectronicBoardTestStatus</pFeature>
+            <pFeature>DeviceTemperatureSelector</pFeature>
+            <pFeature>DeviceTemperature</pFeature>
+            <pFeature>DeviceSerialPortSelector</pFeature>
+            <pFeature>DeviceSerialPortBaudRate</pFeature>
+            <pFeature>DeviceScanType</pFeature>
+            <pFeature>Standby</pFeature>
+            <pFeature>Status</pFeature>
+        </Category>
+        
+         <Category Name="Status" NameSpace="Custom">
+            <ToolTip>Category for camera statusfeatures.</ToolTip>
+            <Description>Category for camera statusfeatures.</Description>
+            <DisplayName>Status</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>StatusErrorHardware</pFeature>
+			<pFeature>StatusWarningFfcOrBalanceUdf</pFeature>
+			<pFeature>StatusWarningFfcOrBalanceOvf</pFeature>
+			<pFeature>StatusWaitForTrigger</pFeature>
+			<pFeature>StatusTriggerTooFast</pFeature>
+			
+			<!-- <pFeature>Status3V7</pFeature>
+			<pFeature>Status3V3</pFeature>
+			<pFeature>Status3V3ANA</pFeature>
+			<pFeature>Status1V8</pFeature>
+			<pFeature>Status1V8ANA</pFeature>
+			<pFeature>Status1V2</pFeature> -->
+			<pFeature>StatusScrollingDirection</pFeature>
+			<pFeature>StatusSensorPattern</pFeature>
+		</Category>
+        
+        <Category Name="ImageFormatControl" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Category for Image Format Control features.</ToolTip>
+            <Description>Category for Image Format Control features.</Description>
+            <DisplayName>Image Format Control</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pFeature>SensorWidth</pFeature>
+            <pFeature>SensorHeight</pFeature>
+            <pFeature>WidthMax</pFeature>
+            <pFeature>HeightMax</pFeature>
+            <pFeature>Width</pFeature>
+            <pFeature>Height</pFeature>
+            <pFeature>InputSource</pFeature>
+            <pFeature>OutputMode</pFeature>
+            <pFeature>OutputFrequency</pFeature>
+			<pFeature>SensorMode</pFeature>
+			<pFeature>MultiLineGain</pFeature>
+			<pFeature>ScanDirection</pFeature>
+            <pFeature>ReverseX</pFeature>
+            <pFeature>PixelFormat</pFeature>
+            <pFeature>PixelCoding</pFeature>
+            <pFeature>PixelSize</pFeature>
+            <pFeature>PixelColorFilter</pFeature>
+            <pFeature>PixelDynamicRangeMin</pFeature>
+            <pFeature>PixelDynamicRangeMax</pFeature>
+            <pFeature>TestImageSelector</pFeature>
+            <pFeature>ROIWidth</pFeature>            
+        </Category>
+        <Category Name="AcquisitionControl" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Category for the acquisition and trigger control features.</ToolTip>
+            <Description>Category for the acquisition and trigger control features.</Description>
+            <DisplayName>Acquisition Control</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>LinePeriodMin</pFeature>
+			<pFeature>LinePeriod</pFeature>
+			<pFeature>SynchroMode</pFeature>
+            <!-- <pFeature>AcquisitionLineRate</pFeature> -->
+            <pFeature>ExposureTime</pFeature>
+            <pFeature>TriggerTooSlow</pFeature>            
+        </Category>
+        
+		<!-- Gain & Offset features	============================= -->
+		<Category Name="GainOffset" NameSpace="Custom">
+			<ToolTip>Groups all gain and offset settings.</ToolTip>
+			<Description>Groups all gain and offset settings.</Description>
+			<DisplayName>Gains &amp; Offsets</DisplayName>
+			<pFeature>PreampGain</pFeature>
+			<pFeature>Gain</pFeature>
+			<pFeature>Offset</pFeature>
+			<pFeature>DigitalGain</pFeature>
+			<pFeature>DigitalGainTapSelector</pFeature>
+            <pFeature>DigitalGainTap</pFeature>
+            <pFeature>DigitalGainTapEnable</pFeature>
+            <pFeature>RoiGainG</pFeature>
+            <pFeature>RoiGainR</pFeature>
+			<pFeature>StabilizedGain</pFeature>			                                   
+		</Category>
+        
+        <Category Name="LUTControl" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Category that includes the LUT control features.</ToolTip>
+            <Description>Category that includes the LUT control features.</Description>
+            <DisplayName>LUTControl</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pFeature>LUTEnable</pFeature>
+            <pFeature>LUTValueAll</pFeature>
+            <pFeature>LUTValueSize</pFeature>
+            <pFeature>SaveRestoreLUT</pFeature>
+        </Category>
+        <Category Name="TransportLayerControl" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Category that contains the Transport layer control features.</ToolTip>
+            <Description>Category that contains the Transport layer control features.</Description>
+            <DisplayName>Transport Layer Control</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pFeature>PayloadSize</pFeature>
+            <pFeature>ClConfiguration</pFeature>
+            <pFeature>ClTimeSlotsCount</pFeature>
+            <pFeature>DeviceTapGeometry</pFeature>
+        </Category>
+        <Category Name="UserSetControl" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Category that contains the User Set control features.</ToolTip>
+            <Description>Category that contains the User Set control features.</Description>
+            <DisplayName>User Set Control</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pFeature>UserSetSelector</pFeature>
+            <pFeature>UserSetLoad</pFeature>
+            <pFeature>UserSetSave</pFeature>
+            <pFeature>CurrentUserSet</pFeature>
+        </Category>
+    </Group>
+    <!-- ***************************************** -->
+    <!-- DeviceControl -->
+    <!-- ***************************************** -->
+    <Group Comment="DeviceControl">
+        <StringReg Name="DeviceVendorName" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Name of the manufacturer of the device.</ToolTip>
+            <Description>Name of the manufacturer of the device.</Description>
+            <DisplayName>Device Vendor Name</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>IsUserMode</pIsLocked>
+            <Address>0x64766E6D</Address>
+            <Length>32</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceVendorName1" NameSpace="Custom">
+            <ToolTip>Name of the manufacturer 1 of the device.</ToolTip>
+            <Description>Name of the manufacturer 1 of the device.</Description>
+            <DisplayName>Device Vendor Name 1</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsImplemented>IsNotUserMode</pIsImplemented>
+            <pIsLocked>IsNotFactoryMode</pIsLocked>
+            <Address>0x76646E6D</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceModelName" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Model of the device.</ToolTip>
+            <Description>Model of the device.</Description>
+            <DisplayName>Device Model Name</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>IsUserMode</pIsLocked>
+            <Address>0x646D6E6D</Address>
+            <Length>32</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceModelName1" NameSpace="Custom">
+            <ToolTip>Model 1 of the device.</ToolTip>
+            <Description>Model 1 of the device.</Description>
+            <DisplayName>Device Model Name 1</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsImplemented>IsNotUserMode</pIsImplemented>
+            <pIsLocked>IsNotFactoryMode</pIsLocked>
+            <Address>0x6D646E6D</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceManufacturerInfo" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Manufacturer information about the device.</ToolTip>
+            <Description>Manufacturer information about the device.</Description>
+            <DisplayName>Device Manufacturer Info</DisplayName>
+            <Visibility>Beginner</Visibility>
+			<pIsLocked>IsUserMode</pIsLocked>
+			<Streamable>Yes</Streamable>
+			<Address>0x646D6669</Address>
+            <Length>48</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceManufacturerInfo1" NameSpace="Custom">
+            <ToolTip>Manufacturer information 1 about the device.</ToolTip>
+            <Description>Manufacturer information 1 about the device.</Description>
+            <DisplayName>Device Manufacturer Info 1</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsImplemented>IsNotUserMode</pIsImplemented>
+            <pIsLocked>IsNotFactoryMode</pIsLocked>
+			<Streamable>Yes</Streamable>
+            <Address>0x69646E62</Address>
+            <Length>48</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceVersion" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Version of the device.</ToolTip>
+            <Description>Version of the device.</Description>
+            <DisplayName>Device Version</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsLocked>IsUserMode</pIsLocked>
+            <Streamable>Yes</Streamable>
+            <Address>0x64767673</Address>
+            <Length>32</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceVersion1" NameSpace="Custom">
+            <ToolTip>Version 1 of the device.</ToolTip>
+            <Description>Version 1 of the device.</Description>
+            <DisplayName>Device Version 1</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsImplemented>IsNotUserMode</pIsImplemented>
+            <pIsLocked>IsNotFactoryMode</pIsLocked>
+            <Streamable>Yes</Streamable>
+            <Address>0x64687776</Address>
+            <Length>32</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceFirmwareVersion" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Version of the firmware in the device.</ToolTip>
+            <Description>Version of the firmware in the device.</Description>
+            <DisplayName>Device Firmware Version</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Address>0x64667776</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        <Integer Name="DeviceSFNCVersionMajor" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Major Version of the Standard Feature Naming Convention that was used to create the device`s XML.</ToolTip>
+            <Description>Major Version of the Standard Feature Naming Convention that was used to create the device`s XML.</Description>
+            <DisplayName>Device SFNCVersion Major</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>1</Value>
+        </Integer>
+        <Integer Name="DeviceSFNCVersionMinor" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Minor Version of the Standard Feature Naming Convention that was used to create the device`s XML.</ToolTip>
+            <Description>Minor Version of the Standard Feature Naming Convention that was used to create the device`s XML</Description>
+            <DisplayName>Device SFNCVersion Minor</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>5</Value>
+        </Integer>
+        <Integer Name="DeviceSFNCVersionSubMinor" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Sub Minor Version of Standard Feature Naming Convention that was used to create the device`s XML.</ToolTip>
+            <Description>Sub Minor Version of Standard Feature Naming Convention that was used to create the device`s XML.</Description>
+            <DisplayName>Device SFNCVersion Sub Minor</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>0</Value>
+        </Integer>
+      
+        <StringReg Name="DeviceSerialNumber" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Device Identifier (serial number).</ToolTip>
+            <Description>Device Identifier (serial number).</Description>
+            <DisplayName>Device Serial Number</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pIsLocked>IsUserMode</pIsLocked>
+            <Streamable>Yes</Streamable>
+            <Address>0x64736E62</Address>
+            <Length>16</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceSerialNumber1" NameSpace="Custom">
+            <ToolTip>Device Identifier 1(serial number).</ToolTip>
+            <Description>Device Identifier 1 (serial number).</Description>
+            <DisplayName>Device Serial Number 1</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pIsImplemented>IsNotUserMode</pIsImplemented>
+            <pIsLocked>IsNotFactoryMode</pIsLocked>
+            <Streamable>Yes</Streamable>
+            <Address>0x64656964</Address>
+            <Length>16</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+        
+        <StringReg Name="DeviceUserID" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>User-programmable Device Identifier.</ToolTip>
+            <Description>User-programmable Device Identifier.</Description>
+            <DisplayName>Device User ID</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+            <Address>0x63757374</Address>
+            <Length>16</Length>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+		<StringReg Name="ElectronicBoardID" NameSpace="Custom">
+			<ToolTip>Electronic board ID</ToolTip>
+			<Description>Electronic board ID</Description>
+			<DisplayName>Electronic Board ID</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pIsLocked>IsNotFactoryMode</pIsLocked>
+			<Streamable>Yes</Streamable>
+			<Address>0x626F6964</Address>
+			<Length>32</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+		<StringReg Name="ElectronicBoardTestStatus" NameSpace="Custom">
+			<ToolTip>Electronic board test status</ToolTip>
+			<Description>Electronic board test status</Description>
+			<DisplayName>Electronic Board Test Status</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pIsLocked>IsNotFactoryMode</pIsLocked>
+			<Address>0x626F7374</Address>
+			<Length>16</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+		</StringReg>
+        
+       
+        <Enumeration Name="DeviceTemperatureSelector" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Selects the location within the device, where the temperature will be measured.</ToolTip>
+            <Description>Selects the location within the device, where the temperature will be measured.</Description>
+            <DisplayName>Device Temperature Selector</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="Mainboard" NameSpace="Standard">
+                <DisplayName>Mainboard</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <Value>0</Value>
+            <pSelected>DeviceTemperature</pSelected>
+        </Enumeration>
+        <Float Name="DeviceTemperature" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Device temperature in degrees Celsius (C).</ToolTip>
+            <Description>Device temperature in degrees Celsius (C). It is measured at the location selected by DeviceTemperatureSelector.</Description>
+            <DisplayName>Device Temperature</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pValue>DeviceTemperatureSW</pValue>
+            <Unit>C</Unit>
+        </Float>
+        <SwissKnife Name="DeviceTemperatureSW">
+			<Description>Format: Q10.2</Description>
+			<pVariable Name="DT">DeviceTemperatureReg</pVariable>
+			<Formula><![CDATA[ DT / 4 ]]></Formula>
+		</SwissKnife>
+        <IntReg Name="DeviceTemperatureReg">
+			<Address>0x74656D70</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Signed</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="Standby" NameSpace="Custom">
+			<ToolTip>Standby state</ToolTip>
+			<Description>Standby state</Description>
+			<DisplayName>Standby state</DisplayName>
+			<Visibility>Expert</Visibility>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="Disable">
+				<ToolTip>Disable</ToolTip>
+				<Description>Disable</Description>
+				<DisplayName>Disable</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="Enable">
+				<ToolTip>Enable</ToolTip>
+				<Description>Enable</Description>
+				<DisplayName>Enable</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>StandbyReg</pValue>
+		</Enumeration>
+		<IntReg Name="StandbyReg">
+			<Address>0x73746279</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		
+		<StructReg Comment="StatusErrorHardware">
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="StatusErrorHardware" NameSpace="Custom">
+				<ToolTip>Status Error Hardware</ToolTip>
+				<DisplayName>Error on hardware</DisplayName>
+				<Visibility>Expert</Visibility>
+				<Bit>16</Bit>
+				<Sign>Unsigned</Sign>
+			</StructEntry>
+		</StructReg> 
+		<StructReg Comment="StatusWaitForTrigger">
+			<pIsAvailable>IsNotFreeRunMode</pIsAvailable>
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>SynchroModeReg</pInvalidator>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="StatusWaitForTrigger" NameSpace="Custom">
+				<ToolTip>If the camera waits for a trigger, this bit is set</ToolTip>
+				<DisplayName>Status wait for trigger</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Bit>0</Bit>
+			</StructEntry>
+		</StructReg>
+		<StructReg Comment="StatusTriggerTooFast">
+			<pIsAvailable>IsNotFreeRunMode</pIsAvailable>
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>SynchroModeReg</pInvalidator>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="StatusTriggerTooFast" NameSpace="Custom">
+				<ToolTip>If the camera triggers too fast, this bit is set</ToolTip>
+				<DisplayName>Status trigger too fast</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Bit>1</Bit>
+			</StructEntry>
+		</StructReg>
+		<StructReg Comment="StatusBalance">
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>FPNCalibrationCtrlReg</pInvalidator>
+			<pInvalidator>FFCalibrationCtrlReg</pInvalidator>
+			<pInvalidator>SynchroModeReg</pInvalidator>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="StatusWarningFfcOrBalanceOvf" NameSpace="Custom">
+				<ToolTip>Status warning FFC or balance overflow (input signal or parameters)</ToolTip>
+				<!--			<Description>Status warning FFC or balance overflow (input signal or parameters)</Description>-->
+				<DisplayName>Status warning FFC or balance overflow</DisplayName>
+				<Visibility>Expert</Visibility>
+				<Bit>8</Bit>
+			</StructEntry>
+			<StructEntry Name="StatusWarningFfcOrBalanceUdf" NameSpace="Custom">
+				<ToolTip>Status warning FFC or balance underflow (input signal or parameters)</ToolTip>
+				<!--			<Description>Status warning FFC or balance underflow (input signal or parameters)</Description>-->
+				<DisplayName>Status warning FFC or balance underflow</DisplayName>
+				<Visibility>Expert</Visibility>
+				<Bit>9</Bit>
+			</StructEntry>
+		</StructReg>
+		
+	<!-- 	
+		<StructReg Comment="StatusVoltage">
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="Status3V7" NameSpace="Custom">
+				<ToolTip>If 3V7 failure, this bit is set</ToolTip>
+				<DisplayName>Status 3V7</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>3</Bit>
+			</StructEntry>
+			<StructEntry Name="Status3V3" NameSpace="Custom">
+				<ToolTip>If 3V3 failure, this bit is set</ToolTip>
+				<DisplayName>Status 3V3</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>4</Bit>
+			</StructEntry>
+			<StructEntry Name="Status3V3ANA" NameSpace="Custom">
+				<ToolTip>If 3V3 ANA failure, this bit is set</ToolTip>
+				<DisplayName>Status 3V3 ANA</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>5</Bit>
+			</StructEntry>
+			<StructEntry Name="Status1V8" NameSpace="Custom">
+				<ToolTip>If 1V8 failure, this bit is set</ToolTip>
+				<DisplayName>Status 1V8</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>6</Bit>
+			</StructEntry>
+			<StructEntry Name="Status1V8ANA" NameSpace="Custom">
+				<ToolTip>If 1V8 ANA failure, this bit is set</ToolTip>
+				<DisplayName>Status 1V8 ANA</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>7</Bit>
+			</StructEntry>
+			<StructEntry Name="Status1V2" NameSpace="Custom">
+				<ToolTip>If 1V2 failure, this bit is set</ToolTip>
+				<DisplayName>Status 1V2 </DisplayName>
+				<Visibility>Beginner</Visibility>
+				<pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>10</Bit>
+			</StructEntry>
+		</StructReg>
+		-->
+		
+		 <Enumeration Name="StatusScrollingDirection" NameSpace="Custom">
+            <ToolTip>Status scrolling direction.</ToolTip>
+            <Description>Selects the clock frequency to access from the device.</Description>
+            <DisplayName>Status scrolling direction.</DisplayName>
+            <EnumEntry Name="StatusReverse" NameSpace="Standard">
+                <ToolTip>Reverse</ToolTip>
+                <Description>Reverse.</Description>
+                <DisplayName>Reverse</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="StatusForward" NameSpace="Standard">
+                <ToolTip>Forward</ToolTip>
+                <Description>Forward.</Description>
+                <DisplayName>Forward</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <pValue>StatusScrollingDirectionReg</pValue>
+        </Enumeration>
+		<StructReg Comment="StatusScrollingDirectionStruct">
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>ScanDirectionReg</pInvalidator>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="StatusScrollingDirectionReg" NameSpace="Custom">
+				<Bit>11</Bit>
+			</StructEntry>
+		</StructReg>
+		
+		<StructReg Comment="StatusSensorPatternStruct">
+			<Address>0x73746174</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>InputSourceReg</pInvalidator>
+			<Endianess>LittleEndian</Endianess>
+			<StructEntry Name="StatusSensorPattern" NameSpace="Custom">
+				<ToolTip>If sensor pattern checking failed, this bit is set</ToolTip>
+                <Description>If sensor pattern checking failed, this bit is set</Description>
+                <DisplayName>Status Sensor Pattern</DisplayName>
+                <pIsImplemented>IsFactoryMode</pIsImplemented>
+				<Bit>2</Bit>
+			</StructEntry>
+		</StructReg>
+        
+  
+        <Enumeration Name="DeviceSerialPortSelector" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Selects which device serial port to control.</ToolTip>
+            <Description>Selects which device serial port to control.</Description>
+            <DisplayName>Device Serial Port Selector</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="CameraLink" NameSpace="Standard">
+                <DisplayName>Camera Link</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <Value>0</Value>
+            <pSelected>DeviceSerialPortBaudRate</pSelected>
+        </Enumeration>
+        <Enumeration Name="DeviceSerialPortBaudRate" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>This feature controls the baud rate used by the selected device's serial port.</ToolTip>
+            <Description>This feature controls the baud rate used by the selected device's serial port. Typical values listed should be used whenever possible. Arbitrary values can also be used by defining new enumeration entries.</Description>
+            <DisplayName>Device Serial Port Baud Rate</DisplayName>
+            <Visibility>Expert</Visibility>
+            <Streamable>Yes</Streamable>
+            <EnumEntry Name="Baud9600" NameSpace="Standard">
+                <DisplayName>Baud 9600</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="Baud19200" NameSpace="Standard">
+                <DisplayName>Baud 19200</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            <EnumEntry Name="Baud57600" NameSpace="Standard">
+                <DisplayName>Baud 57600</DisplayName>
+                <Value>6</Value>
+            </EnumEntry>
+            <EnumEntry Name="Baud115200" NameSpace="Standard">
+                <DisplayName>Baud 115200</DisplayName>
+                <Value>12</Value>
+            </EnumEntry>
+            <pValue>ComBaudRateReg</pValue>
+        </Enumeration>
+        <IntReg Name="ComBaudRateReg">
+			<Address>0x62617564</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+        <Enumeration Name="DeviceScanType" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Scan type of the sensor of the device.</ToolTip>
+            <Description>Scan type of the sensor of the device.</Description>
+            <DisplayName>Device Scan Type</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="Linescan" NameSpace="Standard">
+                <ToolTip>1D sensor</ToolTip>
+                <Description>1D sensor</Description>
+                <DisplayName>Linescan</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <Value>0</Value>
+        </Enumeration>
+    </Group>
+    <!-- ***************************************** -->
+    <!-- ImageFormatControl -->
+    <!-- ***************************************** -->
+    <Group Comment="ImageFormatControl">
+        <Integer Name="SensorWidth" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Effective width of the sensor in pixels.</ToolTip>
+            <Description>Effective width of the sensor in pixels.</Description>
+            <DisplayName>Sensor Width</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>CCDSizeReg</pValue>
+        </Integer>
+		<IntReg Name="CCDSizeReg" NameSpace="Custom">
+			<Address>0x736E7377</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="InputSource" NameSpace="Custom">
+			<ToolTip>Input source</ToolTip>
+			<Description>Input source</Description>
+			<DisplayName>Input source</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="InputSource0">
+				<ToolTip>Set signal source to CMOS sensor, processing chaine activated</ToolTip>
+				<Description>Set signal source to CMOS sensor, processing chaine activated</Description>
+				<DisplayName>CMOS Sensor processsing chain on</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource1"> 
+				<ToolTip>Set signal source to A fixed pattern from CMOS sensor, processing chaine desactivated</ToolTip>
+				<Description>Set signal source to A fixed pattern from CMOS sensor, processing chaine desactivated</Description>
+				<DisplayName>CMOS sensor A fixed pattern</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource2"> 
+				<ToolTip>Set signal source to rolled pattern from CMOS sensor, processing chaine desactivated</ToolTip>
+				<Description>Set signal source to rolled pattern from CMOS sensor, processing chaine desactivated</Description>
+				<DisplayName>CMOS sensor rolled pattern</DisplayName>
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource3"> 
+				<ToolTip>Set signal source to B fixed pattern from CMOS sensor, processing chaine desactivated</ToolTip>
+				<Description>Set signal source to B fixed pattern from CMOS sensor, processing chaine desactivated</Description>
+				<DisplayName>CMOS sensor B fixed pattern</DisplayName>
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource4"> 
+				<ToolTip>Set Signal Source to FPGA input pattern, processing chaine desactivated</ToolTip>
+				<Description>Set Signal Source to FPGA input pattern, processing chaine desactivated</Description>
+				<DisplayName>FPGA input pattern</DisplayName>
+				<Value>4</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource5"> 
+				<ToolTip>Set Signal Source to FPGA input pattern + synchro generated inside FPGA, processing chaine desactivated</ToolTip>
+				<Description>Set Signal Source to FPGA input pattern + synchro generated inside FPGA, processing chaine desactivated</Description>
+				<DisplayName>FPGA input pattern &amp; FPGA Synchro</DisplayName>
+				<Value>5</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource6"> 
+				<ToolTip>Set Signal Source to FPGA input pattern + synchro generated inside FPGA + FPGA processing chaine activated</ToolTip>
+				<Description>Set Signal Source to FPGA input pattern + synchro generated inside FPGA + FPGA processing chaine activated</Description>
+				<DisplayName>FPGA input pattern &amp; FPGA Synchro &amp; FPGA Processing</DisplayName>
+				<Value>6</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource7"> 
+				<ToolTip>Set Signal Source to FPGA input pattern (Darkness 1 simulation) + synchro generated inside FPGA + FPGA processing chaine activated</ToolTip>
+				<Description>Set Signal Source to FPGA input pattern (Darkness 1 simulation) + synchro generated inside FPGA + FPGA processing chaine activated</Description>
+				<DisplayName>FPGA input pattern Darkness1 &amp; FPGA Synchro &amp; FPGA Processing</DisplayName>
+				<Value>7</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource8"> 
+				<ToolTip>Set Signal Source to FPGA input pattern (Darkness 2 simulation) + synchro generated inside FPGA + FPGA processing chaine activated</ToolTip>
+				<Description>Set Signal Source to FPGA input pattern (Darkness 2 simulation) + synchro generated inside FPGA + FPGA processing chaine activated</Description>
+				<DisplayName>FPGA input pattern Darkness2 &amp; FPGA Synchro &amp; FPGA Processing</DisplayName>
+				<Value>8</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource9"> 
+				<ToolTip>Set Signal Source to FPGA input pattern (Lightness simulation) + synchro generated inside FPGA + FPGA processing chaine activated</ToolTip>
+				<Description>Set Signal Source to FPGA input pattern (Lightness simulation) + synchro generated inside FPGA + FPGA processing chaine activated</Description>
+				<DisplayName>FPGA input pattern Lightness &amp; FPGA Synchro &amp; FPGA Processing</DisplayName>
+				<Value>9</Value>
+			</EnumEntry>
+			<EnumEntry Name="InputSource10"> 
+				<ToolTip>Set signal source to CMOS sensor, processing chaine desactivated</ToolTip>
+				<Description>Set signal source to CMOS sensor, processing chaine desactivated</Description>
+				<DisplayName>CMOS Sensor processsing chain off</DisplayName>
+				<Value>10</Value>
+			</EnumEntry>
+			<pValue>InputSourceReg</pValue>
+		</Enumeration>
+		<IntReg Name="InputSourceReg">
+			<Address>0x69737263</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="OutputMode" NameSpace="Custom">
+           <ToolTip>Output mode</ToolTip>
+			<Description>Output mode</Description>
+			<DisplayName>Output Mode</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+            <EnumEntry Name="Medium4Outputs8bits" NameSpace="Custom">
+                <ToolTip>Medium 4 Outputs 8bits.</ToolTip>
+                <Description>Medium 4 Outputs 8bits.</Description>
+                <DisplayName>Medium 4 Outputs 8bits</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+              <EnumEntry Name="Medium4Outputs10bits" NameSpace="Custom">
+                <ToolTip>Medium 4 Outputs 10bits.</ToolTip>
+                <Description>Medium 4 Outputs 10bits.</Description>
+                <DisplayName>Medium 4 Outputs 10bits</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+             <EnumEntry Name="Medium4Outputs12bits" NameSpace="Custom">
+                <ToolTip>Medium 4 Outputs 12bits.</ToolTip>
+                <Description>Medium 4 Outputs 12bits.</Description>
+                <DisplayName>Medium 4 Outputs 12bits</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+             <EnumEntry Name="Full8Outputs8bits" NameSpace="Custom">
+                <ToolTip>Full 8 Outputs 8bits.</ToolTip>
+                <Description>Full 8 Outputs 8bits.</Description>
+                <DisplayName>Full 8 Outputs 8bits</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            <EnumEntry Name="FullPlus10Outputs8bits" NameSpace="Custom">
+                <ToolTip>Full Plus 10 Outputs 8bits.</ToolTip>
+                <Description>Full Plus 10 Outputs 8bits.</Description>
+                <DisplayName>Full Plus 10 Outputs 8bits</DisplayName>
+                <pIsAvailable>IsNotModeBinned</pIsAvailable>
+                <Value>3</Value>
+            </EnumEntry>
+             <EnumEntry Name="Base2Outputs8bits" NameSpace="Custom">
+                <ToolTip>Base 2 Outputs 8bits.</ToolTip>
+                <Description>Base 2 Outputs 8bits.</Description>
+                <DisplayName>Base 2 Outputs 8bits</DisplayName>
+                <Value>5</Value>
+            </EnumEntry>
+              <EnumEntry Name="Base2Outputs10bits" NameSpace="Custom">
+                <ToolTip>Base 2 Outputs 10bits.</ToolTip>
+                <Description>Base 2  Outputs 10bits.</Description>
+                <DisplayName>Base 2 Outputs 10bits</DisplayName>
+                <Value>6</Value>
+            </EnumEntry>
+             <EnumEntry Name="Base2Outputs12bits" NameSpace="Custom">
+                <ToolTip>Base 2  Outputs 12bits.</ToolTip>
+                <Description>Base 2  Outputs 12bits.</Description>
+                <DisplayName>Base 2  Outputs 12bits</DisplayName>
+                <Value>7</Value>
+            </EnumEntry>
+            <pValue>OutputModeReg</pValue>
+        </Enumeration>
+        <IntReg Name="OutputModeReg">
+			<Address>0x6D6F6465</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="IsNotModeBinned">
+			<pVariable Name="SENSORMODE">SensorMode</pVariable>
+			<Formula><![CDATA[ (SENSORMODE >2) ? 0 : 1 ]]></Formula>
+		</IntSwissKnife>
+		
+		<Enumeration Name="OutputFrequency" NameSpace="Custom">
+           <ToolTip>Output frequency</ToolTip>
+			<Description>Output frequency</Description>
+			<DisplayName>Output Frequency</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+            <EnumEntry Name="Freq60MHz" NameSpace="Custom">
+                <ToolTip>60 MHz.</ToolTip>
+                <Description>60 MHz.</Description>
+                <DisplayName>60 MHz</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="Freq65MHz" NameSpace="Custom">
+                <ToolTip>65 MHz.</ToolTip>
+                <Description>65 MHz.</Description>
+                <DisplayName>65 MHz</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            <EnumEntry Name="Freq70MHz" NameSpace="Custom">
+                <ToolTip>70 MHz.</ToolTip>
+                <Description>70 MHz.</Description>
+                <DisplayName>70 MHz</DisplayName>
+                <Value>3</Value>
+            </EnumEntry>
+            <EnumEntry Name="Freq75MHz" NameSpace="Custom">
+                <ToolTip>75 MHz.</ToolTip>
+                <Description>75 MHz.</Description>
+                <DisplayName>75 MHz</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+            <EnumEntry Name="Freq80MHz" NameSpace="Custom">
+                <ToolTip>80 MHz.</ToolTip>
+                <Description>80 MHz.</Description>
+                <DisplayName>80 MHz</DisplayName>
+                <Value>5</Value>
+            </EnumEntry>
+             <EnumEntry Name="Freq85MHz" NameSpace="Custom">
+                <ToolTip>85 MHz.</ToolTip>
+                <Description>85 MHz.</Description>
+                <DisplayName>85 MHz</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <pValue>OutputFrequencyReg</pValue>
+        </Enumeration>
+		 <IntSwissKnife Name="Is8KSensor">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ (SENSORWIDTH = 8192) ? 1 : 0 ]]></Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="Is12KSensor">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ (SENSORWIDTH = 12288) ? 1 : 0 ]]></Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="Is16KSensor">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ (SENSORWIDTH = 16384) ? 1 : 0 ]]></Formula>
+		</IntSwissKnife>
+
+		
+        
+        <IntReg Name="OutputFrequencyReg">
+			<Address>0x636C6671</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="SensorMode" NameSpace="Custom">
+			<ToolTip>Sensor mode</ToolTip>
+			<Description>Sensor mode</Description>
+			<DisplayName>Sensor Mode</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="SensorMode1S">
+				<ToolTip>1S</ToolTip>
+				<Description>1S</Description>
+				<DisplayName>1S</DisplayName>
+				<pIsAvailable>Mode1SAvailable</pIsAvailable>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="SensorMode2S">
+				<ToolTip>2S</ToolTip>
+				<Description>2S</Description>
+				<DisplayName>2S</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="SensorMode4S">
+				<ToolTip>4S</ToolTip>
+				<Description>4S</Description>
+				<DisplayName>4S</DisplayName>
+				<pIsAvailable>Mode4SAvailable</pIsAvailable>
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="SensorMode1SB">
+				<ToolTip>1SB</ToolTip>
+				<Description>1SB</Description>
+				<DisplayName>1SB</DisplayName>
+				<pIsAvailable>IsNotModeDeca</pIsAvailable>				
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="SensorMode2SB">
+				<ToolTip>2SB</ToolTip>
+				<Description>2SB</Description>
+				<DisplayName>2SB</DisplayName>
+				<pIsAvailable>IsNotModeDeca</pIsAvailable>				
+				<Value>4</Value>
+			</EnumEntry>
+			<EnumEntry Name="SensorMode4SB">
+				<ToolTip>4SB</ToolTip>
+				<Description>4SB</Description>
+				<DisplayName>4SB</DisplayName>
+				<pIsAvailable>IsNotModeDeca</pIsAvailable>								
+				<Value>5</Value>
+			</EnumEntry>
+			<pValue>SensorModeReg</pValue>
+		</Enumeration>
+		<IntReg Name="SensorModeReg">
+			<Address>0x736D6F64</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="Mode1SAvailable">
+			<pVariable Name="MULTILINEGAIN">MultiLineGainReg</pVariable>
+			<Formula><![CDATA[ (MULTILINEGAIN = 1) ? 0 : 1 ]]></Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="Mode4SAvailable">
+			<pVariable Name="SYNCHROMODE">SynchroMode</pVariable>
+			<Formula><![CDATA[ (SYNCHROMODE = 0) ? 0 : ((SYNCHROMODE = 4) ? 0 : 1) ]]></Formula>
+		</IntSwissKnife>
+
+		<IntSwissKnife Name="IsNotModeDeca">
+			<pVariable Name="OUTPUTMODE">OutputModeReg</pVariable>
+			<Constant Name="DECAMODEOUTPUT8BITS">3</Constant>
+			<Formula><![CDATA[ (OUTPUTMODE = DECAMODEOUTPUT8BITS) ? 0 : 1 ]]></Formula>
+		</IntSwissKnife>
+		
+		
+		<Enumeration Name="MultiLineGain" NameSpace="Custom">
+			<ToolTip>Multi Line Gain</ToolTip>
+			<Description>Multi Line Gain</Description>
+			<DisplayName>Multi Line Gain</DisplayName>
+			<Visibility>Expert</Visibility>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="MultiLineGainx1">
+				<ToolTip>x1</ToolTip>
+				<Description>x1</Description>
+				<DisplayName>x1</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="MultiLineGainx1div2">
+				<ToolTip>x1/2</ToolTip>
+				<Description>x1/2</Description>
+				<DisplayName>x1/2</DisplayName>
+				<pIsAvailable>MultiLineGainx2Available</pIsAvailable>
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>MultiLineGainReg</pValue>
+		</Enumeration>
+		<IntSwissKnife Name="MultiLineGainx2Available">
+			<pVariable Name="SENSORMODE">SensorModeReg</pVariable>
+			<Formula><![CDATA[ (SENSORMODE = 0) ? 0 : 1 ]]></Formula>
+		</IntSwissKnife>
+		<IntReg Name="MultiLineGainReg">
+			<Address>0x6D6C6967</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="ScanDirection" NameSpace="Custom">
+			<ToolTip>Scan direction</ToolTip>
+			<Description>Scan direction</Description>
+			<DisplayName>Scan Direction</DisplayName>
+			<Visibility>Expert</Visibility>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="Forward">
+				<ToolTip>Forward</ToolTip>
+				<Description>Forward</Description>
+				<DisplayName>Forward</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="Reverse">
+				<ToolTip>Reverse</ToolTip>
+				<Description>Reverse</Description>
+				<DisplayName>Reverse</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExternallyControlled">
+				<ToolTip>Externally controlled</ToolTip>
+				<Description>Externally controlled</Description>
+				<DisplayName>Externally controlled</DisplayName>
+				<Value>2</Value>
+			</EnumEntry>
+			<pValue>ScanDirectionReg</pValue>
+		</Enumeration>
+		<IntReg Name="ScanDirectionReg">
+			<Address>0x73636469</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+        
+        <Integer Name="SensorHeight" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Effective height of the sensor in pixels.</ToolTip>
+            <Description>Effective height of the sensor in pixels.</Description>
+            <DisplayName>Sensor Height</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>1</Value>
+            <Min>1</Min>
+        </Integer>
+       
+        
+        <IntSwissKnife Name="ProcessingCtrlMaxTapsSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH >> 12 ]]></Formula>
+		</IntSwissKnife>
+		
+        <Integer Name="WidthMax" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Maximum width (in pixels) of the image.</ToolTip>
+            <Description>Maximum width (in pixels) of the image. The dimension is calculated after horizontal binning, decimation or any other function changing the horizontal dimension of the image.</Description>
+            <DisplayName>Width Max</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <pValue>Width</pValue>
+        </Integer>
+        <Integer Name="HeightMax" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Maximum height (in pixels) of the image.</ToolTip>
+            <Description>Maximum height (in pixels) of the image. This dimension is calculated after vertical binning, decimation or any other function changing the vertical dimension of the image.</Description>
+            <DisplayName>Height Max</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>1</Value>
+            <Min>1</Min>
+            <pMax>SensorWidth</pMax>
+        </Integer>
+        
+        <Integer Name="Width" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <ToolTip>Width of the Image provided by the device (in pixels).</ToolTip>
+            <Description>Width of the Image provided by the device (in pixels).</Description>
+            <DisplayName>Width</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pValue>WidthSW</pValue>
+        </Integer>
+        <IntSwissKnife Name="WidthSW">
+			<pVariable Name="OUTPUTMODE">OutputModeReg</pVariable>
+			<pVariable Name="SENSORMODE">SensorModeReg</pVariable>
+			<Constant Name="DECAMODEOUTPUT8BITS">3</Constant>
+<Formula><![CDATA[ (OUTPUTMODE = DECAMODEOUTPUT8BITS) ?( ((SENSORMODE <= 2)|(SENSORMODE = 6)) ? 8190 : ((SENSORMODE = 5) ? 2040 : 4090)) : ( ((SENSORMODE <= 2) |(SENSORMODE = 6)) ? 8192 : ((SENSORMODE = 5) ? 2048 : 4096)) ]]></Formula> 
+
+		</IntSwissKnife>
+	
+        <Integer Name="Height" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <ToolTip>Height of the image provided by the device (in pixels).</ToolTip>
+            <Description>Height of the image provided by the device (in pixels).</Description>
+            <DisplayName>Height</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>1</Value>
+            <Min>1</Min>
+            <pMax>HeightMaxSW</pMax>
+        </Integer>
+		 <IntSwissKnife Name="HeightMaxSW">
+			<pVariable Name="HEIGHTMAX">HeightMax</pVariable>
+			<Formula><![CDATA[ HEIGHTMAX ]]></Formula>
+		</IntSwissKnife>
+        
+        <Boolean Name="ReverseX" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Flip horizontally the image sent by the device.</ToolTip>
+            <Description>Flip horizontally the image sent by the device. The AOI is applied after the flipping.</Description>
+            <DisplayName>Reverse X</DisplayName>
+            <Visibility>Expert</Visibility>
+            <Streamable>Yes</Streamable>
+            <pValue>ReverseXReg</pValue>
+        </Boolean>
+        <IntReg Name="ReverseXReg" NameSpace="Custom">
+			<Address>0x72657672</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+                
+        <Enumeration Name="PixelFormat" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <ToolTip>Format of the pixel provided by the device.</ToolTip>
+            <Description>Format of the pixel provided by the device. It represents all the informations provided by PixelCoding, PixelSize, PixelColorFilter but combined in one single value.</Description>
+            <DisplayName>Pixel Format</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <EnumEntry Name="Mono8" NameSpace="Standard">
+                <DisplayName>Mono 8</DisplayName>
+                <Value>0x01080001</Value>
+            </EnumEntry>
+             <EnumEntry Name="Mono10" NameSpace="Standard">
+                <DisplayName>Mono 10</DisplayName>
+                <Value>0x01100003</Value>
+            </EnumEntry>
+            <EnumEntry Name="Mono12" NameSpace="Standard">
+                <DisplayName>Mono 12</DisplayName>
+                <Value>0x01100005</Value>
+            </EnumEntry>
+            <pValue>PixelFormatSW</pValue>
+        </Enumeration>
+        <IntSwissKnife Name="PixelFormatSW">
+			<pVariable Name="OUTPUTMODE">OutputModeReg</pVariable>
+			<Constant Name="MONO8">0x01080001</Constant>
+			<Constant Name="MONO10">0x01100003</Constant>
+			<Constant Name="MONO12">0x01100005</Constant>
+			<Constant Name="MEDIUM4OUTPUT12BITS">1</Constant>
+			<Constant Name="BASE2OUTPUT12BITS">7</Constant>
+			<Constant Name="MEDIUM4OUTPUT10BITS">4</Constant>
+			<Constant Name="BASE2OUTPUT10BITS">6</Constant>
+			<Formula><![CDATA[ ((OUTPUTMODE = MEDIUM4OUTPUT12BITS) || (OUTPUTMODE = BASE2OUTPUT12BITS)) ? MONO12  : (((OUTPUTMODE = MEDIUM4OUTPUT10BITS) || (OUTPUTMODE = BASE2OUTPUT10BITS)) ? MONO10 : MONO8) ]]></Formula>
+		</IntSwissKnife>
+		 
+        <Enumeration Name="PixelCoding" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Coding of the pixels in the image.</ToolTip>
+            <Description>Coding of the pixels in the image. Raw gives the data in the native format of the sensor.</Description>
+            <DisplayName>Pixel Coding</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="Mono" NameSpace="Standard">
+                <DisplayName>Mono</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <Value>0</Value>
+        </Enumeration>
+        <Enumeration Name="PixelSize" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Total size in bits of a pixel of the image.</ToolTip>
+            <Description>Total size in bits of a pixel of the image.</Description>
+            <DisplayName>Pixel Size</DisplayName>
+            <Visibility>Expert</Visibility>
+            <EnumEntry Name="Bpp8" NameSpace="Standard">
+                <DisplayName>Bpp 8</DisplayName>
+                <Value>8</Value>
+            </EnumEntry>
+             <EnumEntry Name="Bpp10" NameSpace="Standard">
+                <DisplayName>Bpp 10</DisplayName>
+                <Value>10</Value>
+            </EnumEntry>
+            <EnumEntry Name="Bpp12" NameSpace="Standard">
+                <DisplayName>Bpp 12</DisplayName>
+                <Value>12</Value>
+            </EnumEntry>
+            <pValue>PixelSizeSw</pValue>
+        </Enumeration>
+        <IntSwissKnife Name="PixelSizeSw">
+			<pVariable Name="PFR">PixelFormat</pVariable>			
+			<Constant Name="MONO8">0x01080001</Constant>
+			<Constant Name="MONO10">0x01100003</Constant>
+			<Constant Name="MONO12">0x01100005</Constant>	
+			<Constant Name="BITS8">8</Constant>
+			<Constant Name="BITS10">10</Constant>
+			<Constant Name="BITS12">12</Constant>
+			 <Formula><![CDATA[ PFR = MONO8 ?  BITS8 : (PFR = MONO10 ? BITS10 : BITS12) ]]></Formula> 
+		</IntSwissKnife>
+        
+        <Enumeration Name="PixelColorFilter" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Type of color filter that is applied to the image.</ToolTip>
+            <Description>Type of color filter that is applied to the image.</Description>
+            <DisplayName>Pixel Color Filter</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="None" NameSpace="Standard">
+                <DisplayName>None</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <Value>0</Value>
+        </Enumeration>
+        <Integer Name="PixelDynamicRangeMin" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Minimum value that can be returned during the digitization process.</ToolTip>
+            <Description>Minimum value that can be returned during the digitization process. This corresponds to the darkest value of the camera. For color camera, this returns the smallest value that each color component can take.</Description>
+            <DisplayName>Pixel Dynamic Range Min</DisplayName>
+            <Visibility>Expert</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Value>0</Value>
+        </Integer>
+        <Integer Name="PixelDynamicRangeMax" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Maximum value that will be returned during the digitization process.</ToolTip>
+            <Description>Maximum value that will be returned during the digitization process. This corresponds to the brightest value of the camera. For color camera, this returns the biggest value that each color component can take.</Description>
+            <DisplayName>Pixel Dynamic Range Max</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pValue>PixelDynamicRangeMaxlSW</pValue>
+        </Integer>
+        <IntSwissKnife Name="PixelDynamicRangeMaxlSW">
+			<pVariable Name="PIXELSIZE">PixelSize</pVariable>
+			<Constant Name="PIXELSIZE_8BITS">8</Constant>
+			<Constant Name="PIXELSIZE_10BITS">10</Constant>
+			<Constant Name="PIXELSIZE_12BITS">12</Constant>
+			<Constant Name="MAX_8BITS">255</Constant>
+			<Constant Name="MAX_10BITS">1024</Constant>
+			<Constant Name="MAX_12BITS">4095</Constant>
+			<Formula><![CDATA[ PIXELSIZE = PIXELSIZE_8BITS ? MAX_8BITS : ((PIXELSIZE = PIXELSIZE_10BITS ) ? MAX_10BITS : MAX_12BITS) ]]></Formula>
+		</IntSwissKnife>
+        
+        <Enumeration Name="TestImageSelector" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Selects the type of test image that is sent by the camera.</ToolTip>
+            <Description>Selects the type of test image that is sent by the camera.</Description>
+            <DisplayName>Test Image Selector</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+            <EnumEntry Name="Off" NameSpace="Standard">
+                <ToolTip>Image is coming from the sensor.</ToolTip>
+                <Description>Image is coming from the sensor.</Description>
+                <DisplayName>Off</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+             <EnumEntry Name="GreyHorizontalRamp" NameSpace="Standard">
+                <ToolTip>Image is filled horizontally with an image that goes from the darkest possible value to the brightest.</ToolTip>
+                <Description>Image is filled horizontally with an image that goes from the darkest possible value to the brightest.</Description>
+                <DisplayName>Grey Horizontal Ramp</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="White" NameSpace="Standard">
+                <ToolTip>Image is filled with the brightest possible image.</ToolTip>
+                <Description>Image is filled with the brightest possible image.</Description>
+                <DisplayName>White</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+             <EnumEntry Name="GreyPattern" NameSpace="Custom">
+                <ToolTip>GreyPattern.</ToolTip>
+                <Description>GreyPattern.</Description>
+                <DisplayName>Grey Pattern.</DisplayName>
+                <Value>3</Value>
+            </EnumEntry>
+            <EnumEntry Name="Black" NameSpace="Standard">
+                <ToolTip>Image is filled with the darkest possible image.</ToolTip>
+                <Description>Image is filled with the darkest possible image.</Description>
+                <DisplayName>Black</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+            <EnumEntry Name="GreyVerticalRampMoving" NameSpace="Standard">
+                <ToolTip>Image is filled vertically with an image that goes from the darkest possible value to the brightest and that moves verticaly from top to bottom at each frame.</ToolTip>
+                <Description>Image is filled vertically with an image that goes from the darkest possible value to the brightest and that moves verticaly from top to bottom at each frame.</Description>
+                <DisplayName>Grey Vertical Ramp Moving</DisplayName>
+                <Value>5</Value>
+            </EnumEntry>
+            <pValue>TestImageSelectorReg</pValue>
+        </Enumeration>
+        
+        <IntReg Name="TestImageSelectorReg">
+			<Address>0x73726365</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Integer Name="ROIWidth" NameSpace="Custom">
+           <ToolTip>Set ROI Width.</ToolTip>
+           <Description>Set ROI Width.</Description>
+           <DisplayName>Set ROI Width.</DisplayName>
+           <Visibility>Expert</Visibility>
+           <Streamable>Yes</Streamable>
+           <pValue>RoiWidthReg</pValue>
+			<Min>4096</Min>
+			<Max>8192</Max>
+			<Inc>8</Inc>
+		</Integer>
+
+	    <IntReg Name="RoiWidthReg">
+			<Address>0x726F6977</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+    </Group>
+    <!-- ***************************************** -->
+    <!-- AcquisitionControl -->
+    <!-- ***************************************** -->
+    <Group Comment="AcquisitionControl">
+    <!-- 
+        <Float Name="AcquisitionLineRate" NameSpace="Standard">
+            <ToolTip>Controls the rate (in Hertz) at which the Lines in a Frame are captured.</ToolTip>
+            <Description>Controls the rate (in Hertz) at which the Lines in a Frame are captured.</Description>
+            <DisplayName>Acquisition Line Rate</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsAvailable>IsFreeRunMode</pIsAvailable>
+            <Streamable>No</Streamable>
+            <pValue>AcquisitionLineRateSW</pValue>
+            <Unit>Hz</Unit>
+        </Float>
+		<SwissKnife Name="AcquisitionLineRateSW">
+			<pVariable Name="LINEPERIOD">LinePeriodReg</pVariable>
+			<Formula><![CDATA[ 1E7 / LINEPERIOD ]]></Formula>
+		</SwissKnife> -->
+		
+		<Float Name="LinePeriod" NameSpace="Custom">
+            <ToolTip>Controls the line period (in us).</ToolTip>
+            <Description>Controls the line period (in us).</Description>
+            <DisplayName>Line Period</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsAvailable>IsFreeRunMode</pIsAvailable>
+            <Streamable>Yes</Streamable>
+            <pValue>LinePeriodCV</pValue>
+            <pMin>LinePeriodMin</pMin>
+            <pMax>LinePeriodMaxSW</pMax>
+            <pInc>LinePeriodIncSW</pInc>
+            <Unit>us</Unit>
+        </Float>
+        <Converter Name="LinePeriodCV">
+			<FormulaTo><![CDATA[ ROUND(FROM * 10) ]]></FormulaTo>
+			<FormulaFrom><![CDATA[ TO / 10 ]]></FormulaFrom>
+			<pValue>LinePeriodReg</pValue>
+			<Slope>Increasing</Slope>
+		</Converter>
+		<SwissKnife Name="LinePeriodMaxSW">
+			<Formula><![CDATA[ 65535 / 10 ]]></Formula>
+		</SwissKnife>
+		<SwissKnife Name="LinePeriodIncSW">
+			<Formula><![CDATA[ 1 / 10 ]]></Formula>
+		</SwissKnife>
+        <IntReg Name="LinePeriodReg" NameSpace="Custom">
+			<Address>0x74706572</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+            <Cachable>NoCache</Cachable>			
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<pInvalidator>OutputModeReg</pInvalidator>
+			<pInvalidator>OutputFrequencyReg</pInvalidator>
+			<pInvalidator>SynchroModeReg</pInvalidator>
+			<pInvalidator>SensorModeReg</pInvalidator>			
+			<pInvalidator>RoiWidthReg</pInvalidator>			
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+
+		<Float Name="LinePeriodMin" NameSpace="Custom">
+            <ToolTip>Controls the line period min(in us).</ToolTip>
+            <Description>Controls the line period min (in us).</Description>
+            <DisplayName>Line Period Min</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsAvailable>IsFreeRunMode</pIsAvailable>
+            <Streamable>No</Streamable>
+            <pValue>LinePeriodMinSW</pValue>
+            <Unit>us</Unit>
+        </Float>
+        <SwissKnife Name="LinePeriodMinSW">
+			<pVariable Name="LINEPERIODMIN">LinePeriodMinReg</pVariable>
+			<Formula><![CDATA[ LINEPERIODMIN / 10 ]]></Formula>
+		</SwissKnife>
+		<IntReg Name="LinePeriodMinReg" NameSpace="Custom">
+			<Address>0x74706D69</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>OutputModeReg</pInvalidator>
+			<pInvalidator>OutputFrequencyReg</pInvalidator>
+			<pInvalidator>SynchroModeReg</pInvalidator>
+			<pInvalidator>SensorModeReg</pInvalidator>
+			<pInvalidator>RoiWidthReg</pInvalidator>						
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+				
+		<Enumeration Name="SynchroMode" NameSpace="Custom">
+			<ToolTip>Synchronisation mode</ToolTip>
+			<Description>Synchronisation mode</Description>
+			<DisplayName>Synchronisation Mode</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="FreeRun">
+				<ToolTip>Internal Line Trigger with Exposure Time Internally controlled</ToolTip>
+				<Description>Internal Line Trigger with Exposure Time Internally controlled</Description>
+				<DisplayName>Internal Line Trigger with Exposure Time Internally controlled</DisplayName>
+				<pIsAvailable>IsNotMode4S</pIsAvailable>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExtTrigExpVar">
+				<ToolTip>External Line Trigger with Exposure Time Internally controlled</ToolTip>
+				<Description>External Line Trigger with Exposure Time Internally controlled</Description>
+				<DisplayName>External Line Trigger with Exposure Time Internally controlled</DisplayName>
+				<!-- <pIsAvailable>IsNotMode4S</pIsAvailable> -->
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExtTrigExpMax">
+				<ToolTip>External Line Trigger with Maximum Exposure Time</ToolTip>
+				<Description>External Line Trigger with Maximum Exposure Time</Description>
+				<DisplayName>External Line Trigger with Maximum Exposure Time</DisplayName>
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExtOneTrigExtExp">
+				<ToolTip>One External Line Trigger with Exposure Time Externally Controlled</ToolTip>
+				<Description>One External Line Trigger with Exposure Time Externally Controlled</Description>
+				<DisplayName>One External Line Trigger with Exposure Time Externally Controlled</DisplayName>
+				<!-- <pIsAvailable>IsNotMode4S</pIsAvailable>   -->
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="ExtTwoTrigExtExp">
+				<ToolTip>Two external Line Triggers with Exposure Time Externally Controlled</ToolTip>
+				<Description>Two external Line Triggers with Exposure Time Externally Controlled</Description>
+				<DisplayName>Two external Line Triggers with Exposure Time Externally Controlled</DisplayName>
+				<pIsAvailable>IsNotMode4S</pIsAvailable>
+				<Value>4</Value>
+			</EnumEntry>
+			<EnumEntry Name="FreeRunTintMax">
+				<ToolTip>Internal Line Trigger with Maximum Exposure Time</ToolTip>
+				<Description>Internal Line Trigger with Maximum Exposure Time</Description>
+				<DisplayName>Internal Line Trigger with Maximum Exposure Time</DisplayName>
+				<Value>5</Value>
+			</EnumEntry>
+			<pValue>SynchroModeReg</pValue>
+		</Enumeration>
+		<IntReg Name="SynchroModeReg">
+			<Address>0x73796E63</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="IsFreeRunMode">
+			<pVariable Name="SYNCHROMODE">SynchroModeReg</pVariable>
+			<Formula>SYNCHROMODE = 0 ? 1 : (SYNCHROMODE = 5 ? 1 : 0)</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="IsNotFreeRunMode">
+			<pVariable Name="SYNCHROMODE">SynchroModeReg</pVariable>
+			<Formula>SYNCHROMODE = 0 ? 0 :1</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="IsNotFreeRunAndNotExtTrigExpVarMode">
+			<pVariable Name="SYNCHROMODE">SynchroModeReg</pVariable>
+			<Formula>SYNCHROMODE = 0 ? 0 : (SYNCHROMODE = 1 ? 0 : 1)</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="IsFreeRunOrExtTrigExpVarMode">
+			<pVariable Name="SYNCHROMODE">SynchroModeReg</pVariable>
+			<Formula>SYNCHROMODE = 0 ? 1 : (SYNCHROMODE = 1 ? 1 : 0)</Formula>
+		</IntSwissKnife>
+		
+		<IntSwissKnife Name="IsNotMode4S">
+			<pVariable Name="SENSORMODE">SensorMode</pVariable>
+			<Formula><![CDATA[ (SENSORMODE = 2) ? 0 : 1 ]]></Formula>
+		</IntSwissKnife>
+       
+        <Float Name="ExposureTime" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Sets the Exposure time (in microseconds) when ExposureMode is Timed.</ToolTip>
+            <Description>Sets the Exposure time (in microseconds) when ExposureMode is Timed. This controls the duration where the photosensitive cells are exposed to light.</Description>
+            <DisplayName>Exposure Time</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsAvailable>IsFreeRunOrExtTrigExpVarMode</pIsAvailable>
+            <Streamable>Yes</Streamable>
+            <pValue>ExposureTimeCV</pValue>
+            <pMin>ExposureTimeMinSW</pMin>
+            <pMax>ExposureTimeMaxSW</pMax>
+            <pInc>ExposureTimeIncSW</pInc>
+            <Unit>us</Unit>
+        </Float>
+        <Converter Name="ExposureTimeCV">
+			<FormulaTo><![CDATA[ ROUND(FROM * 10) ]]></FormulaTo>
+			<FormulaFrom><![CDATA[ TO / 10 ]]></FormulaFrom>
+			<pValue>ExposureTimeReg</pValue>
+		</Converter>
+		<SwissKnife Name="ExposureTimeMinSW">
+			<Formula><![CDATA[ 15 / 10 ]]></Formula>
+		</SwissKnife>
+		<SwissKnife Name="ExposureTimeMaxSW">
+			<Formula><![CDATA[ 65535 / 10 ]]></Formula>
+		</SwissKnife>
+		<SwissKnife Name="ExposureTimeIncSW">
+			<Formula><![CDATA[ 1 / 10 ]]></Formula>
+		</SwissKnife>
+        <IntReg Name="ExposureTimeReg">
+			<Address>0x74696E74</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Integer Name="TriggerTooSlow" NameSpace="Custom">
+			<ToolTip>Trigger too slow in ms</ToolTip>
+			<Description>Trigger too slow in ms</Description>
+			<DisplayName>Trigger too slow</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pValue>TriggerTooSlowReg</pValue>
+			<Min>1</Min>
+			<Max>2684</Max>
+			<Inc>1</Inc>
+		</Integer>	
+		<IntReg Name="TriggerTooSlowReg">
+			<Address>0x74677473</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+    </Group>
+  
+     <!-- ***************************************** -->
+    <!--                       GainOffset                -->
+    <!-- ***************************************** -->
+    <Group Comment="GainOffset">
+        <Enumeration Name="PreampGain" NameSpace="Custom">
+            <ToolTip>Preamp Gain</ToolTip>
+            <Description>Preamp Gain</Description>
+            <DisplayName>Preamp Gain</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+            <EnumEntry Name="PreAmpx1" NameSpace="Custom">
+                <ToolTip>Preamp Gain x1 (0 dB)</ToolTip>
+                <Description>Preamp Gain x1 (0 dB).</Description>
+                <DisplayName>x1 (0 dB)</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+           <EnumEntry Name="PreAmpx2" NameSpace="Custom">
+                <ToolTip>Preamp Gain x2 (6 dB)</ToolTip>
+                <Description>Preamp Gain x2 (6 dB)</Description>
+                <DisplayName>x2 (6 dB)</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="PreAmpx4" NameSpace="Custom">
+                <ToolTip>Preamp Gain x4 (12 dB)</ToolTip>
+                <Description>Preamp Gain x4 (12 dB)</Description>
+                <DisplayName>x4 (12 dB)</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            <pValue>PreampGainReg</pValue>
+        </Enumeration>
+        
+        <IntReg Name="PreampGainReg" NameSpace="Custom">
+			<Address>0x70616D70</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Float Name="Gain" NameSpace="Custom">
+            <ToolTip>Controls the selected gain as an absolute physical value.</ToolTip>
+            <Description>Controls the selected gain as an absolute physical value. This is an amplification factor applied to the video signal.</Description>
+            <DisplayName>Gain</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+			<pValue>GainConv</pValue>
+			<pMin>GainMin</pMin>
+            <pMax>GainMax</pMax>
+            <Unit>dB</Unit>
+			<Representation>Linear</Representation>
+		</Float>
+		
+		<Converter Name="GainConv">
+			<FormulaTo><![CDATA[ ROUND((EXP(FROM / 20 * LN(10)) - 1) * 4096) ]]></FormulaTo> 
+			<FormulaFrom><![CDATA[ 20*LG(1+TO / 4096) ]]></FormulaFrom>
+			<pValue>GainReg</pValue>
+		</Converter>
+		
+		<SwissKnife Name="GainMin">
+			<Constant Name="MinGain">0</Constant>
+			<Formula><![CDATA[ MinGain ]]></Formula>
+		</SwissKnife>
+		
+		<SwissKnife Name="GainMax">
+			<Constant Name="MaxGain">6193</Constant>
+			<Formula><![CDATA[ 20*LG(1+ MaxGain / 4096)]]></Formula>
+		</SwissKnife>
+		
+		<IntReg Name="GainReg" NameSpace="Custom">
+			<Address>0x6761696E</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+    
+       <Float Name="DigitalGain" NameSpace="Custom">
+            <ToolTip>Digital Gain</ToolTip>
+            <Description>Digital Gain</Description>
+            <DisplayName>Digital Gain</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+			<pValue>DigitalGainConv</pValue>
+			<pMin>DigitalGainMin</pMin>
+            <pMax>DigitalGainMax</pMax>
+            <Unit>dB</Unit>
+			<Representation>Linear</Representation>
+		</Float>
+		
+		<Converter Name="DigitalGainConv">
+			<FormulaTo><![CDATA[ ROUND((EXP(FROM / 20 * LN(10)) - 1) * 64) ]]></FormulaTo> 
+			<FormulaFrom><![CDATA[ 20*LG(1+TO / 64) ]]></FormulaFrom>
+			<pValue>DigitalGainReg</pValue>
+		</Converter>
+		
+		<SwissKnife Name="DigitalGainMin">
+			<Constant Name="MinDigitalGain">0</Constant>
+			<Formula><![CDATA[ MinDigitalGain ]]></Formula>
+		</SwissKnife>
+		
+		<SwissKnife Name="DigitalGainMax">
+			<Constant Name="MaxDigitalGain">191</Constant>
+			<Formula><![CDATA[ 20*LG(1+ MaxDigitalGain / 64)]]></Formula>
+		</SwissKnife>
+		
+		<IntReg Name="DigitalGainReg" NameSpace="Custom">
+			<Address>0x67646967</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Integer Name="DigitalGainTapSelector" NameSpace="Custom">
+			<ToolTip>Digital Tap Gain selector</ToolTip>
+			<Description>Digital Tap Gain selector</Description>
+			<DisplayName>Digital Tap Gain selector</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<!-- <pIsImplemented>IsFactoryMode</pIsImplemented> -->
+			<Value>1</Value>
+			<Min>1</Min>
+			<pMax>ProcessingCtrlMaxTapsSW</pMax>
+			<Inc>1</Inc>
+			<pSelected>DigitalGainTap</pSelected>
+		</Integer>
+		
+		<Integer Name="DigitalGainTap" NameSpace="Custom">
+			<ToolTip>Digital Tap Gain.</ToolTip>
+			<Description>Digital Tap Gain.</Description>
+			<DisplayName>Digital Tap Gain</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<!-- <pIsImplemented>IsFactoryMode</pIsImplemented> -->
+			<Streamable>Yes</Streamable>
+			<pValue>DigitalGainTapReg</pValue>
+			<Min>-128</Min>
+			<Max>127</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="DigitalGainTapReg">
+			<Address>0x66676130</Address>
+			<pAddress>DigitalGainTapSelector</pAddress>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Signed</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Boolean Name="DigitalGainTapEnable" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Enable Digital Tap Balance.</ToolTip>
+            <Description>Enable Digital Tap Balance.</Description>
+            <DisplayName>Digital Tap Balance Enable</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+            <pValue>DigitalGainTapEnableReg</pValue>
+        </Boolean>
+		<IntReg Name="DigitalGainTapEnableReg">
+			<Address>0x66676165</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+
+        <Float Name="Offset" NameSpace="Custom">
+            <ToolTip>Offset</ToolTip>
+            <Description>Offset</Description>
+            <DisplayName>Offset</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <Streamable>Yes</Streamable>
+            <pValue>OffsetReg</pValue>
+            <Min>-4096</Min>
+            <Max>4095</Max>
+            <Inc>1</Inc>
+            <Representation>Linear</Representation>
+        </Float>
+        <IntReg Name="OffsetReg" NameSpace="Custom">
+			<Address>0x6F666673</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Signed</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Integer Name="RoiGainG" NameSpace="Custom">
+           <ToolTip>Set GAIN for ROI Gain.</ToolTip>
+           <Description>Set GAIN for ROI Gain.</Description>
+           <DisplayName>Set GAIN for ROI Gain.</DisplayName>
+           <Visibility>Expert</Visibility>
+           <Streamable>Yes</Streamable>
+           <pValue>RoiGainGReg</pValue>
+			<Min>0</Min>
+			<Max>1023</Max>
+			<Inc>1</Inc>
+		</Integer>
+       <IntReg Name="RoiGainGReg">
+			<Address>0x726F6967</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+	
+		<Integer Name="RoiGainR" NameSpace="Custom">
+           <ToolTip>Set ROI and apply ROI Gain.</ToolTip>
+           <Description>Set ROI and apply ROI Gain.</Description>
+           <DisplayName>Set ROI and apply ROI Gain.</DisplayName>
+           <Visibility>Expert</Visibility>
+           <Streamable>Yes</Streamable>
+           <pValue>RoiGainRReg</pValue>
+			<Min>0</Min>
+			<!-- Max = FFFF FFFF -->
+			<Max>4294967295</Max>
+			<Inc>1</Inc>
+		</Integer>
+
+	    <IntReg Name="RoiGainRReg">
+			<Address>0x726F6973</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+	 </Group>  
+   
+    <!-- ***************************************** -->
+    <!-- LUTControl -->
+    <!-- ***************************************** -->
+    <Group Comment="LUTControl">
+        <Boolean Name="LUTEnable" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Activates the selected LUT.</ToolTip>
+            <Description>Activates the selected LUT.</Description>
+            <DisplayName>LUTEnable</DisplayName>
+            <Visibility>Expert</Visibility>
+            <Streamable>Yes</Streamable>
+            <pValue>LUTEnableReg</pValue>
+        </Boolean>
+        <IntReg Name="LUTEnableReg">
+			<Address>0x6C757465</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+         <Register Name="LUTValueAll" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>Accesses all the LUT coefficients in a single access without using individual LUTIndex.</ToolTip>
+            <Description>Accesses all the LUT coefficients in a single access without using individual LUTIndex.</Description>
+            <DisplayName>LUTValue All</DisplayName>
+            <Visibility>Guru</Visibility>
+            <Address>0x100060000</Address>
+            <pLength>LUTValueAllSW</pLength>
+            <AccessMode>RW</AccessMode>
+            <pPort>Device</pPort>
+            <Cachable>NoCache</Cachable>
+        </Register>
+		<IntSwissKnife Name="LUTValueAllSW">
+			<pVariable Name="LUTVALUESIZE">LUTValueSize</pVariable>
+			<Formula><![CDATA[ 4096 * LUTVALUESIZE ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="LUTValueSize" NameSpace="Custom">
+			<ToolTip>LUT value size in bytes</ToolTip>
+			<Description>LUT value size in bytes</Description>
+			<DisplayName>LUT value size</DisplayName>
+			<Visibility>Guru</Visibility>
+			<!-- YDE <pIsLocked>DummyLock</pIsLocked> -->
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<Value>2</Value>
+		</Integer>
+		
+		<Group Comment="SaveRestoreLUT">
+			<!-- Save & Restore features	=========================== -->
+			<Category Name="SaveRestoreLUT" NameSpace="Custom">
+				<ToolTip>Groups all LUT settings bank save and restore.</ToolTip>
+				<Description>Groups all LUT settings bank save and restore.</Description>
+				<DisplayName>Save &amp; restore LUT settings</DisplayName>
+				<pFeature>LUTSetSelector</pFeature>
+				<pFeature>LUTSetSave</pFeature>
+				<pFeature>LUTSetLoad</pFeature>
+				<pFeature>CurrentLUTSet</pFeature>
+			</Category>
+			<Enumeration Name="LUTSetSelector" NameSpace="Custom">
+				<ToolTip>Current settings bank</ToolTip>
+				<Description>Current settings bank</Description>
+				<Visibility>Expert</Visibility>
+				<EnumEntry Name="User1">
+					<ToolTip>User #1</ToolTip>
+					<Description>User #1</Description>
+					<DisplayName>User 1</DisplayName>
+					<Value>1</Value>
+				</EnumEntry>
+				<EnumEntry Name="User2">
+					<ToolTip>User #2</ToolTip>
+					<Description>User #2</Description>
+					<DisplayName>User 2</DisplayName>
+					<Value>2</Value>
+				</EnumEntry>
+				<EnumEntry Name="User3">
+					<ToolTip>User #3</ToolTip>
+					<Description>User #3</Description>
+					<DisplayName>User 3</DisplayName>
+					<Value>3</Value>
+				</EnumEntry>
+				<EnumEntry Name="User4">
+					<ToolTip>User #4</ToolTip>
+					<Description>User #4</Description>
+					<DisplayName>User 4</DisplayName>
+					<Value>4</Value>
+				</EnumEntry>
+				<Value>1</Value>
+				<pSelected>LUTSetLoad</pSelected>
+				<pSelected>LUTSetSave</pSelected>
+			</Enumeration>
+			<Command Name="LUTSetSave" NameSpace="Custom">
+				<ToolTip>Save LUT set into camera bank</ToolTip>
+				<Description>Save LUT settings into camera bank</Description>
+				<DisplayName>LUT Set Save</DisplayName>
+				<Visibility>Expert</Visibility>
+				<pValue>LUTSetSaveReg</pValue>
+				<pCommandValue>LUTSetSelector</pCommandValue>
+			</Command>
+			<IntReg Name="LUTSetSaveReg">
+				<Address>0x736C7574</Address>
+				<Length>4</Length>
+				<AccessMode>WO</AccessMode>
+				<pPort>Device</pPort>
+				<Sign>Unsigned</Sign>
+				<Endianess>LittleEndian</Endianess>
+			</IntReg>
+			<Command Name="LUTSetLoad" NameSpace="Custom">
+				<ToolTip>Load LUT set from the selected bank</ToolTip>
+				<Description>Load LUT from the selected bank</Description>
+				<DisplayName>LUT Set Load</DisplayName>
+				<Visibility>Expert</Visibility>
+				<ImposedAccessMode>WO</ImposedAccessMode>
+				<pValue>LUTSetLoadReg</pValue>
+				<pCommandValue>LUTSetSelector</pCommandValue>
+			</Command>
+			<IntReg Name="LUTSetLoadReg">
+				<Address>0x726C7574</Address>
+				<Length>4</Length>
+				<AccessMode>RW</AccessMode>
+				<pPort>Device</pPort>
+				<pInvalidator>LUTSetSaveReg</pInvalidator>
+				<Sign>Unsigned</Sign>
+				<Endianess>LittleEndian</Endianess>
+			</IntReg>
+			<Enumeration Name="CurrentLUTSet" NameSpace="Custom">
+				<ToolTip>Indicate which LUT set is currently in use</ToolTip>
+				<Description>Indicate which LUT set is currently in use</Description>
+				<Visibility>Expert</Visibility>
+				<EnumEntry Name="User1">
+					<ToolTip>User #1</ToolTip>
+					<Description>User #1</Description>
+					<DisplayName>User 1</DisplayName>
+					<Value>1</Value>
+				</EnumEntry>
+				<EnumEntry Name="User2">
+					<ToolTip>User #2</ToolTip>
+					<Description>User #2</Description>
+					<DisplayName>User 2</DisplayName>
+					<Value>2</Value>
+				</EnumEntry>
+				<EnumEntry Name="User3">
+					<ToolTip>User #3</ToolTip>
+					<Description>User #3</Description>
+					<DisplayName>User 3</DisplayName>
+					<Value>3</Value>
+				</EnumEntry>
+				<EnumEntry Name="User4">
+					<ToolTip>User #4</ToolTip>
+					<Description>User #4</Description>
+					<DisplayName>User 4</DisplayName>
+					<Value>4</Value>
+				</EnumEntry>
+				<pValue>LUTSetLoadReg</pValue>
+			</Enumeration>
+		</Group>
+    </Group>
+    <!-- ***************************************** -->
+    <!-- TransportLayerControl -->
+    <!-- ***************************************** -->
+    <Group Comment="TransportLayerControl">
+        <Integer Name="PayloadSize" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <ToolTip>Provides the number of bytes transferred for each image or chunk on the stream channel.</ToolTip>
+            <Description>Provides the number of bytes transferred for each image or chunk on the stream channel. This includes any end-of-line, end-of-frame statistics or other stamp data. This is the total size of data payload for a data block.</Description>
+            <DisplayName>Payload Size</DisplayName>
+            <Visibility>Expert</Visibility>
+            <pInvalidator>Width</pInvalidator>
+            <pInvalidator>Height</pInvalidator>
+            <pInvalidator>PixelSize</pInvalidator>
+            <pValue>PayloadSizeSW</pValue>
+        </Integer>
+        <IntSwissKnife Name="PayloadSizeSW">
+			<pVariable Name="WIDTH">Width</pVariable>
+			<pVariable Name="HEIGTH">Height</pVariable>
+			<pVariable Name="PIXELSIZE">PixelSize</pVariable>
+			<Constant Name="BITS8">8</Constant>
+			<Constant Name="BITS10">10</Constant>
+			<Constant Name="BITS12">12</Constant>
+			<Formula><![CDATA[ WIDTH * HEIGTH *  (PIXELSIZE = BITS8 ? 1 : 2) ]]></Formula>
+		</IntSwissKnife>
+        
+        <Enumeration Name="ClConfiguration" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>This Camera Link specific feature describes the configuration used by the camera.</ToolTip>
+            <Description>This Camera Link specific feature describes the configuration used by the camera. It helps especially when a camera is capable of operation in a non-standard configuration, and when the features PixelSize, SensorDigitizationTaps, and DeviceTapGeometry do not provide enough information for interpretation of the image data provided by the camera.</Description>
+            <DisplayName>Cl Configuration</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="Base" NameSpace="Standard">
+                <ToolTip>Standard base configuration described by the Camera Link standard.</ToolTip>
+                <Description>Standard base configuration described by the Camera Link standard.</Description>
+                <DisplayName>Base</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <EnumEntry Name="Medium" NameSpace="Standard">
+                <ToolTip>Standard medium configuration described by the Camera Link standard.</ToolTip>
+                <Description>Standard medium configuration described by the Camera Link standard.</Description>
+                <DisplayName>Medium</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="Full" NameSpace="Standard">
+                <ToolTip>Standard full configuration described by the Camera Link standard.</ToolTip>
+                <Description>Standard full configuration described by the Camera Link standard.</Description>
+                <DisplayName>Full</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+             <!-- <EnumEntry Name="DualBase" NameSpace="Standard">
+                <ToolTip>The camera streams the data from multiple taps (that do not fit in the standard base configuration) through two Camera Link base ports. It is responsibility of the application or frame grabber to reconstruct the full image. Only one of the ports (fixed) serves as the "master" for serial communication and triggering.</ToolTip>
+                <Description>The camera streams the data from multiple taps (that do not fit in the standard base configuration) through two Camera Link base ports. It is responsibility of the application or frame grabber to reconstruct the full image. Only one of the ports (fixed) serves as the "master" for serial communication and triggering.</Description>
+                <DisplayName>Dual Base</DisplayName>
+                <Value>3</Value>
+            </EnumEntry> -->
+            <EnumEntry Name="Deca" NameSpace="Standard">
+                <ToolTip>Standard Deca configuration with 10 taps of 8-bit, as described by the Camera Link Standard.</ToolTip>
+                <Description>Standard Deca configuration with 10 taps of 8-bit, as described by the Camera Link Standard.</Description>
+                <DisplayName>Deca</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+            <pValue>ClConfigurationSW</pValue>
+        </Enumeration>
+        <IntSwissKnife Name="ClConfigurationSW">
+			<pVariable Name="OUTPUTMODE">OutputModeReg</pVariable>
+			<Constant Name="MEDIUM4OUTPUT8BITS">0</Constant>
+			<Constant Name="MEDIUM4OUTPUT12BITS">1</Constant>
+			<Constant Name="FULLMODEOUTPUT8BITS">2</Constant>
+			<Constant Name="DECAMODEOUTPUT8BITS">3</Constant>
+			<Constant Name="MEDIUM4OUTPUT10BITS">4</Constant>
+			<Constant Name="BASE2OUTPUT8BITS">5</Constant>
+			<Constant Name="BASE2OUTPUT10BITS">6</Constant>
+			<Constant Name="BASE2OUTPUT12BITS">7</Constant>
+			<Formula><![CDATA[ (OUTPUTMODE = DECAMODEOUTPUT8BITS) ? 4  : (OUTPUTMODE = FULLMODEOUTPUT8BITS ? 2 : (((OUTPUTMODE = MEDIUM4OUTPUT8BITS) || (OUTPUTMODE = MEDIUM4OUTPUT10BITS) || (OUTPUTMODE = MEDIUM4OUTPUT12BITS)) ? 1 : 0)) ]]></Formula>
+		</IntSwissKnife>
+        
+        <Enumeration Name="ClTimeSlotsCount" NameSpace="Standard">
+            <!-- Optional element -->
+            <ToolTip>This Camera Link specific feature describes the time multiplexing of the camera link connection to transfer more than the configuration allows, in one single clock.</ToolTip>
+            <Description>This Camera Link specific feature describes the time multiplexing of the camera link connection to transfer more than the configuration allows, in one single clock.</Description>
+            <DisplayName>Cl Time Slots Count</DisplayName>
+            <Visibility>Guru</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="One" NameSpace="Standard">
+                <DisplayName>One</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+           <!-- YDE <EnumEntry Name="Two" NameSpace="Standard">
+                <DisplayName>Two</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="Three" NameSpace="Standard">
+                <DisplayName>Three</DisplayName>
+                <Value>2</Value>
+            </EnumEntry> -->
+            <Value>0</Value>
+        </Enumeration>
+        <Enumeration Name="DeviceTapGeometry" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>This Camera Link specific device tap geometry feature describes the geometrical properties characterizing the taps of a Camera Link camera as seen from the frame grabber or acquisition card.</ToolTip>
+            <Description>This Camera Link specific device tap geometry feature describes the geometrical properties characterizing the taps of a Camera Link camera as seen from the frame grabber or acquisition card. Note the case of RGB where even though there are 3 color components, they are considered to be one tap (for instance, Camera Link specification defines 24-bit RGB as a single tap of 24 bits). This feature is mainly applicable to Camera link cameras.</Description>
+            <DisplayName>Device Tap Geometry</DisplayName>
+            <Visibility>Guru</Visibility>
+            <EnumEntry Name="Geometry_4X" NameSpace="Standard">
+                <DisplayName>Geometry_ 4 X</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <EnumEntry Name="Geometry_8X" NameSpace="Standard">
+                <DisplayName>Geometry_ 8 X</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="Geometry_10X" NameSpace="Standard">
+                <DisplayName>Geometry_ 10 X</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+             <EnumEntry Name="Geometry_2X" NameSpace="Standard">
+                <DisplayName>Geometry_ 2 X</DisplayName>
+                <Value>3</Value>
+            </EnumEntry>
+            <pValue>DeviceTapGeometrySW</pValue>
+        </Enumeration>
+        <IntSwissKnife Name="DeviceTapGeometrySW">
+			<pVariable Name="OUTPUTMODE">OutputModeReg</pVariable>
+			<Constant Name="MEDIUM4OUTPUT8BITS">0</Constant>
+			<Constant Name="MEDIUM4OUTPUT12BITS">1</Constant>
+			<Constant Name="FULLMODEOUTPUT8BITS">2</Constant>
+			<Constant Name="DECAMODEOUTPUT8BITS">3</Constant>
+			<Constant Name="MEDIUM4OUTPUT10BITS">4</Constant>
+			<Formula><![CDATA[ (OUTPUTMODE = DECAMODEOUTPUT8BITS) ? 2  : ((OUTPUTMODE = FULLMODEOUTPUT8BITS) ? 1 : (((OUTPUTMODE = MEDIUM4OUTPUT8BITS) || (OUTPUTMODE = MEDIUM4OUTPUT10BITS) || (OUTPUTMODE = MEDIUM4OUTPUT12BITS)) ? 0 : 3)) ]]></Formula>
+		</IntSwissKnife>
+    </Group>
+    <!-- ***************************************** -->
+    <!-- UserSetControl -->
+    <!-- ***************************************** -->
+    <Group Comment="UserSetControl">
+        <Enumeration Name="UserSetSelector" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Selects the feature User Set to load, save or configure.</ToolTip>
+            <Description>Selects the feature User Set to load, save or configure.</Description>
+            <DisplayName>User Set Selector</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <EnumEntry Name="Default" NameSpace="Standard">
+                <ToolTip>Selects the factory setting User set.</ToolTip>
+                <Description>Selects the factory setting User set.</Description>
+                <DisplayName>Default</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet1" NameSpace="Standard">
+                <ToolTip>Selects the first user set.</ToolTip>
+                <Description>Selects the first user set.</Description>
+                <DisplayName>User Set 1</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet2" NameSpace="Standard">
+                <ToolTip>Selects the second user set.</ToolTip>
+                <Description>Selects the second user set.</Description>
+                <DisplayName>User Set 2</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet3" NameSpace="Standard">
+                <ToolTip>Selects the third user set.</ToolTip>
+                <Description>Selects the third user set.</Description>
+                <DisplayName>User Set 3</DisplayName>
+                <Value>3</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet4" NameSpace="Standard">
+                <ToolTip>Selects the fourth user set.</ToolTip>
+                <Description>Selects the fourth user set.</Description>
+                <DisplayName>User Set 4</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet5" NameSpace="Standard">
+                <ToolTip>Selects the fifth user set.</ToolTip>
+                <Description>Selects the fifth user set.</Description>
+                <DisplayName>User Set 5</DisplayName>
+                <Value>5</Value>
+            </EnumEntry>
+            <Value>0</Value>
+            <pSelected>UserSetLoad</pSelected>
+            <pSelected>UserSetSave</pSelected>
+        </Enumeration>
+        <Command Name="UserSetLoad" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Loads the User Set specified by UserSetSelector to the device and makes it active.</ToolTip>
+            <Description>Loads the User Set specified by UserSetSelector to the device and makes it active.</Description>
+            <DisplayName>User Set Load</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>WO</ImposedAccessMode>
+            <pValue>UserSetLoadReg</pValue>
+            <pCommandValue>UserSetSelector</pCommandValue>
+        </Command>
+        <IntReg Name="UserSetLoadReg">
+			<Address>0x72636667</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetSaveReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+        
+        <Command Name="UserSetSave" NameSpace="Standard">
+            <!-- Recommended element -->
+            <ToolTip>Save the User Set specified by UserSetSelector to the non-volatile memory of the device.</ToolTip>
+            <Description>Save the User Set specified by UserSetSelector to the non-volatile memory of the device.</Description>
+            <DisplayName>User Set Save</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsAvailable>IsSaveFactoryUserSetAvailable</pIsAvailable>
+            <pValue>UserSetSaveReg</pValue>
+            <pCommandValue>UserSetSelector</pCommandValue>
+        </Command>
+        <IntSwissKnife Name="IsSaveFactoryUserSetAvailable">
+			<pVariable Name="NOTFACTORYMODE">IsNotFactoryMode</pVariable>
+			<pVariable Name="USERMODE">IsUserMode</pVariable>
+			<pVariable Name="USERSETBANK">UserSetSelector</pVariable>
+			<Formula><![CDATA[ ( (USERSETBANK = 0 ) && NOTFACTORYMODE ) || ( ( USERSETBANK = 5 ) && USERMODE ) ? 0 : 1 ]]></Formula>
+		</IntSwissKnife>
+		<IntReg Name="UserSetSaveReg">
+			<Address>0x73636667</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+
+        
+		<Enumeration Name="CurrentUserSet" NameSpace="Custom">
+			<ToolTip>Indicate which user set is currently in use</ToolTip>
+			<Description>Indicate which user set is currently in use</Description>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="Default" NameSpace="Standard">
+                <DisplayName>Default</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet1" NameSpace="Standard">
+                <ToolTip>Select the first User Set.</ToolTip>
+                <Description>Select the first User Set.</Description>
+                <DisplayName>User Set 1</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet2" NameSpace="Standard">
+                <ToolTip>Select the second User Set.</ToolTip>
+                <Description>Select the second User Set.</Description>
+                <DisplayName>User Set 2</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+             <EnumEntry Name="UserSet3" NameSpace="Standard">
+                <ToolTip>Selects the third user set.</ToolTip>
+                <Description>Selects the third user set.</Description>
+                <DisplayName>User Set 3</DisplayName>
+                <Value>3</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet4" NameSpace="Standard">
+                <ToolTip>Selects the fourth user set.</ToolTip>
+                <Description>Selects the fourth user set.</Description>
+                <DisplayName>User Set 4</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+            <EnumEntry Name="UserSet5" NameSpace="Standard">
+                <ToolTip>Selects the fifth user set.</ToolTip>
+                <Description>Selects the fifth user set.</Description>
+                <DisplayName>User Set 5</DisplayName>
+                <Value>5</Value>
+            </EnumEntry>
+            <pValue>UserSetLoadReg</pValue>
+        </Enumeration>
+    </Group>
+    <!-- ***************************************** -->
+    <!-- SpecialFeatures -->
+    <!-- ***************************************** -->
+    <Group Comment="SpecialFeatures">
+        <Port Name="Device" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <Visibility>Invisible</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+        </Port>
+        <Integer Name="TLParamsLocked" NameSpace="Standard">
+            <!-- Mandatory element -->
+            <Visibility>Invisible</Visibility>
+            <ImposedAccessMode>RW</ImposedAccessMode>
+            <Value>0</Value>
+        </Integer>
+    </Group>
+    
+    
+    <Group Comment="Privilege">
+		<!-- Privilege features	================================ -->
+		<Category Name="Privilege" NameSpace="Custom">
+			<ToolTip>Groups all privilege settings.</ToolTip>
+			<Description>Groups all privilege settings.</Description>
+			<Visibility>Guru</Visibility>
+			<pFeature>CameraPrivilegeLevel</pFeature>
+			<pFeature>ChangePrivilegeLevel</pFeature>
+		</Category>
+		<Enumeration Name="CameraPrivilegeLevel" NameSpace="Custom">
+			<ToolTip>Camera privilege level. </ToolTip>
+			<Description>Camera privilege level. </Description>
+			<DisplayName>Camera privilege level</DisplayName>
+			<Visibility>Guru</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<EnumEntry Name="FactoryMode">
+				<ToolTip>Factory mode</ToolTip>
+				<Description>Factory mode</Description>
+				<DisplayName>Factory mode</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="IntegratorMode">
+				<ToolTip>Integrator</ToolTip>
+				<Description>Integrator</Description>
+				<DisplayName>Integrator</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="UserMode">
+				<ToolTip>User mode</ToolTip>
+				<Description>User mode</Description>
+				<DisplayName>User mode</DisplayName>
+				<Value>2</Value>
+			</EnumEntry>
+			<pValue>CameraPrivilegeLevelReg</pValue>
+		</Enumeration>
+		<IntReg Name="CameraPrivilegeLevelReg" NameSpace="Custom">
+			<ToolTip>Change privilege level</ToolTip>
+			<Description>Change privilege level</Description>
+			<DisplayName>Change privilege level</DisplayName>
+			<Visibility>Guru</Visibility>
+			<Address>0x6C6F636B</Address>
+			<Length>8</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>ChangePrivilegeLevelReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Integer Name="ChangePrivilegeLevel">
+			<ToolTip>Change privilege level</ToolTip>
+			<Description>Change privilege level</Description>
+			<DisplayName>Change privilege level</DisplayName>
+			<Visibility>Guru</Visibility>
+			<Streamable>No</Streamable>
+			<pValue>ChangePrivilegeLevelReg</pValue>
+			<Min>0</Min>
+			<Max>4294967295</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="ChangePrivilegeLevelReg" NameSpace="Custom">
+			<ToolTip>Change privilege level</ToolTip>
+			<Description>Change privilege level</Description>
+			<DisplayName>Change privilege level</DisplayName>
+			<Visibility>Guru</Visibility>
+			<Address>0x6C6F636B</Address>
+			<Length>8</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="IsFactoryMode">
+			<ToolTip>Camera in factory mode</ToolTip>
+			<Description>Camera in factory mode</Description>
+			<pVariable Name="CAMPRIVLEV">CameraPrivilegeLevelReg</pVariable>
+			<Formula>CAMPRIVLEV=0 ? 1 : 0</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="IsNotFactoryMode">
+			<ToolTip>Camera not in factory mode</ToolTip>
+			<Description>Camera not in factory mode</Description>
+			<pVariable Name="CAMPRIVLEV">CameraPrivilegeLevelReg</pVariable>
+			<Formula>CAMPRIVLEV=0 ? 0 : 1</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="IsUserMode">
+			<ToolTip>Camera in user mode</ToolTip>
+			<Description>Camera in user mode</Description>
+			<pVariable Name="CAMPRIVLEV">CameraPrivilegeLevelReg</pVariable>
+			<Formula>CAMPRIVLEV=2 ? 1 : 0</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="IsNotUserMode">
+			<ToolTip>Camera not in user mode</ToolTip>
+			<Description>Camera not in user mode</Description>
+			<pVariable Name="CAMPRIVLEV">CameraPrivilegeLevelReg</pVariable>
+			<Formula>CAMPRIVLEV=2 ? 0 : 1</Formula>
+		</IntSwissKnife>
+		<IntSwissKnife Name="DummyLock">
+			<Formula>1</Formula>
+		</IntSwissKnife>
+	</Group>
+	<Group Comment="ImageControl">
+		<!-- Privilege features	================================ -->
+		<Category Name="ImageControl" NameSpace="Custom">
+			<ToolTip>Allow to save an image or play stored image.</ToolTip>
+			<Description>Allow to save an image or play stored image.</Description>
+			<Visibility>Guru</Visibility>
+			<pFeature>GrabberImageContol</pFeature>
+			<pFeature>SaveImageControl</pFeature>
+		</Category>
+		<Boolean Name="GrabberImageContol" NameSpace="Custom">
+			<DisplayName>Play stored Image</DisplayName>
+			<Visibility>Guru</Visibility>
+			<Streamable>Yes</Streamable>
+			<pValue>GrabberImageContolReg</pValue>
+		</Boolean>
+		<IntReg Name="GrabberImageContolReg">
+			<Address>0x706C6179</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Register Name="ImageValueAll">
+			    <Address>0x1000C0000</Address>
+			    <pLength>ImageValueAllSW</pLength>
+			    <AccessMode>RO</AccessMode>
+			    <pPort>Device</pPort>
+			    <Cachable>NoCache</Cachable>
+		    </Register>
+		    <IntSwissKnife Name="ImageValueAllSW">
+			    <pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			    <pVariable Name="IMAGEVALUESIZE">ImageValueSize</pVariable>
+			    <Formula><![CDATA[ SENSORWIDTH * IMAGEVALUESIZE*2 ]]></Formula>
+		    </IntSwissKnife>
+		    <Integer Name="ImageValueSize">
+			    <ToolTip>Image value size in bytes</ToolTip>
+			    <Description>Image value size in bytes</Description>
+			    <DisplayName>Image value size</DisplayName>
+			    <Visibility>Guru</Visibility>
+			    <pIsLocked>DummyLock</pIsLocked>
+			    <Value>2</Value>
+		    </Integer>
+			
+			
+		<Command Name="SaveImageControl" NameSpace="Custom">
+			<ToolTip>Save current line.</ToolTip>
+			<Description>Save current line.</Description>
+			<DisplayName>Save current line</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pValue>SaveImageControlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="SaveImageControlReg">
+			<Address>0x7265636C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+	</Group>
+	
+	<Group Comment="FlatFieldCorrection">
+		<!-- Flat field Correction features	======================= -->
+		<Category Name="FlatFieldCorrection" NameSpace="Custom">
+			<ToolTip>Groups all flat field Correction settings.</ToolTip>
+			<Description>Groups all flat field Correction settings.</Description>
+			<DisplayName>Flat field correction</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pFeature>FFCorrection</pFeature>
+			<pFeature>AutomaticFFC</pFeature>
+			<pFeature>Manual_FPN</pFeature>
+			<pFeature>Manual_FFC</pFeature>			
+			<pFeature>SaveRestoreFFC</pFeature>
+		</Category>
+		<Boolean Name="FFCorrection" NameSpace="Custom">
+			<ToolTip>Enable flat field correction.</ToolTip>
+			<Description>Enable flat field correction.</Description>
+			<DisplayName>Flat field correction</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+			<pValue>FFCorrectionReg</pValue>
+		</Boolean>
+		<IntReg Name="FFCorrectionReg">
+			<Address>0x66666370</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<pInvalidator>FPNCalibrationCtrlReg</pInvalidator>
+			<pInvalidator>FFCalibrationCtrlReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Category Name="AutomaticFFC" NameSpace="Custom">
+			<ToolTip>Automatic flat field calibration.</ToolTip>
+			<Description>Automatic flat field calibration.</Description>
+			<DisplayName>Automatic calibration</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pFeature>LowFilterWidth</pFeature>	
+			<pFeature>FPNCalibrationCtrl</pFeature>
+			<pFeature>FPNCalibrationAbort</pFeature>
+			<pFeature>FFCalibrationCtrl</pFeature>
+			<pFeature>FFCalibrationAbort</pFeature>
+			<pFeature>FFCAdjust</pFeature>
+			<pFeature>TargetAdjust</pFeature>
+		</Category>
+
+		<Float Name="LowFilterWidth" NameSpace="Custom">
+            <ToolTip>width of the low frequency filter  applied for PRNU calibration </ToolTip>
+            <Description>width of the low frequency filter  applied for PRNU calibration </Description>
+            <DisplayName>PRNU Filter Width</DisplayName>
+            <Visibility>Expert</Visibility>
+            <Streamable>Yes</Streamable>
+            <pValue>LowFilterWidthReg</pValue>
+            <Min>0</Min>
+            <Max>127</Max>
+            <Inc>1</Inc>
+            <Representation>Linear</Representation>
+        </Float>
+        <IntReg Name="LowFilterWidthReg" NameSpace="Custom">
+			<Address>0x6C666677</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="FPNCalibrationCtrl" NameSpace="Custom">
+			<ToolTip>FPN calibration control</ToolTip>
+			<Description>FPN calibration control</Description>
+			<DisplayName>FPN calibration control</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pValue>FPNCalibrationCtrlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="FPNCalibrationCtrlReg">
+			<Address>0x63616C6F</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Command Name="FPNCalibrationAbort" NameSpace="Custom">
+			<ToolTip>Abort FPN calibration process</ToolTip>
+			<Description>Abort FPN calibration process</Description>
+			<DisplayName>FPN calibration abort</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>FPNCalibrationCtrlReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<Command Name="FFCalibrationCtrl" NameSpace="Custom">
+			<ToolTip>PRNU calibration control</ToolTip>
+			<Description>PRNU calibration control</Description>
+			<DisplayName>PRNU calibration control</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pValue>FFCalibrationCtrlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="FFCalibrationCtrlReg">
+			<Address>0x63616C67</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Command Name="FFCalibrationAbort" NameSpace="Custom">
+			<ToolTip>Abort PRNU calibration process</ToolTip>
+			<Description>Abort PRNU calibration process</Description>
+			<DisplayName>PRNU calibration abort</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>FFCalibrationCtrlReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<Category Name="Manual_FPN" NameSpace="Custom">
+			<ToolTip>Manual FPN calibration</ToolTip>
+			<Description>Manual FPN calibration</Description>
+			<DisplayName>Manual FPN calibration</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pFeature>ResetFPN</pFeature>
+			<pFeature>FPNValueAll</pFeature>
+			<pFeature>FPNValueSize</pFeature>
+		</Category>
+		<Category Name="Manual_FFC" NameSpace="Custom">
+			<ToolTip>Manual PRNU calibration</ToolTip>
+			<Description>Manual PRNU calibration</Description>
+			<DisplayName>Manual PRNU calibration</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pFeature>ResetFFC</pFeature>
+			<pFeature>FFCValueAll</pFeature>
+			<pFeature>FFCValueSize</pFeature>
+		</Category>
+		<Register Name="FPNValueAll">
+			<Address>0x100040000</Address>
+			<pLength>FPNValueAllSW</pLength>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</Register>
+		<IntSwissKnife Name="FPNValueAllSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<pVariable Name="FPNVALUESIZE">FPNValueSize</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH * FPNVALUESIZE ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="FPNValueSize">
+			<ToolTip>FPN value size in bytes</ToolTip>
+			<Description>FPN value size in bytes</Description>
+			<DisplayName>FPN value size</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsLocked>DummyLock</pIsLocked>
+			<Value>2</Value>
+		</Integer>
+		<Register Name="FFCValueAll">
+			<Address>0x100050000</Address>
+			<pLength>FFCValueAllSW</pLength>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</Register>
+		<IntSwissKnife Name="FFCValueAllSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<pVariable Name="FFCVALUESIZE">FFCValueSize</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH * FFCVALUESIZE ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="FFCValueSize">
+			<ToolTip>PRNU value size in bytes</ToolTip>
+			<Description>PRNU value size in bytes</Description>
+			<DisplayName>PRNU value size</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsLocked>DummyLock</pIsLocked>
+			<Value>2</Value>
+		</Integer>
+		<Command Name="ResetFPN" NameSpace="Custom">
+			<ToolTip>Reset FPN  to 0</ToolTip>
+			<Description>Reset FPN  to 0</Description>
+			<DisplayName>Reset FPN </DisplayName>
+			<Visibility>Guru</Visibility>
+			<pValue>ResetFPNReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="ResetFPNReg">
+			<Address>0x7273746F</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Command Name="ResetFFC" NameSpace="Custom">
+			<ToolTip>Reset PRNU coefficient  to 1</ToolTip>
+			<Description>Reset PRNU coefficient  to 1</Description>
+			<DisplayName>Reset PRNU</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pValue>ResetFFCReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="ResetFFCReg">
+			<Address>0x72737467</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Boolean Name="FFCAdjust" NameSpace="Custom">
+			<ToolTip>FFC adjust</ToolTip>
+			<Description>FFC adjust</Description>
+			<DisplayName>FFC adjust</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+			<pValue>FFCAdjustReg</pValue>
+		</Boolean>
+		<IntReg Name="FFCAdjustReg">
+			<Address>0x66666164</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Integer Name="TargetAdjust" NameSpace="Custom">
+			<ToolTip>FFC adjust target</ToolTip>
+			<Description>FFC adjust target</Description>
+			<DisplayName>FFC adjust target</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<Streamable>Yes</Streamable>
+			<pValue>TargetAdjustReg</pValue>
+			<Min>0</Min>
+			<Max>4095</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="TargetAdjustReg">
+			<Address>0x74666164</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>FFCSetLoadReg</pInvalidator>  
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<!--
+		FFC : SaveRestore=======================================================
+		-->
+		<Category Name="SaveRestoreFFC" NameSpace="Custom">
+			<ToolTip>Groups all settings bank save and restore FFC.</ToolTip>
+			<Description>Groups all settings bank save and restore FFC</Description>
+			<DisplayName>Save &amp; restore FFC</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pFeature>FFCSetSelector</pFeature>
+			<pFeature>FFCSetSave</pFeature>
+			<pFeature>FFCSetLoad</pFeature>
+			<pFeature>CurrentFFCSet</pFeature>
+		</Category>
+		<Enumeration Name="FFCSetSelector" NameSpace="Custom">
+			<ToolTip>Current FFC bank selector</ToolTip>
+			<Description>Current FFC bank</Description>
+			<Visibility>Beginner</Visibility>
+			<EnumEntry Name="Factory">
+				<ToolTip>Factory</ToolTip>
+				<Description>Factory</Description>
+				<DisplayName>Factory</DisplayName>
+				<pIsAvailable>IsFactoryMode</pIsAvailable>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="User1">
+				<ToolTip>User #1</ToolTip>
+				<Description>User #1</Description>
+				<DisplayName>User 1</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="User2">
+				<ToolTip>User #2</ToolTip>
+				<Description>User #2</Description>
+				<DisplayName>User 2</DisplayName>
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="User3">
+				<ToolTip>User #3</ToolTip>
+				<Description>User #3</Description>
+				<DisplayName>User 3</DisplayName>
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="User4">
+				<ToolTip>User #4</ToolTip>
+				<Description>User #4</Description>
+				<DisplayName>User 4</DisplayName>
+				<Value>4</Value>
+			</EnumEntry>
+			<EnumEntry Name="User5">
+				<ToolTip>User #5</ToolTip>
+				<Description>User #5</Description>
+				<DisplayName>User 5</DisplayName>
+				<Value>5</Value>
+			</EnumEntry>
+			<EnumEntry Name="User6">
+				<ToolTip>User #6</ToolTip>
+				<Description>User #6</Description>
+				<DisplayName>User 6</DisplayName>
+				<Value>6</Value>
+			</EnumEntry>
+			<EnumEntry Name="User7">
+				<ToolTip>User #7</ToolTip>
+				<Description>User #7</Description>
+				<DisplayName>User 7</DisplayName>
+				<Value>7</Value>
+			</EnumEntry>
+			<EnumEntry Name="User8">
+				<ToolTip>User #8</ToolTip>
+				<Description>User #8</Description>
+				<DisplayName>User 8</DisplayName>
+				<Value>8</Value>
+			</EnumEntry>				
+			<Value>1</Value>
+			<pSelected>FFCSetLoad</pSelected>
+            <pSelected>FFCSetSave</pSelected>
+		</Enumeration>
+		
+		<Command Name="FFCSetSave" NameSpace="Custom">
+			<ToolTip>Save FFC to bank</ToolTip>
+			<Description>Save FFC to bank</Description>
+			<DisplayName>Save FFC to bank</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pValue>FFCSetSaveReg</pValue>
+			<pCommandValue>FFCSetSelector</pCommandValue>
+		</Command>
+		<IntReg Name="FFCSetSaveReg">
+			<Address>0x73666663</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Command Name="FFCSetLoad" NameSpace="Custom">
+			<ToolTip>Load FFC to bank</ToolTip>
+			<Description>Load FFC to bank</Description>
+			<DisplayName>Load FFC to bank</DisplayName>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>FFCSetLoadReg</pValue>
+			<pCommandValue>FFCSetSelector</pCommandValue>
+		</Command>
+		<IntReg Name="FFCSetLoadReg">
+			<Address>0x72666663</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>FFCSetSaveReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Enumeration Name="CurrentFFCSet" NameSpace="Custom">
+			<ToolTip>Indicate which user FFC is currently in use</ToolTip>
+			<Description>Indicate which user FFC is currently in use</Description>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<EnumEntry Name="Factory">
+				<ToolTip>Factory</ToolTip>
+				<Description>Factory</Description>
+				<DisplayName>Factory</DisplayName>
+				<pIsAvailable>IsFactoryMode</pIsAvailable>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="User1">
+				<ToolTip>User #1</ToolTip>
+				<Description>User #1</Description>
+				<DisplayName>User 1</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="User2">
+				<ToolTip>User #2</ToolTip>
+				<Description>User #2</Description>
+				<DisplayName>User 2</DisplayName>
+				<Value>2</Value>
+			</EnumEntry>
+			<EnumEntry Name="User3">
+				<ToolTip>User #3</ToolTip>
+				<Description>User #3</Description>
+				<DisplayName>User 3</DisplayName>
+				<Value>3</Value>
+			</EnumEntry>
+			<EnumEntry Name="User4">
+				<ToolTip>User #4</ToolTip>
+				<Description>User #4</Description>
+				<DisplayName>User 4</DisplayName>
+				<Value>4</Value>
+			</EnumEntry>
+<EnumEntry Name="User5">
+				<ToolTip>User #5</ToolTip>
+				<Description>User #5</Description>
+				<DisplayName>User 5</DisplayName>
+				<Value>5</Value>
+			</EnumEntry>
+			<EnumEntry Name="User6">
+				<ToolTip>User #6</ToolTip>
+				<Description>User #6</Description>
+				<DisplayName>User 6</DisplayName>
+				<Value>6</Value>
+			</EnumEntry>
+			<EnumEntry Name="User7">
+				<ToolTip>User #7</ToolTip>
+				<Description>User #7</Description>
+				<DisplayName>User 7</DisplayName>
+				<Value>7</Value>
+			</EnumEntry>
+			<EnumEntry Name="User8">
+				<ToolTip>User #_</ToolTip>
+				<Description>User #8</Description>
+				<DisplayName>User 8</DisplayName>
+				<Value>8</Value>
+			</EnumEntry>			
+			<pValue>FFCSetLoadReg</pValue>
+		</Enumeration>
+		<!--
+		END of FFC : Flat Field Correction
+		-->
+	</Group>
+	
+	<Group Comment="LineProfilAverage">
+		<!--Line profil average features	===================================== -->
+		<Category Name="LineProfilAverage" NameSpace="Custom">
+			<ToolTip>Groups all line profile average</ToolTip>
+			<Description>Groups all line profile average</Description>
+			<pFeature>LineProfilAverageMeasurement</pFeature>
+			<pFeature>LineProfilAverageMeasurementAbort</pFeature>
+			<pFeature>PixelAccessLineNumber</pFeature>
+			<pFeature>PixelRoiStart</pFeature>
+			<pFeature>PixelRoiWidth</pFeature>
+			<pFeature>PixelRoiMean</pFeature>
+			<pFeature>PixelRoiStandardDeviation</pFeature>
+			<pFeature>PixelRoiMin</pFeature>
+			<pFeature>PixelRoiMax</pFeature>
+			<pFeature>PixelValueAll</pFeature>
+			<pFeature>PixelValueSize</pFeature>
+		</Category>
+		<Register Name="PixelValueAll">
+			<Address>0x100070000</Address>
+			<pLength>PixelValueAllSW</pLength>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</Register>
+		<IntSwissKnife Name="PixelValueAllSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<pVariable Name="PIXELVALUESIZE">PixelValueSize</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH * PIXELVALUESIZE ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="PixelValueSize">
+			<ToolTip>Pixel value size in bytes</ToolTip>
+			<Description>Pixel value size in bytes</Description>
+			<DisplayName>Pixel value size</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pIsLocked>DummyLock</pIsLocked>
+			<Value>2</Value>
+		</Integer>
+		<Command Name="LineProfilAverageMeasurement" NameSpace="Custom">
+			<ToolTip>Line profil average measurement</ToolTip>
+			<Description>Line profil average measurement</Description>
+			<DisplayName>Line profil average measurement</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pValue>LineProfilAverageMeasurementReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="LineProfilAverageMeasurementReg">
+			<Address>0x70697873</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Command Name="LineProfilAverageMeasurementAbort" NameSpace="Custom">
+			<ToolTip>Abort line profil average measurement</ToolTip>
+			<Description>Abort line profil average measurement</Description>
+			<DisplayName>Abort line profil average measurement</DisplayName>
+			<Visibility>Expert</Visibility>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>LineProfilAverageMeasurementReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<Enumeration Name="PixelAccessLineNumber" NameSpace="Custom">
+			<ToolTip>Pixel access line number</ToolTip>
+			<Description>Pixel access line number</Description>
+			<DisplayName>Pixel access line number</DisplayName>
+			<Visibility>Expert</Visibility>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="Line1">
+				<ToolTip>1 line</ToolTip>
+				<Description>1 line</Description>
+				<DisplayName>1 line</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<EnumEntry Name="Line256">
+				<ToolTip>256 lines</ToolTip>
+				<Description>256 lines</Description>
+				<DisplayName>256 lines</DisplayName>
+				<Value>256</Value>
+			</EnumEntry>
+			<EnumEntry Name="Line512">
+				<ToolTip>512 lines</ToolTip>
+				<Description>512 lines</Description>
+				<DisplayName>512 lines</DisplayName>
+				<Value>512</Value>
+			</EnumEntry>
+			<EnumEntry Name="Line1024">
+				<ToolTip>1024 lines</ToolTip>
+				<Description>1024 lines</Description>
+				<DisplayName>1024 lines</DisplayName>
+				<Value>1024</Value>
+			</EnumEntry>
+			<pValue>PixelAccessLineNumberReg</pValue>
+		</Enumeration>
+		<IntReg Name="PixelAccessLineNumberReg">
+			<Address>0x7069786C</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Integer Name="PixelRoiStart" NameSpace="Custom">
+			<ToolTip>Pixel ROI start</ToolTip>
+			<Description>Pixel ROI start</Description>
+			<DisplayName>Pixel ROI start</DisplayName>
+			<Visibility>Expert</Visibility>
+			<Streamable>Yes</Streamable>
+			<pValue>PixelRoiStartReg</pValue>
+			<Min>0</Min>
+			<pMax>RoiStartMax</pMax>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="PixelRoiStartReg">
+			<Address>0x70726F64</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="RoiStartMax">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH - 1 - 1 ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="PixelRoiWidth" NameSpace="Custom">
+			<ToolTip>Pixel ROI width</ToolTip>
+			<Description>Pixel ROI width</Description>
+			<DisplayName>Pixel ROI width</DisplayName>
+			<Visibility>Expert</Visibility>
+			<Streamable>Yes</Streamable>
+			<pValue>PixelRoiWidthReg</pValue>
+			<Min>1</Min>
+			<pMax>RoiWidthMax</pMax>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="PixelRoiWidthReg">
+			<Address>0x70726F77</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntSwissKnife Name="RoiWidthMax">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH ]]></Formula>
+		</IntSwissKnife>
+		<Float Name="PixelRoiMean" NameSpace="Custom">
+			<ToolTip>Pixel ROI mean</ToolTip>
+			<Description>Pixel ROI mean</Description>
+			<DisplayName>Pixel ROI mean</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pValue>PixelRoiMeanConv</pValue>
+			<Representation>Linear</Representation>
+		</Float>
+		<Converter Name="PixelRoiMeanConv">
+			<FormulaTo><![CDATA[ ROUND(FROM * 16) ]]></FormulaTo>
+			<FormulaFrom><![CDATA[ TO / 16 ]]></FormulaFrom>
+			<pValue>PixelRoiMeanReg</pValue>
+			<Slope>Increasing</Slope>
+		</Converter>
+		<IntReg Name="PixelRoiMeanReg">
+			<Address>0x70617672</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<!-- <pInvalidator>LineProfilAverageMeasurementReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<!-- <pInvalidator>LineProfilAverageMeasurementAbortReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Float Name="PixelRoiStandardDeviation" NameSpace="Custom">
+			<ToolTip>Pixel ROI standard deviation</ToolTip>
+			<Description>Pixel ROI standard deviation</Description>
+			<DisplayName>Pixel ROI standard deviation</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pValue>PixelRoiStandardDeviationConv</pValue>
+			<Representation>Linear</Representation>
+		</Float>
+		<Converter Name="PixelRoiStandardDeviationConv">
+			<FormulaTo><![CDATA[ ROUND(FROM * 16) ]]></FormulaTo>
+			<FormulaFrom><![CDATA[ TO / 16 ]]></FormulaFrom>
+			<pValue>PixelRoiStandardDeviationReg</pValue>
+			<Slope>Increasing</Slope>
+		</Converter>
+		<IntReg Name="PixelRoiStandardDeviationReg">
+			<Address>0x70737464</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<!-- <pInvalidator>LineProfilAverageMeasurementReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<!-- <pInvalidator>LineProfilAverageMeasurementAbortReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Float Name="PixelRoiMin" NameSpace="Custom">
+			<ToolTip>Pixel ROI min</ToolTip>
+			<Description>Pixel ROI min</Description>
+			<DisplayName>Pixel ROI min</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pValue>PixelRoiMinConv</pValue>
+			<Representation>Linear</Representation>
+		</Float>
+		<Converter Name="PixelRoiMinConv">
+			<FormulaTo><![CDATA[ ROUND(FROM * 16) ]]></FormulaTo>
+			<FormulaFrom><![CDATA[ TO / 16 ]]></FormulaFrom>
+			<pValue>PixelRoiMinReg</pValue>
+			<Slope>Increasing</Slope>
+		</Converter>
+		<IntReg Name="PixelRoiMinReg">
+			<Address>0x706D696E</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<!-- <pInvalidator>LineProfilAverageMeasurementReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<!-- <pInvalidator>LineProfilAverageMeasurementAbortReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Float Name="PixelRoiMax" NameSpace="Custom">
+			<ToolTip>Pixel ROI max</ToolTip>
+			<Description>Pixel ROI max</Description>
+			<DisplayName>Pixel ROI max</DisplayName>
+			<Visibility>Expert</Visibility>
+			<pValue>PixelRoiMaxConv</pValue>
+			<Representation>Linear</Representation>
+		</Float>
+		<Converter Name="PixelRoiMaxConv">
+			<FormulaTo><![CDATA[ ROUND(FROM * 16) ]]></FormulaTo>
+			<FormulaFrom><![CDATA[ TO / 16 ]]></FormulaFrom>
+			<pValue>PixelRoiMaxReg</pValue>
+			<Slope>Increasing</Slope>
+		</Converter>
+		<IntReg Name="PixelRoiMaxReg">
+			<Address>0x706D6178</Address>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<!-- <pInvalidator>LineProfilAverageMeasurementReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<!-- <pInvalidator>LineProfilAverageMeasurementAbortReg</pInvalidator> Time execution problem : Register is reread although LineProfilAverageMeasuremen is not finished -->
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+	</Group>
+	
+	
+	
+	<!-- ***************************************** -->
+    <!-- Factory -->
+    <!-- ***************************************** -->
+    <Group Comment="Factory">
+       <Category Name="Factory">
+		   <ToolTip>Factory</ToolTip>
+		   <Description>Factory</Description>
+		   <DisplayName>Factory</DisplayName>
+		   <Visibility>Guru</Visibility>
+		   <pIsImplemented>IsFactoryMode</pIsImplemented>
+		   <pFeature>ClampCompensation</pFeature>
+		   <pFeature>GainAnalogTapSelector</pFeature>
+		   <pFeature>GainAnalogTap</pFeature>
+		   <pFeature>FactoryDigitalGainTapSelector</pFeature>
+		   <pFeature>FactoryDigitalGainTap</pFeature>
+		   <pFeature>BlackLevelAnalogTapSelector</pFeature>
+		   <pFeature>BlackLevelAnalogTap</pFeature>
+		   <pFeature>SaveFactoryConfig</pFeature>
+		   <pFeature>SensorResetLevel</pFeature>
+		   <pFeature>SensorAntibloomingCurrentValue</pFeature>
+		   <pFeature>StartSelfDiag</pFeature>
+		   <pFeature>AbortSelfDiag</pFeature> 
+		   <pFeature>SelfDiag</pFeature>
+		   <!-- 
+		   <pFeature>PowerSupplyStatusSelector</pFeature>
+		   <pFeature>PowerSupplyStatus</pFeature> -->
+		   <pFeature>FFCSensorEnable</pFeature>
+		   <pFeature>ResetFPNSensor</pFeature>
+		   <pFeature>ResetFFCSensor</pFeature>
+		   <pFeature>FFCSensorSave</pFeature>			
+		   <pFeature>STB_Th_prog1</pFeature>			
+		   <pFeature>STB_Th_prog2</pFeature>
+		   <pFeature>EraseFactorySettings</pFeature>
+		   <pFeature>EraseAll</pFeature>
+		   <pFeature>BalanceCalibration</pFeature>
+		   <pFeature>SensorCalibration</pFeature>
+		   <pFeature>FpgaDebug</pFeature>
+		   <pFeature>SensorDebug</pFeature>
+       </Category>
+       
+       <Enumeration Name="ClampCompensation" NameSpace="Custom">
+			<ToolTip>Clamp compensation</ToolTip>
+			<Description>Clamp compensation</Description>
+			<DisplayName>Clamp Compensation</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="Desactivated">
+				<ToolTip>Desactivated</ToolTip>
+				<Description>Desactivated</Description>
+				<DisplayName>Desactivated</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="Activated">
+				<ToolTip>Activated</ToolTip>
+				<Description>Activated</Description>
+				<DisplayName>Activated</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>ClampCompensationReg</pValue>
+		</Enumeration>
+		<IntReg Name="ClampCompensationReg">
+			<Address>0x636C6370</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+       <Integer Name="GainAnalogTapSelector" NameSpace="Custom">
+			<ToolTip>Gain analog tap selector</ToolTip>
+			<Description>Gain analog tap selector</Description>
+			<DisplayName>Gain Analog Tap Selector</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Value>1</Value>
+			<Min>1</Min>
+			<pMax>SensorOutputMaxTapsSW</pMax>
+			<Inc>1</Inc>
+			<pSelected>GainAnalogTap</pSelected>
+		</Integer>
+		<IntSwissKnife Name="SensorOutputMaxTapsSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH >> 11 ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="GainAnalogTap" NameSpace="Custom">
+			<ToolTip>Gain analog tap</ToolTip>
+			<Description>Gain analog tap</Description>
+			<DisplayName>Gain Analog Tap</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<pValue>GainAnalogTapReg</pValue>
+			<Min>0</Min>
+			<Max>127</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="GainAnalogTapReg">
+			<Address>0x76676130</Address>
+			<pAddress>GainAnalogTapSelector</pAddress>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+       
+		<Integer Name="FactoryDigitalGainTapSelector" NameSpace="Custom">
+			<ToolTip>Factory Digital gain tap selector</ToolTip>
+			<Description>Factory Digital gain tap selector</Description>
+			<DisplayName>Factory Digital gain tap selector</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Value>1</Value>
+			<Min>1</Min>
+			<pMax>ProcessingCtrlMaxTapsSW</pMax>
+			<Inc>1</Inc>
+			<pSelected>FactoryDigitalGainTap</pSelected>
+		</Integer>
+		
+		<Integer Name="FactoryDigitalGainTap" NameSpace="Custom">
+			<ToolTip>Factory Digital gain tap</ToolTip>
+			<Description>Factory Digital gain tap</Description>
+			<DisplayName>Factory Digital Gain Tap</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<pValue>FactoryDigitalGainTapReg</pValue>
+			<Min>0</Min>
+			<Max>32767</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="FactoryDigitalGainTapReg">
+			<Address>0x64677430</Address>
+			<pAddress>FactoryDigitalGainTapSelector</pAddress>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Signed</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+
+       <Integer Name="BlackLevelAnalogTapSelector" NameSpace="Custom">
+			<ToolTip>Black level analog tap selector</ToolTip>
+			<Description>Black level analog tap selector</Description>
+			<DisplayName>Black Level Analog Selector</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Value>1</Value>
+			<Min>1</Min>
+			<pMax>SensorOutputMaxTapsSW</pMax>
+			<Inc>1</Inc>
+			<pSelected>BlackLevelAnalogTap</pSelected>
+		</Integer>
+		<Integer Name="BlackLevelAnalogTap" NameSpace="Custom">
+			<ToolTip>Black level factory</ToolTip>
+			<Description>Black level factory</Description>
+			<DisplayName>Black Level Analog Tap</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<pValue>BlackLevelAnalogTapReg</pValue>
+			<Min>0</Min>
+			<Max>4095</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="BlackLevelAnalogTapReg">
+			<Address>0x636C7030</Address>
+			<pAddress>BlackLevelAnalogTapSelector</pAddress>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="SaveFactoryConfig" NameSpace="Custom">
+            <ToolTip>Save factory config.</ToolTip>
+            <Description>Save factory config.</Description>
+            <DisplayName>Save Factory Config</DisplayName>
+            <Visibility>Guru</Visibility>
+            <pIsImplemented>IsFactoryMode</pIsImplemented>
+            <pValue>SaveFactoryConfigReg</pValue>
+            <CommandValue>1</CommandValue>
+        </Command>
+         <IntReg Name="SaveFactoryConfigReg">
+			<Address>0x73666163</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Integer Name="SensorResetLevel" NameSpace="Custom">
+			<ToolTip>Sensor reset level of memory node</ToolTip>
+			<Description>Sensor Reset Level</Description>
+			<DisplayName>Sensor Reset Level</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<pValue>SensorResetLevelReg</pValue>
+			<Min>0</Min>
+			<Max>1023</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="SensorResetLevelReg">
+			<Address>0x7664726D</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		
+		<Integer Name="SensorAntibloomingCurrentValue" NameSpace="Custom">
+			<ToolTip>Sensor Low TRA level for antiblooming Current Value</ToolTip>
+			<Description>Sensor Antiblooming Current Value</Description>
+			<DisplayName>Sensor Antiblooming Current Value (VLTRA)</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<pValue>SensorAntibloomingCurrentValueReg</pValue>
+			<Min>0</Min>
+			<Max>1023</Max>
+			<Inc>1</Inc>
+		</Integer>
+		<IntReg Name="SensorAntibloomingCurrentValueReg">
+			<Address>0x76747261</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="StartSelfDiag" NameSpace="Custom">
+            <ToolTip>Start self diag.</ToolTip>
+            <Description>Start self diag.</Description>
+            <DisplayName>Start Self Diag</DisplayName>
+            <Visibility>Guru</Visibility>
+            <pIsImplemented>IsFactoryMode</pIsImplemented>
+            <ImposedAccessMode>WO</ImposedAccessMode>
+            <pValue>SelfDiagReg</pValue>
+            <CommandValue>1</CommandValue>
+        </Command>
+        <Command Name="AbortSelfDiag" NameSpace="Custom">
+            <ToolTip>Abort self diag.</ToolTip>
+            <Description>Abort self diag.</Description>
+            <DisplayName>Abort Self Diag</DisplayName>
+            <Visibility>Guru</Visibility>
+            <pIsImplemented>IsFactoryMode</pIsImplemented>
+            <ImposedAccessMode>WO</ImposedAccessMode>
+            <pValue>SelfDiagReg</pValue>
+            <CommandValue>0</CommandValue>
+        </Command>
+        <Enumeration Name="SelfDiag" NameSpace="Custom">
+           <ToolTip>Self diag</ToolTip>
+			<Description>Self diag</Description>
+			<DisplayName>SelfDiag</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+            <EnumEntry Name="FinishedAndSuccessful" NameSpace="Custom">
+                <ToolTip>Finished &amp; Successful.</ToolTip>
+                <Description>Finished &amp; Successful.</Description>
+                <DisplayName>Finished &amp; Successful.</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+             <EnumEntry Name="Running" NameSpace="Custom">
+                <ToolTip>Running.</ToolTip>
+                <Description>Running.</Description>
+                <DisplayName>Running.</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="FinishedAndPatternFailure" NameSpace="Custom">
+                <ToolTip>Finished &amp; Pattern Failure.</ToolTip>
+                <Description>Finished &amp; Pattern Failure.</Description>
+                <DisplayName>Finished &amp; Pattern Failure.</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            
+            <!-- 
+            <EnumEntry Name="FinishedAnd3V7Failure" NameSpace="Custom">
+                <ToolTip>Finished &amp; 3V7 Failure.</ToolTip>
+                <Description>Finished &amp; 3V7 Failure.</Description>
+                <DisplayName>Finished &amp; 3V7 Failure.</DisplayName>
+                <Value>3</Value>
+            </EnumEntry>
+            <EnumEntry Name="FinishedAnd3V3Failure" NameSpace="Custom">
+                <ToolTip>Finished &amp; 3V3 Failure.</ToolTip>
+                <Description>Finished &amp; 3V3 Failure.</Description>
+                <DisplayName>Finished &amp; 3V3 Failure.</DisplayName>
+                <Value>4</Value>
+            </EnumEntry>
+            <EnumEntry Name="FinishedAnd3V3ANAFailure" NameSpace="Custom">
+                <ToolTip>Finished &amp; 3V3ANA Failure.</ToolTip>
+                <Description>Finished &amp; 3V3ANA Failure.</Description>
+                <DisplayName>Finished &amp; 3V3ANA Failure.</DisplayName>
+                <Value>5</Value>
+            </EnumEntry>
+             <EnumEntry Name="FinishedAnd1V8Failure" NameSpace="Custom">
+                <ToolTip>Finished &amp; 1V8 Failure.</ToolTip>
+                <Description>Finished &amp; 1V8 Failure.</Description>
+                <DisplayName>Finished &amp; 1V8 Failure.</DisplayName>
+                <Value>6</Value>
+            </EnumEntry>
+             <EnumEntry Name="FinishedAnd1V8ANAFailure" NameSpace="Custom">
+                <ToolTip>Finished &amp; 1V8ANA Failure.</ToolTip>
+                <Description>Finished &amp; 1V8ANA Failure.</Description>
+                <DisplayName>Finished &amp; 1V8ANA Failure.</DisplayName>
+                <Value>7</Value>
+            </EnumEntry>
+              <EnumEntry Name="FinishedAnd1V2Failure" NameSpace="Custom">
+                <ToolTip>Finished &amp; 1V2 Failure.</ToolTip>
+                <Description>Finished &amp; 1V2 Failure.</Description>
+                <DisplayName>Finished &amp; 1V2 Failure.</DisplayName>
+                <Value>8</Value>
+            </EnumEntry> -->
+            <EnumEntry Name="FPGASensorSizeFailure" NameSpace="Custom">
+				<ToolTip>If Fpga sensor size read failure, this bit is set</ToolTip>
+				<DisplayName>FPGA sensor size failure</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>9</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor0Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 0 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 0 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>10</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor1Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 1 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor1 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>11</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor2Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 2 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 2 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>12</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor3Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 3 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 3 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>13</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor4Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 4 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 4 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>14</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor5Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 5 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 5 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>15</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor6Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 6 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 6 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>16</Value>
+			</EnumEntry>
+			<EnumEntry Name="InvalidSensor7Detection" NameSpace="Custom">
+				<ToolTip>invalid sensor 7 detection, this bit is set</ToolTip>
+				<DisplayName>invalid sensor 7 detection</DisplayName>
+				<Visibility>Beginner</Visibility>
+				<Value>17</Value>
+			</EnumEntry>
+            <pValue>SelfDiagReg</pValue>
+        </Enumeration>
+         <IntReg Name="SelfDiagReg">
+			<Address>0x64696167</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<!--
+		 <Integer Name="PowerSupplyStatusSelector" NameSpace="Custom">
+			<ToolTip>Power supply status selector</ToolTip>
+			<Description>Power supply status selector</Description>
+			<DisplayName>Power Supply Status Selector</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Value>1</Value>
+			<Min>1</Min>
+			<Max>6</Max>
+			<Inc>1</Inc>
+			<pSelected>PowerSupplyStatus</pSelected>
+		</Integer>
+		<Integer Name="PowerSupplyStatus" NameSpace="Custom">
+			<ToolTip>Power supply status</ToolTip>
+			<Description>Power supply status</Description>
+			<DisplayName>Power Supply Status</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>PowerSupplyStatusReg</pValue>
+		</Integer>
+		<IntReg Name="PowerSupplyStatusReg">
+			<Address>0x70777230</Address>
+			<pAddress>PowerSupplyStatusSelector</pAddress>
+			<Length>4</Length>
+			<AccessMode>RO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>-->
+
+		<Command Name="UbootDataPartitionUpgrade" NameSpace="Custom">
+            <ToolTip>Uboot Data Partition Upgrade.</ToolTip>
+            <Description>Uboot Data Partition Upgrade.</Description>
+            <DisplayName>Uboot Data Partition Upgrade</DisplayName>
+            <Visibility>Guru</Visibility>
+            <pIsImplemented>IsFactoryMode</pIsImplemented>
+            <pValue>UbootDataPartitionUpgradegReg</pValue>
+            <CommandValue>1</CommandValue>
+        </Command>
+         <IntReg Name="UbootDataPartitionUpgradegReg">
+			<Address>0x75756264</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="FFCSensorEnable" NameSpace="Custom">
+			<DisplayName>FFCSensorEnable</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Streamable>Yes</Streamable>
+			<EnumEntry Name="Disabled">
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="Enabled">
+				<Value>1</Value>
+			</EnumEntry>
+			<pValue>FFCSensorEnableReg</pValue>
+		</Enumeration>
+		<IntReg Name="FFCSensorEnableReg">
+			<Address>0x66666373</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<!-- FPNSensorValueAll & FFCSensorValueAll MUST BE DEFINED IN ClProtocol dll !!!
+		<Category Name="Sensor_FPN" NameSpace="Custom">
+			<ToolTip>Sensor flat field calibration</ToolTip>
+			<Description>Sensor flat field calibration</Description>
+			<DisplayName>Sensor FPN calibration</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pFeature>ResetFPNSensor</pFeature>
+			<pFeature>FPNSensorValueAll</pFeature>
+			<pFeature>FPNSensorValueSize</pFeature>
+		</Category>
+		<Category Name="Sensor_FFC" NameSpace="Custom">
+			<ToolTip>Sensor flat field calibration</ToolTip>
+			<Description>Sensor flat field calibration</Description>
+			<DisplayName>Manual FFC calibration</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pFeature>ResetFFCSensor</pFeature>
+			<pFeature>FFCSensorValueAll</pFeature>
+			<pFeature>FFCSensorValueSize</pFeature>
+		</Category>
+		<Register Name="FPNSensorValueAll">
+			<Address>0x100040000</Address> TO BE DEFINED IN ClProtocol dll 
+			<pLength>FPNSensorValueAllSW</pLength>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</Register>
+		<IntSwissKnife Name="FPNSensorValueAllSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<pVariable Name="FPNVALUESIZE">FPNSensorValueSize</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH * FPNVALUESIZE ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="FPNSensorValueSize">
+			<ToolTip>FPN sensor value size in bytes</ToolTip>
+			<Description>FPN sensor value size in bytes</Description>
+			<DisplayName>FPN sensor value size</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pIsLocked>DummyLock</pIsLocked>
+			<Value>2</Value>
+		</Integer>
+		<Register Name="FFCSensorValueAll">
+			<Address>0x100050000</Address> TO BE DEFINED IN ClProtocol dll
+			<pLength>FFCSensorValueAllSW</pLength>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+		</Register>
+		<IntSwissKnife Name="FFCSensorValueAllSW">
+			<pVariable Name="SENSORWIDTH">SensorWidth</pVariable>
+			<pVariable Name="FFCVALUESIZE">FFCSensorValueSize</pVariable>
+			<Formula><![CDATA[ SENSORWIDTH * FFCVALUESIZE ]]></Formula>
+		</IntSwissKnife>
+		<Integer Name="FFCSensorValueSize">
+			<ToolTip>FFC sensor value size in bytes</ToolTip>
+			<Description>FFC sensor value size in bytes</Description>
+			<DisplayName>FFC sensor value size</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pIsLocked>DummyLock</pIsLocked>
+			<Value>2</Value>
+		</Integer> -->
+		
+		<Command Name="ResetFPNSensor" NameSpace="Custom">
+			<ToolTip>Reset FPN Sensor to 0</ToolTip>
+			<Description>Reset FPN Sensor to 0</Description>
+			<DisplayName>Reset FPN Sensor</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>ResetFPNSensorReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="ResetFPNSensorReg">
+			<Address>0x636C736F</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<Command Name="ResetFFCSensor" NameSpace="Custom">
+			<ToolTip>Reset flat field sensor coefficient  to 1</ToolTip>
+			<Description>Reset flat field sensor coefficient  to 1</Description>
+			<DisplayName>Reset FFC Sensor</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>ResetFFCSensorReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="ResetFFCSensorReg">
+			<Address>0x636C7367</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="FFCSensorSave" NameSpace="Custom">
+			<ToolTip>Save all FFC sensor to FFC sensor file</ToolTip>
+			<Description>Save all FFC sensor to FFC sensor file</Description>
+			<DisplayName>FFC Sensor Save</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>FFCSensorSaveReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="FFCSensorSaveReg">
+			<Address>0x73666673</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Enumeration Name="STB_Mode" NameSpace="Custom">
+            <!-- Optional element -->
+            <ToolTip>Selects the Full Exposure Control Mode.</ToolTip>
+            <Description>Selects the Full Exposure Control Mode.</Description>
+            <DisplayName>Full Exposure Control Mode</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <pIsImplemented>IsFactoryMode</pIsImplemented>
+            <Streamable>Yes</Streamable>
+            <EnumEntry Name="WithAllLines_4S_2S" NameSpace="Custom">
+                <ToolTip>All lines are available.</ToolTip>
+                <Description>All lines are available.</Description>
+                <DisplayName>With all lines</DisplayName>
+                <Value>0</Value>
+            </EnumEntry>
+             <EnumEntry Name="WithoutIncorrectLines_4S_2S" NameSpace="Custom">
+                <ToolTip>Without incorrect lines.</ToolTip>
+                <Description>Without incorrect lines.</Description>
+                <DisplayName>Without incorrect lines</DisplayName>
+                <Value>1</Value>
+            </EnumEntry>
+            <EnumEntry Name="Mode4sOnly" NameSpace="Custom">
+                <ToolTip>Mode 4S only.</ToolTip>
+                <Description>Mode 4S only.</Description>
+                <DisplayName>Mode 4S only</DisplayName>
+                <Value>2</Value>
+            </EnumEntry>
+            <pValue>STB_ModeReg</pValue>
+        </Enumeration>
+        
+        <IntReg Name="STB_ModeReg">
+			<Address>0x7374626D</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<pInvalidator>UserSetLoadReg</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		
+		<IntSwissKnife Name="IsTrigExpVarModeAnd4S">
+			<!-- Correspond to SynchroMode = 0 or SynchroMode = 1 -->
+			<pVariable Name="SYNCHROMODE">SynchroModeReg</pVariable>
+			<pVariable Name="SENSORMODE">SensorModeReg</pVariable>			
+			<Formula>SYNCHROMODE = 1 ? (SENSORMODE=2?1:0) : (SYNCHROMODE = 3?(SENSORMODE=2?1:0) :0)</Formula>
+		</IntSwissKnife>
+		
+		
+	<Float Name="StabilizedGain" NameSpace="Custom">
+			<ToolTip>Gain for Stabilized Level Mode </ToolTip>
+			<Description>Gain  for Stabilized Level Mode </Description>
+			<DisplayName>Gain for Stabilized Level Mode </DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsAvailable>IsTrigExpVarModeAnd4S</pIsAvailable>			
+            <Streamable>Yes</Streamable>
+			<pValue>StbGainConv</pValue>
+			<pMin>GainStbMin</pMin>
+            <pMax>GainStbMax</pMax>
+            <Unit>dB</Unit>
+			<Representation>Linear</Representation>
+		</Float>
+		<IntReg Name="STBGainReg">
+			<Address>0x73746267</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<SwissKnife Name="GainStbMin">
+			<Constant Name="MinStbGain">0</Constant>
+			<Formula><![CDATA[ MinStbGain ]]></Formula>
+		</SwissKnife>
+		
+
+		<SwissKnife Name="GainStbMax">
+			<Constant Name="MaxStbGain">49151</Constant>
+			<Formula><![CDATA[ 20*LG(1+MaxStbGain / 16384)]]></Formula>
+		</SwissKnife>
+		
+		<Converter Name="StbGainConv">
+			<FormulaTo><![CDATA[ ROUND((EXP(FROM / 20 * LN(10)) - 1) * 16384) ]]></FormulaTo> 
+			<FormulaFrom><![CDATA[ 20*LG(1+TO / 16384) ]]></FormulaFrom>
+			<pValue>STBGainReg</pValue>
+		</Converter>
+
+		<Integer Name="STB_Th_prog1" NameSpace="Custom">
+			<ToolTip>Threshold prog 1 for Stabilized Level Mode </ToolTip>
+			<Description>Threshold prog 1 for Stabilized Level Mode </Description>
+			<DisplayName>STB Threshold Prog1 </DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>STB_Th_prog1Reg</pValue>
+            <Min>0</Min>
+            <Max>16383</Max>
+            <Inc>1</Inc>
+            <Representation>Linear</Representation>            
+		</Integer>
+		<IntReg Name="STB_Th_prog1Reg">
+			<Address>0x73746231</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+
+		<Integer Name="STB_Th_prog2" NameSpace="Custom">
+			<ToolTip>Threshold prog 2 for Stabilized Level Mode </ToolTip>
+			<Description>Threshold prog 2 for Stabilized Level Mode </Description>
+			<DisplayName>STB Threshold Prog2 </DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>STB_Th_prog2Reg</pValue>
+            <Min>0</Min>
+            <Max>16383</Max>
+            <Inc>1</Inc>
+            <Representation>Linear</Representation>            
+		</Integer>
+		<IntReg Name="STB_Th_prog2Reg">
+			<Address>0x73746232</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="EraseFactorySettings" NameSpace="Custom">
+			<ToolTip>Erase Factory Settings (/mnt/AFS/Factory/*.bin)</ToolTip>
+			<Description>Erase Factory Settings (/mnt/AFS/Factory/*.bin)</Description>
+			<DisplayName>Erase Factory Settings</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>EraseFactorySettingsReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<IntReg Name="EraseFactorySettingsReg">
+			<Address>0x726D6673</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		
+		<Command Name="EraseAll" NameSpace="Custom">
+			<ToolTip>Reset all gain, offset and FFC for each sensor mode</ToolTip>
+			<Description>Reset all gain, offset and FFC for each sensor mode</Description>
+			<DisplayName>Reset all</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>EraseAllReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="EraseAllReg">
+			<Address>0x636C7361</Address>
+			<Length>4</Length>
+			<AccessMode>WO</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		
+		<Category Name="BalanceCalibration" NameSpace="Custom">
+			<DisplayName>Balance Calibration</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pFeature>AnalogOffsetBalanceCalibrationCtrl</pFeature>
+			<pFeature>AnalogOffsetBalanceCalibrationAbort</pFeature>
+			<pFeature>AnalogOffsetBalanceCalibrationStatus</pFeature>
+			<pFeature>AnalogGainBalanceCalibrationCtrl</pFeature>
+			<pFeature>AnalogGainBalanceCalibrationAbort</pFeature>
+			<pFeature>AnalogGainBalanceCalibrationStatus</pFeature>
+		</Category>
+		
+		<Command Name="AnalogOffsetBalanceCalibrationCtrl" NameSpace="Custom">
+			<ToolTip>Analog offset balance calibration control</ToolTip>
+			<Description>Analog offset balance calibration control</Description>
+			<DisplayName>Analog offset balance calibration control</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>AnalogOffsetBalanceCalibrationCtrlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="AnalogOffsetBalanceCalibrationAbort" NameSpace="Custom">
+			<ToolTip>Abort analog offset balance calibration process</ToolTip>
+			<Description>Abort analog offset balance calibration process</Description>
+			<DisplayName>Analog offset balance calibration abort</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>AnalogOffsetBalanceCalibrationCtrlReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="AnalogOffsetBalanceCalibrationCtrlReg">
+			<ToolTip>Analog offset balance status</ToolTip>
+			<Description>Analog offset balance status</Description>
+			<DisplayName>Analog offset balance status</DisplayName>
+			<Address>0x62616C63</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntReg Name="AnalogOffsetBalanceCalibrationStatus">
+			<ToolTip>Analog offset balance status</ToolTip>
+			<Description>Analog offset balance status</Description>
+			<DisplayName>Analog offset balance status</DisplayName>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Address>0x73616C63</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="AnalogGainBalanceCalibrationCtrl" NameSpace="Custom">
+			<ToolTip>Analog gain balance calibration control</ToolTip>
+			<Description>Analog gain balance calibration control</Description>
+			<DisplayName>Analog gain balance calibration control</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>AnalogGainBalanceCalibrationCtrlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="AnalogGainBalanceCalibrationAbort" NameSpace="Custom">
+			<ToolTip>Abort analog gain balance calibration process</ToolTip>
+			<Description>Abort analog gain balance calibration process</Description>
+			<DisplayName>Analog gain balance calibration abort</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>AnalogGainBalanceCalibrationCtrlReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="AnalogGainBalanceCalibrationCtrlReg">
+			<Address>0x62616C76</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntReg Name="AnalogGainBalanceCalibrationStatus">
+			<ToolTip>Analog gain balance status</ToolTip>
+			<Description>Analog gain balance status</Description>
+			<DisplayName>Analog gain balance status</DisplayName>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Address>0x73616C76</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Category Name="SensorCalibration" NameSpace="Custom">
+			<DisplayName>Sensor Calibration</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pFeature>FPNSensorCalibrationCtrl</pFeature>
+			<pFeature>FPNSensorCalibrationAbort</pFeature>
+			<pFeature>FPNSensorCalibrationStatus</pFeature>
+			<pFeature>PrnuSensorCalibrationCtrl</pFeature>
+			<pFeature>PrnuSensorCalibrationAbort</pFeature>
+			<pFeature>PrnuSensorCalibrationStatus</pFeature>
+		</Category>
+		
+		<Command Name="FPNSensorCalibrationCtrl" NameSpace="Custom">
+			<ToolTip>FPN sensor calibration control</ToolTip>
+			<Description>FPN sensor calibration control</Description>
+			<DisplayName>FPN sensor calibration control</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>FPNSensorCalibrationCtrlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="FPNSensorCalibrationAbort" NameSpace="Custom">
+			<ToolTip>Abort FPN sensor calibration process</ToolTip>
+			<Description>Abort FPN sensor calibration process</Description>
+			<DisplayName>FPN sensor calibration abort</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>FPNSensorCalibrationCtrlReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="FPNSensorCalibrationCtrlReg">
+			<Address>0x6361736F</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntReg Name="FPNSensorCalibrationStatus">
+			<ToolTip>FPN sensor status</ToolTip>
+			<Description>FPN sensor status</Description>
+			<DisplayName>FPN sensor status</DisplayName>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Address>0x7361736F</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		
+		<Command Name="PrnuSensorCalibrationCtrl" NameSpace="Custom">
+			<ToolTip>PRNU sensor calibration control</ToolTip>
+			<Description>PRNU sensor calibration control</Description>
+			<DisplayName>PRNU sensor calibration control</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>PrnuSensorCalibrationCtrlReg</pValue>
+			<CommandValue>1</CommandValue>
+		</Command>
+		<Command Name="PrnuSensorCalibrationAbort" NameSpace="Custom">
+			<ToolTip>Abort PRNU sensor calibration process</ToolTip>
+			<Description>Abort PRNU sensor calibration process</Description>
+			<DisplayName>PRNU sensor calibration abort</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<ImposedAccessMode>WO</ImposedAccessMode>
+			<pValue>PrnuSensorCalibrationCtrlReg</pValue>
+			<CommandValue>0</CommandValue>
+		</Command>
+		<IntReg Name="PrnuSensorCalibrationCtrlReg">
+			<Address>0x63617367</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+		<IntReg Name="PrnuSensorCalibrationStatus">
+			<ToolTip>Prnu sensor status</ToolTip>
+			<Description>Prnu sensor status</Description>
+			<DisplayName>Prnu sensor status</DisplayName>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Address>0x73617367</Address>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+		</IntReg>
+	</Group>
+
+	<Group Comment="FpgaDebug">
+		<Category Name="FpgaDebug">
+			<ToolTip>Fpga registers direct access.</ToolTip>
+			<Description>Fpga registers direct access.</Description>
+			<DisplayName>Fpga Debug</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pFeature>FpgaDebug16BitsRegisterAddr</pFeature>
+			<pFeature>FpgaDebug16BitsVal</pFeature>
+			<pFeature>FpgaDebug16BitsRegisterValue</pFeature>
+    </Category>
+		
+		<Integer Name="FpgaDebug16BitsRegisterAddr" NameSpace="Custom">
+			<ToolTip>Fpga Address index</ToolTip>
+			<Description>Fpga Address index</Description>
+			<DisplayName>Fpga Address index</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Value>1</Value>
+			<Min>1</Min>
+			<Max>0x0FFF</Max>
+			<Inc>1</Inc>
+		</Integer>
+
+		<Integer Name="FpgaDebug16BitsVal" NameSpace="Custom">
+			<ToolTip>Fpga Debug 16 bits coefficient value in decimal</ToolTip>
+			<Description>Fpga Debug 16 bits coefficient value in decimal</Description>
+			<DisplayName>Fpga Debug 16 bits Value in decimal</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>FpgaDebug16BitsRegisterValue</pValue>
+			<Min>0</Min>
+			<Max>65535</Max>
+			<Inc>1</Inc>
+		    <Representation>Linear</Representation>
+		</Integer>
+		
+		<IntSwissKnife Name="FpgaDebugAddrSW">
+			<pVariable Name="FPGADEBUGADDR">FpgaDebug16BitsRegisterAddr</pVariable>
+      <Formula><![CDATA[ ((((FPGADEBUGADDR & 0x0F00) >> 8) >= 10) ? ((((FPGADEBUGADDR & 0x0F00) >> 8) + 0x37) << 16) : ((((FPGADEBUGADDR & 0x0F00) >> 8) + 0x30) << 16)) | ((((FPGADEBUGADDR & 0x00F0) >> 4) >= 10) ? ((((FPGADEBUGADDR & 0x00F0) >> 4) + 0x37) << 8) : ((((FPGADEBUGADDR & 0x00F0) >> 4) + 0x30) << 8)) | (((FPGADEBUGADDR & 0x000F) >= 10) ? ((FPGADEBUGADDR & 0x000F) + 0x37) : ((FPGADEBUGADDR & 0x000F) + 0x30)) ]]></Formula>
+    </IntSwissKnife>
+    
+    <IntReg Name="FpgaDebug16BitsRegisterValue">
+			<ToolTip>Fpga Debug 16 bits coefficient value in hexa</ToolTip>
+			<Description>Fpga Debug 16 bits coefficient value in hexa</Description>
+			<DisplayName>Fpga Debug 16 bits Value in hexa</DisplayName>
+			<Address>0x39000000</Address>
+			<pAddress>FpgaDebugAddrSW</pAddress>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>FpgaDebug16BitsRegisterAddr</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+			<Representation>HexNumber</Representation>
+		</IntReg>
+	</Group>	
+	
+	<Group Comment="SensorDebug">
+		<Category Name="SensorDebug">
+			<ToolTip>Sensor registers direct access.</ToolTip>
+			<Description>Sensor registers direct access.</Description>
+			<DisplayName>Sensor Debug</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pFeature>SensorSelector</pFeature>
+			<pFeature>SensorDebug16BitsRegisterAddr</pFeature>
+			<pFeature>SensorDebug16BitsVal</pFeature>
+			<pFeature>SensorDebug16BitsRegisterValue</pFeature>
+    </Category>
+    
+		<Enumeration Name="SensorSelector" NameSpace="Custom">
+            <ToolTip>Selects the 4K sensor.</ToolTip>
+            <Description>Selects the 4K sensor.</Description>
+            <DisplayName>Selects the 4K sensor.</DisplayName>
+            <Visibility>Guru</Visibility>
+            <EnumEntry Name="Sensor0" NameSpace="Standard">
+                <DisplayName>Sensor 0</DisplayName>
+                <Value>0x30000000</Value>
+            </EnumEntry>
+            <EnumEntry Name="Sensor1" NameSpace="Standard">
+                <DisplayName>Sensor 1</DisplayName>
+                <Value>0x31000000</Value>
+            </EnumEntry>
+            <EnumEntry Name="Sensor2" NameSpace="Standard">
+                <DisplayName>Sensor 2</DisplayName>
+                <Value>0x32000000</Value>
+            </EnumEntry>
+            <EnumEntry Name="Sensor3" NameSpace="Standard">
+                <DisplayName>Sensor 3</DisplayName>
+                <Value>0x33000000</Value>
+            </EnumEntry>
+         <!--   <EnumEntry Name="Sensor4" NameSpace="Standard">
+                <DisplayName>Sensor 4</DisplayName>
+                <Value>0x34000000</Value>
+            </EnumEntry>
+            <EnumEntry Name="Sensor5" NameSpace="Standard">
+                <DisplayName>Sensor 5</DisplayName>
+                <Value>0x35000000</Value>
+            </EnumEntry>
+            <EnumEntry Name="Sensor6" NameSpace="Standard">
+                <DisplayName>Sensor 6</DisplayName>
+                <Value>0x36000000</Value>
+            </EnumEntry>
+            <EnumEntry Name="Sensor7" NameSpace="Standard">
+                <DisplayName>Sensor 7</DisplayName>
+                <Value>0x37000000</Value>
+            </EnumEntry> -->
+            <EnumEntry Name="SensorBroadcast" NameSpace="Standard">
+                <DisplayName>Sensor Broadcast</DisplayName>
+                <Value>0x38000000</Value>
+            </EnumEntry>
+            <Value>0x38000000</Value>
+            <pSelected>DeviceTemperature</pSelected>
+        </Enumeration>
+		
+		<Integer Name="SensorDebug16BitsRegisterAddr" NameSpace="Custom">
+			<ToolTip>Sensor Address coefficient index</ToolTip>
+			<Description>Sensor Address index</Description>
+			<DisplayName>Sensor Address index</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<Value>1</Value>
+			<Min>1</Min>
+			<Max>0x0FFF</Max>
+			<Inc>1</Inc>
+		</Integer>
+
+		<Integer Name="SensorDebug16BitsVal" NameSpace="Custom">
+			<ToolTip>Sensor Debug 16 bits coefficient value in decimal</ToolTip>
+			<Description>Sensor Debug 16 bits coefficient value in decimal</Description>
+			<DisplayName>Sensor Debug 16 bits Value in decimal</DisplayName>
+			<Visibility>Guru</Visibility>
+			<pIsImplemented>IsFactoryMode</pIsImplemented>
+			<pValue>SensorDebug16BitsRegisterValue</pValue>
+			<Min>0</Min>
+			<Max>65535</Max>
+			<Inc>1</Inc>
+		    <Representation>Linear</Representation>
+		</Integer>
+		
+		<IntSwissKnife Name="SensorDebugAddrSW">
+			<pVariable Name="SENSORDEBUGADDR">SensorDebug16BitsRegisterAddr</pVariable>
+      <Formula><![CDATA[ ((((SENSORDEBUGADDR & 0x0F00) >> 8) >= 10) ? ((((SENSORDEBUGADDR & 0x0F00) >> 8) + 0x37) << 16) : ((((SENSORDEBUGADDR & 0x0F00) >> 8) + 0x30) << 16)) | ((((SENSORDEBUGADDR & 0x00F0) >> 4) >= 10) ? ((((SENSORDEBUGADDR & 0x00F0) >> 4) + 0x37) << 8) : ((((SENSORDEBUGADDR & 0x00F0) >> 4) + 0x30) << 8)) | (((SENSORDEBUGADDR & 0x000F) >= 10) ? ((SENSORDEBUGADDR & 0x000F) + 0x37) : ((SENSORDEBUGADDR & 0x000F) + 0x30)) ]]></Formula>
+    </IntSwissKnife>
+    
+    <IntReg Name="SensorDebug16BitsRegisterValue">
+			<ToolTip>Sensor Debug 16 bits coefficient value in hexa</ToolTip>
+			<Description>Sensor Debug 16 bits coefficient value in hexa</Description>
+			<DisplayName>Sensor Debug 16 bits Value in hexa</DisplayName>
+			<pAddress>SensorSelector</pAddress>
+			<pAddress>SensorDebugAddrSW</pAddress>
+			<Length>4</Length>
+			<AccessMode>RW</AccessMode>
+			<pPort>Device</pPort>
+			<Cachable>NoCache</Cachable>
+			<pInvalidator>SensorDebug16BitsRegisterAddr</pInvalidator>
+			<Sign>Unsigned</Sign>
+			<Endianess>LittleEndian</Endianess>
+			<Representation>HexNumber</Representation>
+		</IntReg>
+	</Group>
+	
+	<Group Comment="GraphicControl">
+		<!-- GraphicControl features	===================================== -->
+		<Category Name="GraphicControl" NameSpace="Custom">
+			<Description>GraphicControl</Description>
+			<Visibility>Invisible</Visibility>
+			<pFeature>GraphicSaveRestore</pFeature>
+		</Category>
+		<Category Name="GraphicSaveRestore" NameSpace="Custom">
+			<pFeature>SaveRestore_FPN</pFeature>
+			<pFeature>SaveRestore_FFC</pFeature>
+			<pFeature>SaveRestore_LUT</pFeature>
+			<pFeature>SaveRestore_Pixel</pFeature>
+			<pFeature>SaveRestore_Image</pFeature>						    			
+		</Category>
+		<Enumeration Name="SaveRestore_FPN" NameSpace="Custom">
+			<DisplayName>Manual_FPN</DisplayName>
+			<!-- Must be the name of the category for which the control will be displayed -->
+			<Visibility>Invisible</Visibility>
+			<!-- Entry Name is managed as folowed : -->
+			<!--EnumeEntry Name must begin with  -->
+			<!-- FPN_VALUEALL_xxxx -->
+			<!-- FPN_VALUESIZE_xxxx -->
+			<EnumEntry Name="FPN_VALUEALL_0">
+				<DisplayName>FPNValueAll</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="FPN_VALUESIZE_0">
+				<DisplayName>FPNValueSize</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>0</Value>
+		</Enumeration>
+		<Enumeration Name="SaveRestore_FFC" NameSpace="Custom">
+			<DisplayName>Manual_FFC</DisplayName>
+			<!-- Must be the name of the category for which the control will be displayed -->
+			<Visibility>Invisible</Visibility>
+			<!-- Entry Name is managed as folowed : -->
+			<!--EnumeEntry Name must begin with  -->
+			<!-- FFC_VALUEALL_xxxx -->
+			<!-- FFC_VALUESIZE_xxxx -->
+			<EnumEntry Name="FFC_VALUEALL_0">
+				<DisplayName>FFCValueAll</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="FFC_VALUESIZE_0">
+				<DisplayName>FFCValueSize</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>0</Value>
+		</Enumeration>
+		
+		<Enumeration Name="SaveRestore_LUT" NameSpace="Custom">
+			<DisplayName>LUTControl</DisplayName>
+			<!-- Must be the name of the category for which the control will be displayed -->
+			<Visibility>Invisible</Visibility>
+			<!-- Entry Name is managed as folowed : -->
+			<!--EnumeEntry Name must begin with  -->
+			<!-- LUT_VALUEALL_xxxx -->
+			<!-- LUT_VALUESIZE_xxxx -->
+			<EnumEntry Name="LUT_VALUEALL_0">
+				<DisplayName>LUTValueAll</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="LUT_VALUESIZE_0">
+				<DisplayName>LUTValueSize</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>0</Value>
+		</Enumeration>
+		
+		<Enumeration Name="SaveRestore_Pixel" NameSpace="Custom">
+			<DisplayName>LineProfilAverage</DisplayName>
+			<!-- Must be the name of the category for which the control will be displayed -->
+			<Visibility>Invisible</Visibility>
+			<!-- Entry Name is managed as folowed : -->
+			<!--EnumeEntry Name must begin with  -->
+			<!-- PIXEL_VALUEALL_xxxx -->
+			<!-- PIXEL_VALUESIZE_xxxx -->
+			<EnumEntry Name="PIXEL_VALUEALL_0">
+				<DisplayName>PixelValueAll</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="PIXEL_VALUESIZE_0">
+				<DisplayName>PixelValueSize</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>0</Value>
+		</Enumeration>
+
+	<Enumeration Name="SaveRestore_Image" NameSpace="Custom">
+			<DisplayName>ImageControl</DisplayName>
+			<!-- Must be the name of the category for which the control will be displayed -->
+			<Visibility>Invisible</Visibility>
+			<!-- Entry Name is managed as folowed : -->
+			<!--EnumeEntry Name must begin with  -->
+			<EnumEntry Name="IMAGE_VALUEALL_0">
+				<DisplayName>ImageValueAll</DisplayName>
+				<Value>0</Value>
+			</EnumEntry>
+			<EnumEntry Name="IMAGE_VALUESIZE_0">
+				<DisplayName>ImageValueSize</DisplayName>
+				<Value>1</Value>
+			</EnumEntry>
+			<Value>0</Value>
+		</Enumeration>
+
+	</Group>
+	
+</RegisterDescription>

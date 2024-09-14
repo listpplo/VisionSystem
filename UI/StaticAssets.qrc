@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>Assets/Icons/icons8-next-step-100.png</file>
+    <file>Assets/Icons/icons8-crop-100.png</file>
+    <file>Assets/Icons/icons8-save-64.png</file>
+    <file>Assets/Icons/icons8-live-video-on-100.png</file>
+    <file>Assets/Icons/icons8-forward-arrow-100.png</file>
+    <file>Assets/Icons/icons8-modify-128.png</file>
+    <file>Assets/Icons/icons8-add-96.png</file>
+    <file>Assets/Icons/icons8-start-64.png</file>
+    <file>Assets/Icons/icons8-start-96.png</file>
+    <file>Assets/Icons/icons8-abc-block-100.png</file>
+    <file>Assets/Icons/icons8-image-100.png</file>
+    <file>Assets/Icons/icons8-light-switch-64 (1).png</file>
+  </qresource>
+</RCC>

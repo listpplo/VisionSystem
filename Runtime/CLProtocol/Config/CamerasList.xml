@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Manufacturer Name="DahuaTechnology" >
+
+	<Family Name="L5083" >
+		<ModelNamesSupported>
+			<ModelName Name="L5083MK40-2">
+				<!-- Optional -->
+				<CameraIcon>L5083MKpng</CameraIcon>	<!-- Optional -->
+				<CameraSmallIcon>IconL5083MK.png</CameraSmallIcon>	<!-- Optional -->
+			</ModelName>
+			<ModelName Name="L5083MK100-2">
+				<!-- Optional -->
+				<CameraIcon>L5083MKpng</CameraIcon>	<!-- Optional -->
+				<CameraSmallIcon>IconL5083MK.png</CameraSmallIcon>	<!-- Optional -->
+			</ModelName>
+			<ModelName Name="L5083MK40-4">
+				<!-- Optional -->
+				<CameraIcon>L5083MK.png</CameraIcon>	<!-- Optional -->
+				<CameraSmallIcon>IconL5083MK.png</CameraSmallIcon>	<!-- Optional -->
+			</ModelName>
+			<ModelName Name="L5083MK100-4">
+				<!-- Optional -->
+				<CameraIcon>L5083MK.png</CameraIcon>	<!-- Optional -->
+				<CameraSmallIcon>IconL5083MK.png</CameraSmallIcon>	<!-- Optional -->
+			</ModelName>
+		</ModelNamesSupported> 
+		<Protocol>ASCII_PROT_2</Protocol>
+		<XmlSchemaVersion>V1.1</XmlSchemaVersion>
+		<BaudRateSupported>
+			<BaudRate CameraValue="1">9600</BaudRate>
+			<BaudRate CameraValue="2">19200</BaudRate>
+			<BaudRate CameraValue="6">57600</BaudRate>
+			<BaudRate CameraValue="12">115200</BaudRate>
+		</BaudRateSupported>
+		<MemoryAddress>	
+			<Memory Name="FfcOffset">
+				<VirtualAddress>0x100040000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<WriteAsciiCmd>w ffco</WriteAsciiCmd>
+				<ReadAsciiCmd>r ffco</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory>
+			<Memory Name="FfcGain">
+				<VirtualAddress>0x100050000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<WriteAsciiCmd>w ffcg</WriteAsciiCmd>
+				<ReadAsciiCmd>r ffcg</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory> 
+			<Memory Name="Lut">
+				<VirtualAddress>0x100060000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<WriteAsciiCmd>w lutc</WriteAsciiCmd>
+				<ReadAsciiCmd>r lutc</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory> 
+			<Memory Name="PixelValue">
+				<VirtualAddress>0x100070000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<ReadAsciiCmd>r pixv</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory>
+		</MemoryAddress> 	
+		<DefaultCameraFamilyIcon>L5083MK100.png</DefaultCameraFamilyIcon> <!-- Optional -->
+		<DefaultCameraFamilySmallIcon>IconL5083MK100.png</DefaultCameraFamilySmallIcon> <!-- Optional -->
+	</Family>
+
+	<Family Name="L5163" >
+		<ModelNamesSupported>
+			<ModelName Name="L5163MK40-4">
+				<!-- Optional -->
+				<CameraIcon>L5163MK.png</CameraIcon>	<!-- Optional -->
+				<CameraSmallIcon>IconL5163MK.png</CameraSmallIcon>	<!-- Optional -->
+			</ModelName>
+			<ModelName Name="L5163MK50-4">
+				<!-- Optional -->
+				<CameraIcon>L5163MK.png</CameraIcon>	<!-- Optional -->
+				<CameraSmallIcon>IconL5163MK.png</CameraSmallIcon>	<!-- Optional -->
+			</ModelName>		
+		</ModelNamesSupported> 
+		<Protocol>ASCII_PROT_2</Protocol>
+		<XmlSchemaVersion>V1.1</XmlSchemaVersion>
+		<BaudRateSupported>
+			<BaudRate CameraValue="1">9600</BaudRate>
+			<BaudRate CameraValue="2">19200</BaudRate>
+			<BaudRate CameraValue="6">57600</BaudRate>
+			<BaudRate CameraValue="12">115200</BaudRate>
+		</BaudRateSupported>
+		<MemoryAddress>	
+			<Memory Name="FfcOffset">
+				<VirtualAddress>0x100040000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<WriteAsciiCmd>w ffco</WriteAsciiCmd>
+				<ReadAsciiCmd>r ffco</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory>
+			<Memory Name="FfcGain">
+				<VirtualAddress>0x100050000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<WriteAsciiCmd>w ffcg</WriteAsciiCmd>
+				<ReadAsciiCmd>r ffcg</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory> 
+			<Memory Name="Lut">
+				<VirtualAddress>0x100060000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<WriteAsciiCmd>w lutc</WriteAsciiCmd>
+				<ReadAsciiCmd>r lutc</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory> 
+			<Memory Name="PixelValue">
+				<VirtualAddress>0x100070000</VirtualAddress>
+				<DataSize>2</DataSize>
+				<ReadAsciiCmd>r pixv</ReadAsciiCmd>
+				<Manage128Coeffs>Yes</Manage128Coeffs>
+			</Memory>
+		</MemoryAddress> 	
+		<DefaultCameraFamilyIcon>L5163MK40.png</DefaultCameraFamilyIcon> <!-- Optional -->
+		<DefaultCameraFamilySmallIcon>IconL5163MK40.png</DefaultCameraFamilySmallIcon> <!-- Optional -->
+	</Family>
+	
+	<!-- Optional -->
+	<DefaultCameraIcon>UnknownCamera.png</DefaultCameraIcon>  <!-- Optional -->
+	<DefaultCameraSmallIcon>IconUnknownCamera.png</DefaultCameraSmallIcon> <!-- Optional -->
+</Manufacturer>
+

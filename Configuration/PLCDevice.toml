@@ -1,0 +1,7 @@
+[PLC]
+ip = "192.168.250.1"
+port = 502
+"Comm.Protocol" = "Modbus"
+"Mapping Address" = "4000"
+"Trigger Address" = "4001"
+"Feedback Adress" = "4003"

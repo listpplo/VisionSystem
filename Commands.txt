@@ -1,0 +1,3 @@
+
+# Comamnd to open connection manager
+control /name Microsoft.NetworkAndSharingCenter /page ManageNetworkConnections
