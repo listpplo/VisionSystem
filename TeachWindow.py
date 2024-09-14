@@ -79,6 +79,17 @@ class TeachWindow(QWidget, Ui_Form):
             print(e)
             self.popup.makePopUp("Error !!", mesg=f"{e}")
 
+    def saveParameters(self):
+        data = {
+            "crop" : {
+                "x": self.spinBox.value(),
+                "y": self.spinBox_2.value(),
+                "w": self.spinBox_3.value(),
+                "h": self.spinBox_4.value()
+            }
+            
+        }
+
 if __name__ == "__main__":
     app = QApplication()
     window = TeachWindow()

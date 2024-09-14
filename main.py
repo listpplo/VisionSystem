@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QMainWindow, QApplication, QWidget, QTableWidgetIt
 from PySide6.QtGui import QPixmap, QImage, QShowEvent, QCloseEvent
 from UI_Main.mainWindow import Ui_VisionApp
 from UI_Main.SettingsWindow import Ui_SettingWindow
-from UI_Main.mesgPopUp import Ui_MesgWindow
+from TeachWindow import TeachWindow
 from UI_Main.createOrModifyRecipe import Ui_CreateorModifyRecipe
 from Development.Samples.Python.IMV.MVSDK.IMVApi import *
 from Development.Samples.Python.IMV.MVSDK.IMVDefines import *
@@ -32,6 +32,7 @@ class RecipeOptions(QWidget, Ui_CreateorModifyRecipe):
 
         # Adding Actions 
         self.pushButton.clicked.connect(self.addRecipe)
+        self.CompTeachWindow = TeachWindow()
 
     def showEvent(self, event: QShowEvent) -> None:
         self.comboBox_2.clear()
@@ -56,6 +57,7 @@ class RecipeOptions(QWidget, Ui_CreateorModifyRecipe):
         
         self.popup.makePopUp("Sucess !!", mesg="Recipe Created")
         self.comboBox_2.addItem(recipeName)
+        if mode == "Comp"
 
 # This Class implemets the global setting for the applicaton
 class AppSettingWindow(QWidget, Ui_SettingWindow):
@@ -183,6 +185,7 @@ class VisionApp(QMainWindow, Ui_VisionApp):
         # Defining the ui pages
         self.settingsPage = AppSettingWindow()
         self.recipeOptions = RecipeOptions()
+        self.CompareTeach = TeachWindow()
         
         # Connecting Actions 
         self.actionOpen_Device_Settings.triggered.connect(lambda : self.settingsPage.show())
