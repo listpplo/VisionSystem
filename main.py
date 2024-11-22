@@ -57,7 +57,8 @@ class RecipeOptions(QWidget, Ui_CreateorModifyRecipe):
         
         self.popup.makePopUp("Sucess !!", mesg="Recipe Created")
         self.comboBox_2.addItem(recipeName)
-        if mode == "Comp"
+        if mode == "Comp":
+            pass
 
 # This Class implemets the global setting for the applicaton
 class AppSettingWindow(QWidget, Ui_SettingWindow):

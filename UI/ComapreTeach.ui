@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Teaching Window</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
@@ -44,12 +44,12 @@
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tabWidgetPage1" native="true">
+     <widget class="QWidget" name="tabWidgetPage1">
       <attribute name="title">
        <string>Image Optimization</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <item alignment="Qt::AlignmentFlag::AlignTop">
+       <item alignment="Qt::AlignmentFlag::Qt::AlignmentFlag::AlignTop">
         <widget class="QFrame" name="frame_2">
          <property name="styleSheet">
           <string notr="true">QFrame{
@@ -93,7 +93,7 @@ Optimization</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_2">
             <property name="text">
              <string/>
@@ -127,7 +127,7 @@ Registration</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_6">
             <property name="text">
              <string/>
@@ -160,7 +160,7 @@ Teach Target</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_7">
             <property name="text">
              <string/>
@@ -296,12 +296,18 @@ Teach Target</string>
             </layout>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignRight">
+          <item alignment="">
            <widget class="QGroupBox" name="groupBox">
             <property name="minimumSize">
              <size>
               <width>300</width>
               <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="font">
@@ -333,6 +339,9 @@ QLineEdit{
              <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_6">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <property name="topMargin">
               <number>25</number>
              </property>
@@ -345,7 +354,7 @@ QLineEdit{
                 <property name="geometry">
                  <rect>
                   <x>0</x>
-                  <y>-70</y>
+                  <y>0</y>
                   <width>266</width>
                   <height>461</height>
                  </rect>
@@ -466,8 +475,50 @@ Image</string>
                     <property name="topMargin">
                      <number>20</number>
                     </property>
-                    <item row="7" column="2">
-                     <widget class="QSlider" name="horizontalSlider_3">
+                    <item row="3" column="2">
+                     <widget class="Line" name="line_3">
+                      <property name="styleSheet">
+                       <string notr="true">border:1.5px dashed white;</string>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Orientation::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="10" column="0">
+                     <widget class="QCheckBox" name="checkBox_2">
+                      <property name="styleSheet">
+                       <string notr="true">background:none;</string>
+                      </property>
+                      <property name="text">
+                       <string>Activate Smooth</string>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QSpinBox" name="spinBox">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>50</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <number>99999999</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="2">
+                     <widget class="QSlider" name="horizontalSlider">
                       <property name="styleSheet">
                        <string notr="true">background:none;</string>
                       </property>
@@ -479,123 +530,6 @@ Image</string>
                       </property>
                       <property name="orientation">
                        <enum>Qt::Orientation::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="4" column="0">
-                     <widget class="QLabel" name="label_46">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Image Type :</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="9" column="2">
-                     <widget class="QSlider" name="horizontalSlider_2">
-                      <property name="styleSheet">
-                       <string notr="true">background:none;</string>
-                      </property>
-                      <property name="maximum">
-                       <number>20</number>
-                      </property>
-                      <property name="value">
-                       <number>5</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Orientation::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="3" column="2">
-                     <widget class="Line" name="line_3">
-                      <property name="styleSheet">
-                       <string notr="true">border:1.5px dashed white;</string>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Orientation::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="7" column="0">
-                     <widget class="QLabel" name="label_52">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Normalisation Value
-(White):</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="0">
-                     <widget class="QSpinBox" name="spinBox_3">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="maximum">
-                       <number>9999999</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="6" column="2">
-                     <widget class="QLabel" name="label_48">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>---</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="5" column="0">
-                     <widget class="QLabel" name="label_47">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Normalisation Value
-(Black):</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="2">
-                     <widget class="QSpinBox" name="spinBox_2">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                      <property name="maximum">
-                       <number>99999999</number>
                       </property>
                      </widget>
                     </item>
@@ -632,22 +566,6 @@ Image</string>
                       </item>
                      </widget>
                     </item>
-                    <item row="5" column="2">
-                     <widget class="QSlider" name="horizontalSlider">
-                      <property name="styleSheet">
-                       <string notr="true">background:none;</string>
-                      </property>
-                      <property name="maximum">
-                       <number>255</number>
-                      </property>
-                      <property name="value">
-                       <number>125</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Orientation::Horizontal</enum>
-                      </property>
-                     </widget>
-                    </item>
                     <item row="9" column="0">
                      <widget class="QLabel" name="label_49">
                       <property name="font">
@@ -660,15 +578,8 @@ Image</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-                     <widget class="QLabel" name="label_45">
-                      <property name="text">
-                       <string>X&lt;-&gt;Y</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QSpinBox" name="spinBox">
+                    <item row="2" column="0">
+                     <widget class="QSpinBox" name="spinBox_3">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -677,17 +588,96 @@ Image</string>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>50</width>
+                        <width>0</width>
                         <height>30</height>
                        </size>
                       </property>
                       <property name="maximum">
-                       <number>99999999</number>
+                       <number>9999999</number>
                       </property>
                      </widget>
                     </item>
-                    <item row="2" column="2">
-                     <widget class="QSpinBox" name="spinBox_4">
+                    <item row="2" column="1">
+                     <widget class="QLabel" name="label_51">
+                      <property name="text">
+                       <string>W&lt;-&gt;H</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="8" column="2">
+                     <widget class="QLabel" name="label_53">
+                      <property name="font">
+                       <font>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>---</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="7" column="0">
+                     <widget class="QLabel" name="label_52">
+                      <property name="font">
+                       <font>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Normalisation Value
+(White):</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="9" column="2">
+                     <widget class="QSlider" name="horizontalSlider_2">
+                      <property name="styleSheet">
+                       <string notr="true">background:none;</string>
+                      </property>
+                      <property name="maximum">
+                       <number>20</number>
+                      </property>
+                      <property name="value">
+                       <number>5</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Orientation::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="0">
+                     <widget class="QLabel" name="label_47">
+                      <property name="font">
+                       <font>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Normalisation Value
+(Black):</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="10" column="2">
+                     <widget class="QLabel" name="label_50">
+                      <property name="font">
+                       <font>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>---</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="2">
+                     <widget class="QSpinBox" name="spinBox_2">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -702,13 +692,6 @@ Image</string>
                       </property>
                       <property name="maximum">
                        <number>99999999</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <widget class="QLabel" name="label_51">
-                      <property name="text">
-                       <string>W&lt;-&gt;H</string>
                       </property>
                      </widget>
                     </item>
@@ -743,6 +726,51 @@ QPushButton::checked{
                       </property>
                      </widget>
                     </item>
+                    <item row="3" column="0">
+                     <widget class="Line" name="line_2">
+                      <property name="styleSheet">
+                       <string notr="true">border:1.5px dashed white;</string>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Orientation::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1" alignment="">
+                     <widget class="QLabel" name="label_45">
+                      <property name="text">
+                       <string>X&lt;-&gt;Y</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="7" column="2">
+                     <widget class="QSlider" name="horizontalSlider_3">
+                      <property name="styleSheet">
+                       <string notr="true">background:none;</string>
+                      </property>
+                      <property name="maximum">
+                       <number>255</number>
+                      </property>
+                      <property name="value">
+                       <number>125</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Orientation::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="0">
+                     <widget class="QLabel" name="label_46">
+                      <property name="font">
+                       <font>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Image Type :</string>
+                      </property>
+                     </widget>
+                    </item>
                     <item row="0" column="2">
                      <widget class="QCheckBox" name="checkBox">
                       <property name="styleSheet">
@@ -756,8 +784,8 @@ QPushButton::checked{
                       </property>
                      </widget>
                     </item>
-                    <item row="10" column="2">
-                     <widget class="QLabel" name="label_50">
+                    <item row="6" column="2">
+                     <widget class="QLabel" name="label_48">
                       <property name="font">
                        <font>
                         <bold>true</bold>
@@ -771,41 +799,22 @@ QPushButton::checked{
                       </property>
                      </widget>
                     </item>
-                    <item row="3" column="0">
-                     <widget class="Line" name="line_2">
-                      <property name="styleSheet">
-                       <string notr="true">border:1.5px dashed white;</string>
+                    <item row="2" column="2">
+                     <widget class="QSpinBox" name="spinBox_4">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
                       </property>
-                      <property name="orientation">
-                       <enum>Qt::Orientation::Horizontal</enum>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>30</height>
+                       </size>
                       </property>
-                     </widget>
-                    </item>
-                    <item row="8" column="2">
-                     <widget class="QLabel" name="label_53">
-                      <property name="font">
-                       <font>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>---</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignmentFlag::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="10" column="0">
-                     <widget class="QCheckBox" name="checkBox_2">
-                      <property name="styleSheet">
-                       <string notr="true">background:none;</string>
-                      </property>
-                      <property name="text">
-                       <string>Activate Smooth</string>
-                      </property>
-                      <property name="checked">
-                       <bool>false</bool>
+                      <property name="maximum">
+                       <number>99999999</number>
                       </property>
                      </widget>
                     </item>
@@ -900,6 +909,49 @@ Settings</string>
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_6">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+	color: rgb(25, 25, 25);
+	background-color: rgb(221, 221, 221);
+}
+
+QPushButton::hover{
+	background-color: rgb(130, 130, 130);
+}
+
+QPushButton::checked{
+	background-color: rgb(124, 255, 64);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Next</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="StaticAssets.qrc">
+                    <normaloff>:/Icons/Assets/Icons/icons8-next-step-100.png</normaloff>:/Icons/Assets/Icons/icons8-next-step-100.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
              </item>
@@ -960,7 +1012,7 @@ Optimization</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_23">
             <property name="text">
              <string/>
@@ -996,7 +1048,7 @@ Registration</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_25">
             <property name="text">
              <string/>
@@ -1029,7 +1081,7 @@ Teach Target</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_27">
             <property name="text">
              <string/>
@@ -1141,7 +1193,7 @@ Optimization</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_30">
             <property name="text">
              <string/>
@@ -1177,7 +1229,7 @@ Registration</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_32">
             <property name="text">
              <string/>
@@ -1212,7 +1264,7 @@ Teach Target</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_34">
             <property name="text">
              <string/>
@@ -1324,7 +1376,7 @@ Optimization</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_37">
             <property name="text">
              <string/>
@@ -1360,7 +1412,7 @@ Registration</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_39">
             <property name="text">
              <string/>
@@ -1395,7 +1447,7 @@ Teach Target</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+          <item alignment="">
            <widget class="QLabel" name="label_41">
             <property name="text">
              <string/>

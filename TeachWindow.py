@@ -29,6 +29,9 @@ class TeachWindow(QWidget, Ui_Form):
         self.pushButton.clicked.connect(self.getImageViaTrigger)
         self.pushButton_3.clicked.connect(self.cropImage)
 
+        # Setting up title bar
+    
+
     def getImageViaTrigger(self):
         # Checking for Cropping
         try:

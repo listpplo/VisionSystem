@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'ComapreTeach.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -76,7 +76,7 @@ class Ui_Form(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_2.addWidget(self.label_2, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_2.addWidget(self.label_2)
 
         self.label_3 = QLabel(self.frame_2)
         self.label_3.setObjectName(u"label_3")
@@ -93,7 +93,7 @@ class Ui_Form(object):
         self.label_6.setObjectName(u"label_6")
         self.label_6.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_2.addWidget(self.label_6, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_2.addWidget(self.label_6)
 
         self.label_4 = QLabel(self.frame_2)
         self.label_4.setObjectName(u"label_4")
@@ -110,7 +110,7 @@ class Ui_Form(object):
         self.label_7.setObjectName(u"label_7")
         self.label_7.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_2.addWidget(self.label_7, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_2.addWidget(self.label_7)
 
         self.label_5 = QLabel(self.frame_2)
         self.label_5.setObjectName(u"label_5")
@@ -182,6 +182,7 @@ class Ui_Form(object):
         self.groupBox = QGroupBox(self.frame_3)
         self.groupBox.setObjectName(u"groupBox")
         self.groupBox.setMinimumSize(QSize(300, 0))
+        self.groupBox.setMaximumSize(QSize(300, 16777215))
         font1 = QFont()
         font1.setBold(True)
         self.groupBox.setFont(font1)
@@ -202,6 +203,7 @@ class Ui_Form(object):
 "}")
         self.groupBox.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.verticalLayout_6 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(-1, 25, -1, -1)
         self.scrollArea = QScrollArea(self.groupBox)
@@ -209,7 +211,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -70, 266, 461))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 266, 461))
         self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_5.setSpacing(6)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -273,30 +275,6 @@ class Ui_Form(object):
         self.gridLayout = QGridLayout(self.groupBox_3)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(-1, 20, -1, -1)
-        self.horizontalSlider_3 = QSlider(self.groupBox_3)
-        self.horizontalSlider_3.setObjectName(u"horizontalSlider_3")
-        self.horizontalSlider_3.setStyleSheet(u"background:none;")
-        self.horizontalSlider_3.setMaximum(255)
-        self.horizontalSlider_3.setValue(125)
-        self.horizontalSlider_3.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.horizontalSlider_3, 7, 2, 1, 1)
-
-        self.label_46 = QLabel(self.groupBox_3)
-        self.label_46.setObjectName(u"label_46")
-        self.label_46.setFont(font1)
-
-        self.gridLayout.addWidget(self.label_46, 4, 0, 1, 1)
-
-        self.horizontalSlider_2 = QSlider(self.groupBox_3)
-        self.horizontalSlider_2.setObjectName(u"horizontalSlider_2")
-        self.horizontalSlider_2.setStyleSheet(u"background:none;")
-        self.horizontalSlider_2.setMaximum(20)
-        self.horizontalSlider_2.setValue(5)
-        self.horizontalSlider_2.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.horizontalSlider_2, 9, 2, 1, 1)
-
         self.line_3 = QFrame(self.groupBox_3)
         self.line_3.setObjectName(u"line_3")
         self.line_3.setStyleSheet(u"border:1.5px dashed white;")
@@ -305,45 +283,33 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.line_3, 3, 2, 1, 1)
 
-        self.label_52 = QLabel(self.groupBox_3)
-        self.label_52.setObjectName(u"label_52")
-        self.label_52.setFont(font1)
+        self.checkBox_2 = QCheckBox(self.groupBox_3)
+        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.checkBox_2.setStyleSheet(u"background:none;")
+        self.checkBox_2.setChecked(False)
 
-        self.gridLayout.addWidget(self.label_52, 7, 0, 1, 1)
+        self.gridLayout.addWidget(self.checkBox_2, 10, 0, 1, 1)
 
-        self.spinBox_3 = QSpinBox(self.groupBox_3)
-        self.spinBox_3.setObjectName(u"spinBox_3")
+        self.spinBox = QSpinBox(self.groupBox_3)
+        self.spinBox.setObjectName(u"spinBox")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.spinBox_3.sizePolicy().hasHeightForWidth())
-        self.spinBox_3.setSizePolicy(sizePolicy1)
-        self.spinBox_3.setMinimumSize(QSize(0, 30))
-        self.spinBox_3.setMaximum(9999999)
+        sizePolicy1.setHeightForWidth(self.spinBox.sizePolicy().hasHeightForWidth())
+        self.spinBox.setSizePolicy(sizePolicy1)
+        self.spinBox.setMinimumSize(QSize(50, 30))
+        self.spinBox.setMaximum(99999999)
 
-        self.gridLayout.addWidget(self.spinBox_3, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.spinBox, 1, 0, 1, 1)
 
-        self.label_48 = QLabel(self.groupBox_3)
-        self.label_48.setObjectName(u"label_48")
-        self.label_48.setFont(font1)
-        self.label_48.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.horizontalSlider = QSlider(self.groupBox_3)
+        self.horizontalSlider.setObjectName(u"horizontalSlider")
+        self.horizontalSlider.setStyleSheet(u"background:none;")
+        self.horizontalSlider.setMaximum(255)
+        self.horizontalSlider.setValue(125)
+        self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
 
-        self.gridLayout.addWidget(self.label_48, 6, 2, 1, 1)
-
-        self.label_47 = QLabel(self.groupBox_3)
-        self.label_47.setObjectName(u"label_47")
-        self.label_47.setFont(font1)
-
-        self.gridLayout.addWidget(self.label_47, 5, 0, 1, 1)
-
-        self.spinBox_2 = QSpinBox(self.groupBox_3)
-        self.spinBox_2.setObjectName(u"spinBox_2")
-        sizePolicy1.setHeightForWidth(self.spinBox_2.sizePolicy().hasHeightForWidth())
-        self.spinBox_2.setSizePolicy(sizePolicy1)
-        self.spinBox_2.setMinimumSize(QSize(0, 30))
-        self.spinBox_2.setMaximum(99999999)
-
-        self.gridLayout.addWidget(self.spinBox_2, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.horizontalSlider, 5, 2, 1, 1)
 
         self.comboBox = QComboBox(self.groupBox_3)
         self.comboBox.addItem("")
@@ -356,48 +322,69 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.comboBox, 4, 2, 1, 1)
 
-        self.horizontalSlider = QSlider(self.groupBox_3)
-        self.horizontalSlider.setObjectName(u"horizontalSlider")
-        self.horizontalSlider.setStyleSheet(u"background:none;")
-        self.horizontalSlider.setMaximum(255)
-        self.horizontalSlider.setValue(125)
-        self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.horizontalSlider, 5, 2, 1, 1)
-
         self.label_49 = QLabel(self.groupBox_3)
         self.label_49.setObjectName(u"label_49")
         self.label_49.setFont(font1)
 
         self.gridLayout.addWidget(self.label_49, 9, 0, 1, 1)
 
-        self.label_45 = QLabel(self.groupBox_3)
-        self.label_45.setObjectName(u"label_45")
+        self.spinBox_3 = QSpinBox(self.groupBox_3)
+        self.spinBox_3.setObjectName(u"spinBox_3")
+        sizePolicy1.setHeightForWidth(self.spinBox_3.sizePolicy().hasHeightForWidth())
+        self.spinBox_3.setSizePolicy(sizePolicy1)
+        self.spinBox_3.setMinimumSize(QSize(0, 30))
+        self.spinBox_3.setMaximum(9999999)
 
-        self.gridLayout.addWidget(self.label_45, 1, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
-
-        self.spinBox = QSpinBox(self.groupBox_3)
-        self.spinBox.setObjectName(u"spinBox")
-        sizePolicy1.setHeightForWidth(self.spinBox.sizePolicy().hasHeightForWidth())
-        self.spinBox.setSizePolicy(sizePolicy1)
-        self.spinBox.setMinimumSize(QSize(50, 30))
-        self.spinBox.setMaximum(99999999)
-
-        self.gridLayout.addWidget(self.spinBox, 1, 0, 1, 1)
-
-        self.spinBox_4 = QSpinBox(self.groupBox_3)
-        self.spinBox_4.setObjectName(u"spinBox_4")
-        sizePolicy1.setHeightForWidth(self.spinBox_4.sizePolicy().hasHeightForWidth())
-        self.spinBox_4.setSizePolicy(sizePolicy1)
-        self.spinBox_4.setMinimumSize(QSize(0, 30))
-        self.spinBox_4.setMaximum(99999999)
-
-        self.gridLayout.addWidget(self.spinBox_4, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.spinBox_3, 2, 0, 1, 1)
 
         self.label_51 = QLabel(self.groupBox_3)
         self.label_51.setObjectName(u"label_51")
 
         self.gridLayout.addWidget(self.label_51, 2, 1, 1, 1)
+
+        self.label_53 = QLabel(self.groupBox_3)
+        self.label_53.setObjectName(u"label_53")
+        self.label_53.setFont(font1)
+        self.label_53.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_53, 8, 2, 1, 1)
+
+        self.label_52 = QLabel(self.groupBox_3)
+        self.label_52.setObjectName(u"label_52")
+        self.label_52.setFont(font1)
+
+        self.gridLayout.addWidget(self.label_52, 7, 0, 1, 1)
+
+        self.horizontalSlider_2 = QSlider(self.groupBox_3)
+        self.horizontalSlider_2.setObjectName(u"horizontalSlider_2")
+        self.horizontalSlider_2.setStyleSheet(u"background:none;")
+        self.horizontalSlider_2.setMaximum(20)
+        self.horizontalSlider_2.setValue(5)
+        self.horizontalSlider_2.setOrientation(Qt.Orientation.Horizontal)
+
+        self.gridLayout.addWidget(self.horizontalSlider_2, 9, 2, 1, 1)
+
+        self.label_47 = QLabel(self.groupBox_3)
+        self.label_47.setObjectName(u"label_47")
+        self.label_47.setFont(font1)
+
+        self.gridLayout.addWidget(self.label_47, 5, 0, 1, 1)
+
+        self.label_50 = QLabel(self.groupBox_3)
+        self.label_50.setObjectName(u"label_50")
+        self.label_50.setFont(font1)
+        self.label_50.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_50, 10, 2, 1, 1)
+
+        self.spinBox_2 = QSpinBox(self.groupBox_3)
+        self.spinBox_2.setObjectName(u"spinBox_2")
+        sizePolicy1.setHeightForWidth(self.spinBox_2.sizePolicy().hasHeightForWidth())
+        self.spinBox_2.setSizePolicy(sizePolicy1)
+        self.spinBox_2.setMinimumSize(QSize(0, 30))
+        self.spinBox_2.setMaximum(99999999)
+
+        self.gridLayout.addWidget(self.spinBox_2, 1, 2, 1, 1)
 
         self.pushButton_3 = QPushButton(self.groupBox_3)
         self.pushButton_3.setObjectName(u"pushButton_3")
@@ -420,20 +407,6 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.pushButton_3, 0, 0, 1, 1)
 
-        self.checkBox = QCheckBox(self.groupBox_3)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setStyleSheet(u"background:none;")
-        self.checkBox.setChecked(True)
-
-        self.gridLayout.addWidget(self.checkBox, 0, 2, 1, 1)
-
-        self.label_50 = QLabel(self.groupBox_3)
-        self.label_50.setObjectName(u"label_50")
-        self.label_50.setFont(font1)
-        self.label_50.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout.addWidget(self.label_50, 10, 2, 1, 1)
-
         self.line_2 = QFrame(self.groupBox_3)
         self.line_2.setObjectName(u"line_2")
         self.line_2.setStyleSheet(u"border:1.5px dashed white;")
@@ -442,19 +415,48 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.line_2, 3, 0, 1, 1)
 
-        self.label_53 = QLabel(self.groupBox_3)
-        self.label_53.setObjectName(u"label_53")
-        self.label_53.setFont(font1)
-        self.label_53.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_45 = QLabel(self.groupBox_3)
+        self.label_45.setObjectName(u"label_45")
 
-        self.gridLayout.addWidget(self.label_53, 8, 2, 1, 1)
+        self.gridLayout.addWidget(self.label_45, 1, 1, 1, 1)
 
-        self.checkBox_2 = QCheckBox(self.groupBox_3)
-        self.checkBox_2.setObjectName(u"checkBox_2")
-        self.checkBox_2.setStyleSheet(u"background:none;")
-        self.checkBox_2.setChecked(False)
+        self.horizontalSlider_3 = QSlider(self.groupBox_3)
+        self.horizontalSlider_3.setObjectName(u"horizontalSlider_3")
+        self.horizontalSlider_3.setStyleSheet(u"background:none;")
+        self.horizontalSlider_3.setMaximum(255)
+        self.horizontalSlider_3.setValue(125)
+        self.horizontalSlider_3.setOrientation(Qt.Orientation.Horizontal)
 
-        self.gridLayout.addWidget(self.checkBox_2, 10, 0, 1, 1)
+        self.gridLayout.addWidget(self.horizontalSlider_3, 7, 2, 1, 1)
+
+        self.label_46 = QLabel(self.groupBox_3)
+        self.label_46.setObjectName(u"label_46")
+        self.label_46.setFont(font1)
+
+        self.gridLayout.addWidget(self.label_46, 4, 0, 1, 1)
+
+        self.checkBox = QCheckBox(self.groupBox_3)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setStyleSheet(u"background:none;")
+        self.checkBox.setChecked(True)
+
+        self.gridLayout.addWidget(self.checkBox, 0, 2, 1, 1)
+
+        self.label_48 = QLabel(self.groupBox_3)
+        self.label_48.setObjectName(u"label_48")
+        self.label_48.setFont(font1)
+        self.label_48.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_48, 6, 2, 1, 1)
+
+        self.spinBox_4 = QSpinBox(self.groupBox_3)
+        self.spinBox_4.setObjectName(u"spinBox_4")
+        sizePolicy1.setHeightForWidth(self.spinBox_4.sizePolicy().hasHeightForWidth())
+        self.spinBox_4.setSizePolicy(sizePolicy1)
+        self.spinBox_4.setMinimumSize(QSize(0, 30))
+        self.spinBox_4.setMaximum(99999999)
+
+        self.gridLayout.addWidget(self.spinBox_4, 2, 2, 1, 1)
 
 
         self.verticalLayout_5.addWidget(self.groupBox_3)
@@ -500,11 +502,35 @@ class Ui_Form(object):
 
         self.horizontalLayout_10.addWidget(self.pushButton_4)
 
+        self.pushButton_6 = QPushButton(self.frame_10)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        sizePolicy2.setHeightForWidth(self.pushButton_6.sizePolicy().hasHeightForWidth())
+        self.pushButton_6.setSizePolicy(sizePolicy2)
+        self.pushButton_6.setMinimumSize(QSize(0, 50))
+        self.pushButton_6.setStyleSheet(u"QPushButton{\n"
+"	color: rgb(25, 25, 25);\n"
+"	background-color: rgb(221, 221, 221);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(130, 130, 130);\n"
+"}\n"
+"\n"
+"QPushButton::checked{\n"
+"	background-color: rgb(124, 255, 64);\n"
+"}")
+        icon3 = QIcon()
+        icon3.addFile(u":/Icons/Assets/Icons/icons8-next-step-100.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_6.setIcon(icon3)
+        self.pushButton_6.setIconSize(QSize(40, 40))
+
+        self.horizontalLayout_10.addWidget(self.pushButton_6)
+
 
         self.verticalLayout_6.addWidget(self.frame_10)
 
 
-        self.horizontalLayout_8.addWidget(self.groupBox, 0, Qt.AlignmentFlag.AlignRight)
+        self.horizontalLayout_8.addWidget(self.groupBox)
 
 
         self.verticalLayout.addWidget(self.frame_3)
@@ -544,7 +570,7 @@ class Ui_Form(object):
         self.label_23.setObjectName(u"label_23")
         self.label_23.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_5.addWidget(self.label_23, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_5.addWidget(self.label_23)
 
         self.label_24 = QLabel(self.frame_4)
         self.label_24.setObjectName(u"label_24")
@@ -563,7 +589,7 @@ class Ui_Form(object):
         self.label_25.setObjectName(u"label_25")
         self.label_25.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_5.addWidget(self.label_25, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_5.addWidget(self.label_25)
 
         self.label_26 = QLabel(self.frame_4)
         self.label_26.setObjectName(u"label_26")
@@ -580,7 +606,7 @@ class Ui_Form(object):
         self.label_27.setObjectName(u"label_27")
         self.label_27.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_5.addWidget(self.label_27, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_5.addWidget(self.label_27)
 
         self.label_28 = QLabel(self.frame_4)
         self.label_28.setObjectName(u"label_28")
@@ -647,7 +673,7 @@ class Ui_Form(object):
         self.label_30.setObjectName(u"label_30")
         self.label_30.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_6.addWidget(self.label_30, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_6.addWidget(self.label_30)
 
         self.label_31 = QLabel(self.frame_6)
         self.label_31.setObjectName(u"label_31")
@@ -666,7 +692,7 @@ class Ui_Form(object):
         self.label_32.setObjectName(u"label_32")
         self.label_32.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_6.addWidget(self.label_32, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_6.addWidget(self.label_32)
 
         self.label_33 = QLabel(self.frame_6)
         self.label_33.setObjectName(u"label_33")
@@ -685,7 +711,7 @@ class Ui_Form(object):
         self.label_34.setObjectName(u"label_34")
         self.label_34.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_6.addWidget(self.label_34, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_6.addWidget(self.label_34)
 
         self.label_35 = QLabel(self.frame_6)
         self.label_35.setObjectName(u"label_35")
@@ -752,7 +778,7 @@ class Ui_Form(object):
         self.label_37.setObjectName(u"label_37")
         self.label_37.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_7.addWidget(self.label_37, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_7.addWidget(self.label_37)
 
         self.label_38 = QLabel(self.frame_8)
         self.label_38.setObjectName(u"label_38")
@@ -771,7 +797,7 @@ class Ui_Form(object):
         self.label_39.setObjectName(u"label_39")
         self.label_39.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_7.addWidget(self.label_39, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_7.addWidget(self.label_39)
 
         self.label_40 = QLabel(self.frame_8)
         self.label_40.setObjectName(u"label_40")
@@ -790,7 +816,7 @@ class Ui_Form(object):
         self.label_41.setObjectName(u"label_41")
         self.label_41.setPixmap(QPixmap(u":/Icons/Assets/Icons/icons8-forward-arrow-100.png"))
 
-        self.horizontalLayout_7.addWidget(self.label_41, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.horizontalLayout_7.addWidget(self.label_41)
 
         self.label_42 = QLabel(self.frame_8)
         self.label_42.setObjectName(u"label_42")
@@ -841,7 +867,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Teaching Window", None))
         self.label.setText(QCoreApplication.translate("Form", u"STEP 1 :\n"
 "Image\n"
 "Optimization", None))
@@ -862,27 +888,28 @@ class Ui_Form(object):
         self.pushButton_2.setText(QCoreApplication.translate("Form", u"Save Current\n"
 "Image", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("Form", u"Image Options", None))
-        self.label_46.setText(QCoreApplication.translate("Form", u"Image Type :", None))
-        self.label_52.setText(QCoreApplication.translate("Form", u"Normalisation Value\n"
-"(White):", None))
-        self.label_48.setText(QCoreApplication.translate("Form", u"---", None))
-        self.label_47.setText(QCoreApplication.translate("Form", u"Normalisation Value\n"
-"(Black):", None))
+        self.checkBox_2.setText(QCoreApplication.translate("Form", u"Activate Smooth", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("Form", u"Normal", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("Form", u"Gray Scale", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("Form", u"Inverted", None))
         self.comboBox.setItemText(3, QCoreApplication.translate("Form", u"Normalised", None))
 
         self.label_49.setText(QCoreApplication.translate("Form", u"Smoothness Factor :", None))
-        self.label_45.setText(QCoreApplication.translate("Form", u"X<->Y", None))
         self.label_51.setText(QCoreApplication.translate("Form", u"W<->H", None))
-        self.pushButton_3.setText(QCoreApplication.translate("Form", u"Crop", None))
-        self.checkBox.setText(QCoreApplication.translate("Form", u"Full Size", None))
-        self.label_50.setText(QCoreApplication.translate("Form", u"---", None))
         self.label_53.setText(QCoreApplication.translate("Form", u"---", None))
-        self.checkBox_2.setText(QCoreApplication.translate("Form", u"Activate Smooth", None))
+        self.label_52.setText(QCoreApplication.translate("Form", u"Normalisation Value\n"
+"(White):", None))
+        self.label_47.setText(QCoreApplication.translate("Form", u"Normalisation Value\n"
+"(Black):", None))
+        self.label_50.setText(QCoreApplication.translate("Form", u"---", None))
+        self.pushButton_3.setText(QCoreApplication.translate("Form", u"Crop", None))
+        self.label_45.setText(QCoreApplication.translate("Form", u"X<->Y", None))
+        self.label_46.setText(QCoreApplication.translate("Form", u"Image Type :", None))
+        self.checkBox.setText(QCoreApplication.translate("Form", u"Full Size", None))
+        self.label_48.setText(QCoreApplication.translate("Form", u"---", None))
         self.pushButton_4.setText(QCoreApplication.translate("Form", u"Save \n"
 "Settings", None))
+        self.pushButton_6.setText(QCoreApplication.translate("Form", u"Next", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabWidgetPage1), QCoreApplication.translate("Form", u"Image Optimization", None))
         self.label_22.setText(QCoreApplication.translate("Form", u"STEP 1 :\n"
 "Image\n"
